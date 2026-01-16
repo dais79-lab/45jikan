@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>日本語語彙練習 - 食べ物・買い物・形容詞編</title>
+<style>
+  :root {
+    --accent: #1E90FF;
+    --text: #111;
+    --muted: #555;
+    --border: #ddd;
+    --panel: #f7faff;
+  }
+  html, body {
+    height: 100%;
+  }
+  body {
+    margin: 0;
+    background: #fff;
+    color: var(--text);
+    font-family: "Hiragino Maru Gothic Pro", "Yu Gothic", "Meiryo", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  }
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+  @media print {
+    body {
+      -webkit-print-color-adjust: exact;
+    }
+    .page {
+      width: 297mm;
+      height: 210mm;
+      page-break-after: always;
+    }
+  }
+  .page {
+    width: 297mm;
+    min-height: 210mm;
+    margin: 0 auto;
+    background: #fff;
+    box-sizing: border-box;
+  }
+  .content {
+    padding: 10mm;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 6mm 8mm;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  header {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2mm;
+    margin-bottom: 2mm;
+  }
+  .title {
+    font-size: 22pt;
+    font-weight: 900;
+    letter-spacing: .02em;
+    color: var(--accent);
+  }
+  .subtitle {
+    font-size: 11pt;
+    color: var(--muted);
+    font-weight: bold;
+  }
+  .block {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 5mm;
+    background: #fff;
+  }
+  .vocab-section {
+    grid-column: 1 / -1;
+  }
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8mm;
+  }
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10.5pt;
+  }
+  .table th, .table td {
+    border: 1px solid var(--border);
+    padding: 4px 8px;
+  }
+  .table th {
+    background: #f7f7f7;
+    text-align: left;
+    font-weight: bold;
+    color: var(--muted);
+    font-size: 9pt;
+  }
+  .jp-col { font-weight: bold; color: var(--accent); }
+  .kana-col { color: var(--muted); font-size: 90%; }
+  
+  .section-title {
+    font-size: 13pt;
+    font-weight: 800;
+    color: #0d47a1;
+    margin-bottom: 3mm;
+    display: flex;
+    align-items: center;
+    gap: 2mm;
+  }
+  .section-title::before {
+    content: '';
+    display: block;
+    width: 4mm;
+    height: 4mm;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+  
+  .exercise-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 11pt;
+  }
+  .exercise-list li {
+    margin-bottom: 3mm;
+    display: flex;
+    align-items: baseline;
+  }
+  .exercise-list li:last-child {
+    margin-bottom: 0;
+  }
+  .q-num {
+    display: inline-block;
+    width: 6mm;
+    font-weight: bold;
+    color: var(--accent);
+  }
+  .q-text {
+    flex: 1;
+  }
+  
+  .quiz-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2mm 6mm;
+    font-size: 10pt;
+  }
+  .quiz-item {
+    margin-bottom: 2mm;
+  }
+  .quiz-q {
+    font-weight: bold;
+    margin-bottom: 1mm;
+  }
+  .quiz-options {
+    display: flex;
+    gap: 3mm;
+    color: var(--muted);
+    font-size: 90%;
+  }
+
+  .memo-box {
+    border: 2px dashed var(--border);
+    border-radius: 12px;
+    height: 100%;
+    min-height: 20mm;
+    position: relative;
+  }
+  .memo-label {
+    position: absolute;
+    top: -3mm;
+    left: 5mm;
+    background: #fff;
+    padding: 0 2mm;
+    color: var(--muted);
+    font-size: 9pt;
+    font-weight: bold;
+  }
+  .memo-lines{ display:grid; grid-template-rows: repeat(3, 1fr); gap:4mm; padding:5mm; }
+  .memo-line{ border-bottom:1px dashed var(--border); height:16px; }
+
+  footer {
+    grid-column: 1 / -1;
+    margin-top: auto;
+    padding-top: 4mm;
+    border-top: 1px solid var(--border);
+    font-size: 8pt;
+    color: var(--muted);
+    display: flex;
+    gap: 6mm;
+    flex-wrap: wrap;
+  }
+  .ans-block strong {
+    color: var(--accent);
+    margin-right: 2mm;
+  }
+  .ans-list {
+    display: inline;
+  }
+  .ans-item {
+    margin-right: 3mm;
+  }
+</style>
+    <link rel="stylesheet" href="../../duolingo_style.css">
+</head>
+<body>
+
+<div class="page">
+  <div class="content">
+    <header>
+      <div class="title">日本語語彙練習</div>
+      <div class="subtitle">食べ物・買い物・形容詞編 (Comida, Compras y Adjetivos)</div>
+    </header>
+
+    <div class="block vocab-section">
+      <div class="vocab-grid">
+        <!-- Left Column -->
+        <table class="table">
+          <thead>
+            <tr>
+              <th>日本語 (Japonés)</th>
+              <th>ひらがな (Lectura)</th>
+              <th>スペイン語 (Español)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="jp-col">しろ／しろい</td><td class="kana-col">しろ／しろい</td><td class="es-col">blanco</td></tr>
+            <tr><td class="jp-col">くろ／くろい</td><td class="kana-col">くろ／くろい</td><td class="es-col">negro</td></tr>
+            <tr><td class="jp-col">あお／あおい</td><td class="kana-col">あお／あおい</td><td class="es-col">azul</td></tr>
+            <tr><td class="jp-col">あか／あかい</td><td class="kana-col">あか／あかい</td><td class="es-col">rojo</td></tr>
+            <tr><td class="jp-col">もっと</td><td class="kana-col">もっと</td><td class="es-col">más</td></tr>
+            <tr><td class="jp-col">ぜんぶで</td><td class="kana-col">ぜんぶで</td><td class="es-col">en total</td></tr>
+            <tr><td class="jp-col">いらっしゃいませ</td><td class="kana-col">いらっしゃいませ</td><td class="es-col">bienvenido</td></tr>
+            <tr><td class="jp-col">みせてください</td><td class="kana-col">みせてください</td><td class="es-col">por favor, muéstreme</td></tr>
+            <tr><td class="jp-col">じゃ、けっこうです</td><td class="kana-col">じゃ、けっこうです</td><td class="es-col">no, gracias</td></tr>
+            <tr><td class="jp-col">ひとつ</td><td class="kana-col">ひとつ</td><td class="es-col">uno (contador)</td></tr>
+            <tr><td class="jp-col">ふたつ</td><td class="kana-col">ふたつ</td><td class="es-col">dos (contador)</td></tr>
+            <tr><td class="jp-col">みっつ</td><td class="kana-col">みっつ</td><td class="es-col">tres (contador)</td></tr>
+            <tr><td class="jp-col">よっつ</td><td class="kana-col">よっつ</td><td class="es-col">cuatro (contador)</td></tr>
+            <tr><td class="jp-col">いつつ</td><td class="kana-col">いつつ</td><td class="es-col">cinco (contador)</td></tr>
+            <tr><td class="jp-col">むっつ</td><td class="kana-col">むっつ</td><td class="es-col">seis (contador)</td></tr>
+            <tr><td class="jp-col">ななつ</td><td class="kana-col">ななつ</td><td class="es-col">siete (contador)</td></tr>
+            <tr><td class="jp-col">やっつ</td><td class="kana-col">やっつ</td><td class="es-col">ocho (contador)</td></tr>
+          </tbody>
+        </table>
+        
+        <!-- Right Column -->
+        <table class="table">
+          <thead>
+            <tr>
+              <th>日本語 (Japonés)</th>
+              <th>ひらがな (Lectura)</th>
+              <th>スペイン語 (Español)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="jp-col">ここのつ</td><td class="kana-col">ここのつ</td><td class="es-col">nueve (contador)</td></tr>
+            <tr><td class="jp-col">とお</td><td class="kana-col">とお</td><td class="es-col">diez (contador)</td></tr>
+            <tr><td class="jp-col">いくつ</td><td class="kana-col">いくつ</td><td class="es-col">cuántos</td></tr>
+            <tr><td class="jp-col">いちまい</td><td class="kana-col">いちまい</td><td class="es-col">una hoja / una pieza plana</td></tr>
+            <tr><td class="jp-col">にまい</td><td class="kana-col">にまい</td><td class="es-col">dos hojas</td></tr>
+            <tr><td class="jp-col">さんまい</td><td class="kana-col">さんまい</td><td class="es-col">tres hojas</td></tr>
+            <tr><td class="jp-col">よんまい</td><td class="kana-col">よんまい</td><td class="es-col">cuatro hojas</td></tr>
+            <tr><td class="jp-col">ごまい</td><td class="kana-col">ごまい</td><td class="es-col">cinco hojas</td></tr>
+            <tr><td class="jp-col">スパゲティー</td><td class="kana-col">すぱげてぃー</td><td class="es-col">espaguetis</td></tr>
+            <tr><td class="jp-col">ポテト</td><td class="kana-col">ぽてと</td><td class="es-col">papas fritas</td></tr>
+            <tr><td class="jp-col">ピザ</td><td class="kana-col">ぴざ</td><td class="es-col">pizza</td></tr>
+            <tr><td class="jp-col">サラダ</td><td class="kana-col">さらだ</td><td class="es-col">ensalada</td></tr>
+            <tr><td class="jp-col">コーラ</td><td class="kana-col">こーら</td><td class="es-col">cola</td></tr>
+            <tr><td class="jp-col">ジュース</td><td class="kana-col">じゅーす</td><td class="es-col">jugo</td></tr>
+            <tr><td class="jp-col">こうちゃ</td><td class="kana-col">こうちゃ</td><td class="es-col">té negro</td></tr>
+            <tr><td class="jp-col">アイスティー</td><td class="kana-col">あいすてぃー</td><td class="es-col">té helado</td></tr>
+            <tr><td class="jp-col">アイスコーヒー</td><td class="kana-col">あいすこーひー</td><td class="es-col">café helado</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="content">
+    <header>
+      <div class="title">日本語語彙練習</div>
+      <div class="subtitle">食べ物・買い物・形容詞編 (Comida, Compras y Adjetivos)</div>
+    </header>
+
+    <div class="block vocab-section"></div>
+
+    <div class="block">
+      <div class="section-title">Part 1 (Español → 日本語)</div>
+      <ul class="exercise-list">
+        <li><span class="q-num">1.</span><span class="q-text">blanco → （　　　　　）</span></li>
+        <li><span class="q-num">2.</span><span class="q-text">rojo → （　　　　　）</span></li>
+        <li><span class="q-num">3.</span><span class="q-text">más → （　　　　　）</span></li>
+        <li><span class="q-num">4.</span><span class="q-text">en total → （　　　　　）</span></li>
+        <li><span class="q-num">5.</span><span class="q-text">bienvenido → （　　　　　）</span></li>
+        <li><span class="q-num">6.</span><span class="q-text">por favor, muéstreme → （　　　　　）</span></li>
+        <li><span class="q-num">7.</span><span class="q-text">uno (contador) → （　　　　　）</span></li>
+        <li><span class="q-num">8.</span><span class="q-text">cuántos → （　　　　　）</span></li>
+        <li><span class="q-num">9.</span><span class="q-text">pizza → （　　　　　）</span></li>
+        <li><span class="q-num">10.</span><span class="q-text">café helado → （　　　　　）</span></li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <div class="section-title">Part 2 (日本語 → Español)</div>
+      <ul class="exercise-list">
+        <li><span class="q-num">1.</span><span class="q-text">しろ／しろい → （　　　　　）</span></li>
+        <li><span class="q-num">2.</span><span class="q-text">あお／あおい → （　　　　　）</span></li>
+        <li><span class="q-num">3.</span><span class="q-text">もっと → （　　　　　）</span></li>
+        <li><span class="q-num">4.</span><span class="q-text">いらっしゃいませ → （　　　　　）</span></li>
+        <li><span class="q-num">5.</span><span class="q-text">みせてください → （　　　　　）</span></li>
+        <li><span class="q-num">6.</span><span class="q-text">ふたつ → （　　　　　）</span></li>
+        <li><span class="q-num">7.</span><span class="q-text">いくつ → （　　　　　）</span></li>
+        <li><span class="q-num">8.</span><span class="q-text">いちまい → （　　　　　）</span></li>
+        <li><span class="q-num">9.</span><span class="q-text">サラダ → （　　　　　）</span></li>
+        <li><span class="q-num">10.</span><span class="q-text">ジュース → （　　　　　）</span></li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <div class="section-title">Quiz (Español → 日本語)</div>
+      <div class="quiz-list">
+        <div class="quiz-item">
+          <div class="quiz-q">1. negro</div>
+          <div class="quiz-options">A. あか／あかい / B. くろ／くろい / C. あお／あおい</div>
+        </div>
+        <div class="quiz-item">
+          <div class="quiz-q">2. más</div>
+          <div class="quiz-options">A. ぜんぶで / B. もっと / C. いくつ</div>
+        </div>
+        <div class="quiz-item">
+          <div class="quiz-q">3. no, gracias</div>
+          <div class="quiz-options">A. いらっしゃいませ / B. みせてください / C. じゃ、けっこうです</div>
+        </div>
+        <div class="quiz-item">
+          <div class="quiz-q">4. siete (contador)</div>
+          <div class="quiz-options">A. ななつ / B. やっつ / C. むっつ</div>
+        </div>
+        <div class="quiz-item">
+          <div class="quiz-q">5. ensalada</div>
+          <div class="quiz-options">A. ピザ / B. サラダ / C. ポテト</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="memo-box">
+      <span class="memo-label">メモ欄</span>
+      <div class="memo-lines">
+        <div class="memo-line"></div>
+        <div class="memo-line"></div>
+        <div class="memo-line"></div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="ans-block">
+        <strong>Part 1:</strong>
+        <div class="ans-list">
+          <span class="ans-item">1.しろ／しろい</span>
+          <span class="ans-item">2.あか／あかい</span>
+          <span class="ans-item">3.もっと</span>
+          <span class="ans-item">4.ぜんぶで</span>
+          <span class="ans-item">5.いらっしゃいませ</span>
+          <span class="ans-item">6.みせてください</span>
+          <span class="ans-item">7.ひとつ</span>
+          <span class="ans-item">8.いくつ</span>
+          <span class="ans-item">9.ピザ</span>
+          <span class="ans-item">10.アイスコーヒー</span>
+        </div>
+      </div>
+      <div class="ans-block">
+        <strong>Part 2:</strong>
+        <div class="ans-list">
+          <span class="ans-item">1.blanco</span>
+          <span class="ans-item">2.azul</span>
+          <span class="ans-item">3.más</span>
+          <span class="ans-item">4.bienvenido</span>
+          <span class="ans-item">5.por favor, muéstreme</span>
+          <span class="ans-item">6.dos (contador)</span>
+          <span class="ans-item">7.cuántos</span>
+          <span class="ans-item">8.una hoja / una pieza plana</span>
+          <span class="ans-item">9.ensalada</span>
+          <span class="ans-item">10.jugo</span>
+        </div>
+      </div>
+      <div class="ans-block">
+        <strong>Quiz:</strong>
+        <div class="ans-list">
+          <span class="ans-item">1.B</span>
+          <span class="ans-item">2.B</span>
+          <span class="ans-item">3.C</span>
+          <span class="ans-item">4.A</span>
+          <span class="ans-item">5.B</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+
+    <script src="../../duolingo_engine.js"></script>
+</body>
+</html>

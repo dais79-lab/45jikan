@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>語彙ワークシート：出入り・貸し借り・家の用語 — A4横・PDF</title>
+<style>
+  :root{ --accent:#0ea5e9; --accent2:#0c4a6e; --text:#111; --muted:#555; --border:#d8dee9; --panel:#f2f8ff; }
+  html,body{ height:100%; }
+  body{ margin:0; background:#fff; color:var(--text); font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo","Segoe UI",system-ui,-apple-system,Roboto,sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page{ width:297mm; min-height:210mm; margin:0 auto; background:#fff; }
+  .content{ padding:10mm; display:grid; grid-template-columns: 1.15fr 0.85fr; grid-template-rows: auto auto auto auto auto 1fr auto; gap:8mm; }
+  header{ grid-column:1 / -1; display:flex; align-items:center; justify-content:space-between; border-bottom:2.5px solid var(--accent); padding-bottom:5mm; }
+  .title{ font-size:26pt; font-weight:900; letter-spacing:.02em; color:var(--accent2); display:flex; align-items:center; gap:6mm; }
+  .title::before{ content:""; display:inline-block; width:6mm; height:6mm; border-radius:2mm; background:linear-gradient(135deg,var(--accent),#60a5fa); }
+  .badge{ font-size:10pt; font-weight:700; color:#fff; background:var(--accent2); padding:4px 12px; border-radius:999px; }
+  .subtitle{ font-size:12pt; color:var(--muted); }
+  .print-btn{ border:none; background:var(--accent); color:#fff; font-size:10pt; font-weight:700; padding:6px 12px; border-radius:10px; cursor:pointer; }
+  .block{ border:1px solid var(--border); border-radius:14px; padding:8mm; background:#fff; break-inside: avoid; page-break-inside: avoid; }
+  .block.vocab{ break-inside: auto; page-break-inside: auto; }
+  .col-1{ grid-column:1; }
+  .col-2{ grid-column:2; }
+  .col-all{ grid-column:1 / -1; }
+  .section-title{ font-size:14pt; font-weight:800; color:var(--accent2); margin-bottom:4mm; display:flex; align-items:center; gap:4mm; }
+  .section-title::before{ content:""; width:4mm; height:4mm; border-radius:1.5mm; background:var(--accent); }
+  .panel{ background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:6mm; }
+  .table{ width:100%; border-collapse:collapse; }
+  .table th, .table td{ border:1px solid var(--border); padding:7px 9px; font-size:11pt; }
+  .table thead th{ background:#e6f2ff; color:var(--accent2); font-weight:800; }
+  .table tbody tr:nth-child(odd){ background:#fafcff; }
+  thead{ display: table-header-group; }
+  .exercise-list{ list-style:none; padding:0; margin:0; display:grid; gap:4mm; }
+  .q-item{ display:flex; gap:8px; align-items:flex-start; }
+  .q-num{ font-weight:800; color:var(--accent2); min-width:22px; }
+  .q-text{ flex:1; }
+  .blank{ display:inline-block; min-width:50mm; border-bottom:2px solid #9aa5b1; translate: 0 -1px; }
+  .choice{ margin-left:22px; }
+  .choice .opt{ margin:2px 0; line-height:1.7; }
+  .answers{ line-height:1.9; }
+  .answers .grid{ display:grid; grid-template-columns: 1fr; gap:3mm; }
+  .notes .lines{ display:grid; grid-template-rows: repeat(3, 1fr); gap:6mm; }
+  .notes .line{ border-bottom:1px dashed #aab; height:28px; }
+  @page{ size: A4 landscape; margin:10mm; }
+  @media print{ .content{ padding:0; } .page{ width:auto; min-height:auto; } .screen-only{ display:none !important; } }
+  @media screen{ .block{ box-shadow: 0 4px 16px rgba(0,0,0,.08); } }
+</style>
+    <link rel="stylesheet" href="../../duolingo_style.css">
+</head>
+<body>
+<div class="page">
+  <div class="content">
+    <header>
+      <div style="display:flex; align-items:center; gap:8mm;">
+        <div class="title">語彙ワークシート：出入り・貸し借り・家の用語</div>
+        <div class="badge">Vocab + Practice</div>
+      </div>
+      <div style="display:flex; align-items:center; gap:6mm;">
+        <div class="subtitle">A4横・PDF教材／対象：入門〜一般</div>
+        <button class="print-btn screen-only" onclick="window.print()">PDFで印刷</button>
+      </div>
+    </header>
+
+    <div class="block vocab col-all">
+      <div class="section-title">1. 語彙表（にほんご／ひらがな／スペイン語）</div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>にほんご</th>
+            <th>ひらがな</th>
+            <th>スペイン語</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>あけます</td><td>あけます</td><td>abrir</td></tr>
+          <tr><td>しめます</td><td>しめます</td><td>cerrar</td></tr>
+          <tr><td>のります</td><td>のります</td><td>subir (a transporte)</td></tr>
+          <tr><td>おります</td><td>おります</td><td>bajar (de transporte)</td></tr>
+          <tr><td>はいります</td><td>はいります</td><td>entrar</td></tr>
+          <tr><td>かります</td><td>かります</td><td>pedir prestado</td></tr>
+          <tr><td>かします</td><td>かします</td><td>prestar</td></tr>
+          <tr><td>かえします</td><td>かえします</td><td>devolver</td></tr>
+          <tr><td>しります</td><td>しります</td><td>saber / conocer</td></tr>
+          <tr><td>あそびます</td><td>あそびます</td><td>jugar</td></tr>
+          <tr><td>まちます</td><td>まちます</td><td>esperar</td></tr>
+          <tr><td>けっこんします</td><td>けっこんします</td><td>casarse</td></tr>
+          <tr><td>わすれます</td><td>わすれます</td><td>olvidar</td></tr>
+          <tr><td>とります</td><td>とります</td><td>tomar</td></tr>
+          <tr><td>すわります</td><td>すわります</td><td>sentarse</td></tr>
+          <tr><td>たちます</td><td>たちます</td><td>levantarse / ponerse de pie</td></tr>
+          <tr><td>ききます</td><td>ききます</td><td>preguntar</td></tr>
+          <tr><td>けします</td><td>けします</td><td>apagar / borrar</td></tr>
+          <tr><td>いいます</td><td>いいます</td><td>decir</td></tr>
+          <tr><td>どくしん</td><td>どくしん</td><td>soltero</td></tr>
+          <tr><td>でんわばんごう</td><td>でんわばんごう</td><td>número de teléfono</td></tr>
+          <tr><td>まど</td><td>まど</td><td>ventana</td></tr>
+          <tr><td>と（ドア）</td><td>と（ドア）</td><td>puerta</td></tr>
+          <tr><td>じゅうしょ</td><td>じゅうしょ</td><td>dirección</td></tr>
+          <tr><td>ピアノ</td><td>ピアノ</td><td>piano</td></tr>
+          <tr><td>ワイン</td><td>ワイン</td><td>vino</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="block col-1">
+      <div class="section-title">2. Part 1：スペイン語 → 日本語（10問）</div>
+      <ul class="exercise-list">
+        <li class="q-item"><span class="q-num">1.</span><span class="q-text">abrir → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">2.</span><span class="q-text">cerrar → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">3.</span><span class="q-text">subir (a transporte) → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">4.</span><span class="q-text">entrar → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">5.</span><span class="q-text">prestar → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">6.</span><span class="q-text">devolver → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">7.</span><span class="q-text">esperar → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">8.</span><span class="q-text">casarse → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">9.</span><span class="q-text">olvidar → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">10.</span><span class="q-text">número de teléfono → <span class="blank"></span></span></li>
+      </ul>
+    </div>
+
+    <div class="block col-2">
+      <div class="section-title">3. Part 2：日本語 → スペイン語（10問）</div>
+      <ul class="exercise-list">
+        <li class="q-item"><span class="q-num">1.</span><span class="q-text">あけます → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">2.</span><span class="q-text">のります → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">3.</span><span class="q-text">はいります → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">4.</span><span class="q-text">かります → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">5.</span><span class="q-text">あそびます → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">6.</span><span class="q-text">すわります → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">7.</span><span class="q-text">たちます → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">8.</span><span class="q-text">いいます → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">9.</span><span class="q-text">じゅうしょ → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">10.</span><span class="q-text">ワイン → <span class="blank"></span></span></li>
+      </ul>
+    </div>
+
+    <div class="block col-1">
+      <div class="section-title">4. ３択問題（スペイン語 → 日本語）</div>
+      <div class="choice">
+        <div class="opt"><strong>Q1.</strong> cerrar<br> A. あけます ／ B. しめます ／ C. けします</div>
+        <div class="opt"><strong>Q2.</strong> bajar (de transporte)<br> A. のります ／ B. おります ／ C. はいります</div>
+        <div class="opt"><strong>Q3.</strong> prestar<br> A. かります ／ B. かします ／ C. かえします</div>
+        <div class="opt"><strong>Q4.</strong> soltero<br> A. けっこんします ／ B. どくしん ／ C. わすれます</div>
+        <div class="opt"><strong>Q5.</strong> ventana<br> A. まど ／ B. と（ドア） ／ C. ピアノ</div>
+      </div>
+    </div>
+
+    <div class="block col-2">
+      <div class="section-title">5. 解答</div>
+      <div class="panel answers">
+        <div class="grid">
+          <div><strong>Part 1</strong></div>
+          <div>1. あけます ／ 2. しめます ／ 3. のります ／ 4. はいります ／ 5. かします ／ 6. かえします ／ 7. まちます ／ 8. けっこんします ／ 9. わすれます ／ 10. でんわばんごう</div>
+          <div><strong>Part 2</strong></div>
+          <div>1. abrir ／ 2. subir (a transporte) ／ 3. entrar ／ 4. pedir prestado ／ 5. jugar ／ 6. sentarse ／ 7. levantarse / ponerse de pie ／ 8. decir ／ 9. dirección ／ 10. vino</div>
+          <div><strong>３択問題</strong></div>
+          <div>Q1. B ／ Q2. B ／ Q3. B ／ Q4. B ／ Q5. A</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block notes col-all">
+      <div class="section-title">6. メモ欄</div>
+      <div class="lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+    <script src="../../duolingo_engine.js"></script>
+</body>
+</html>

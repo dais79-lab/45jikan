@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>語彙ワークシート：人口・教科・形容詞・季節 — A4横・PDF</title>
+<style>
+  :root{ --accent:#0ea5e9; --accent2:#0c4a6e; --accent3:#60a5fa; --text:#111; --muted:#555; --border:#d8dee9; --panel:#f2f8ff; }
+  html,body{ height:100%; }
+  body{ margin:0; background:#fff; color:var(--text); font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo","Segoe UI",system-ui,-apple-system,Roboto,sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page{ width:297mm; min-height:210mm; margin:0 auto; background:#fff; }
+  .content{ padding:10mm; display:grid; grid-template-columns: 1.15fr 0.85fr; grid-template-rows: auto auto auto auto auto 1fr auto; gap:8mm; }
+  header{ grid-column:1 / -1; display:flex; align-items:center; justify-content:space-between; border-bottom:2.5px solid var(--accent); padding-bottom:5mm; }
+  header::after{ content:""; display:block; height:4px; background:linear-gradient(90deg,var(--accent),var(--accent3)); border-radius:4px; margin-top:4mm; }
+  .title{ font-size:26pt; font-weight:900; letter-spacing:.02em; color:var(--accent2); display:flex; align-items:center; gap:6mm; }
+  .title::before{ content:""; display:inline-block; width:6mm; height:6mm; border-radius:2mm; background:linear-gradient(135deg,var(--accent),#60a5fa); }
+  .badge{ font-size:10pt; font-weight:700; color:#fff; background:var(--accent2); padding:4px 12px; border-radius:999px; }
+  .subtitle{ font-size:12pt; color:var(--muted); }
+  .print-meta{ font-size:10pt; color:var(--muted); }
+  .print-btn{ border:none; background:var(--accent); color:#fff; font-size:10pt; font-weight:700; padding:6px 12px; border-radius:10px; cursor:pointer; }
+  .block{ border:1px solid var(--border); border-radius:14px; padding:8mm; background:#fff; break-inside: avoid; page-break-inside: avoid; }
+  .block.vocab{ break-inside: auto; page-break-inside: auto; }
+  .col-1{ grid-column:1; }
+  .col-2{ grid-column:2; }
+  .col-all{ grid-column:1 / -1; }
+  .section-title{ font-size:14pt; font-weight:800; color:var(--accent2); margin-bottom:4mm; display:flex; align-items:center; gap:4mm; }
+  .section-title::before{ content:""; width:4mm; height:4mm; border-radius:1.5mm; background:var(--accent); }
+  .panel{ background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:6mm; }
+  .table{ width:100%; border-collapse:collapse; table-layout: fixed; }
+  .table th, .table td{ border:1px solid var(--border); padding:7px 9px; font-size:11pt; }
+  .table thead th{ background:#e6f2ff; color:var(--accent2); font-weight:800; }
+  .table tbody tr:nth-child(odd){ background:#fafcff; }
+  thead{ display: table-header-group; }
+  .exercise-list{ list-style:none; padding:0; margin:0; display:grid; gap:4mm; }
+  .q-item{ display:flex; gap:8px; align-items:flex-start; }
+  .q-num{ font-weight:800; color:var(--accent2); min-width:22px; }
+  .q-text{ flex:1; }
+  .blank{ display:inline-block; min-width:50mm; border-bottom:2px solid #9aa5b1; translate: 0 -1px; }
+  .choice{ margin-left:22px; }
+  .choice .opt{ margin:2px 0; line-height:1.7; }
+  .answers{ line-height:1.9; }
+  .answers .grid{ display:grid; grid-template-columns: 1fr; gap:3mm; }
+  .notes .lines{ display:grid; grid-template-rows: repeat(3, 1fr); gap:6mm; }
+  .notes .line{ border-bottom:1px dashed #aab; height:28px; }
+  @page{ size: A4 landscape; margin:10mm; }
+  @media print{ .content{ padding:0; } .page{ width:auto; min-height:auto; } .screen-only{ display:none !important; } }
+  @media screen{ .block{ box-shadow: 0 4px 16px rgba(0,0,0,.08); } }
+</style>
+    <link rel="stylesheet" href="../../duolingo_style.css">
+</head>
+<body>
+<div class="page">
+  <div class="content">
+    <header>
+      <div style="display:flex; align-items:center; gap:8mm;">
+        <div class="title">語彙ワークシート：人口・教科・形容詞・季節</div>
+        <div class="badge">Vocab + Practice</div>
+      </div>
+      <div style="display:flex; align-items:center; gap:6mm;">
+        <div class="subtitle">A4横・PDF教材／対象：入門〜一般</div>
+        <div class="print-meta">印刷日: <span id="today"></span></div>
+        <button class="print-btn screen-only" onclick="window.print()">PDFで印刷</button>
+      </div>
+    </header>
+
+    <div class="block vocab col-all">
+      <div class="section-title">1. 語彙表（にほんご／ひらがな／スペイン語）</div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>にほんご</th>
+            <th>ひらがな</th>
+            <th>スペイン語</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>じんこう</td><td>じんこう</td><td>población</td></tr>
+          <tr><td>すうがく</td><td>すうがく</td><td>matemáticas</td></tr>
+          <tr><td>かがく</td><td>かがく</td><td>ciencias</td></tr>
+          <tr><td>ちり</td><td>ちり</td><td>geografía</td></tr>
+          <tr><td>ぶつり</td><td>ぶつり</td><td>física</td></tr>
+          <tr><td>れきし</td><td>れきし</td><td>historia</td></tr>
+          <tr><td>ひろい</td><td>ひろい</td><td>amplio</td></tr>
+          <tr><td>せまい</td><td>せまい</td><td>estrecho</td></tr>
+          <tr><td>わかい</td><td>わかい</td><td>joven</td></tr>
+          <tr><td>としうえ</td><td>としうえ</td><td>mayor</td></tr>
+          <tr><td>もう</td><td>もう</td><td>ya</td></tr>
+          <tr><td>まだ</td><td>まだ</td><td>todavía</td></tr>
+          <tr><td>いちばん</td><td>いちばん</td><td>el más</td></tr>
+          <tr><td>どっち</td><td>どっち</td><td>cuál</td></tr>
+          <tr><td>はる</td><td>はる</td><td>primavera</td></tr>
+          <tr><td>なつ</td><td>なつ</td><td>verano</td></tr>
+          <tr><td>あき</td><td>あき</td><td>otoño</td></tr>
+          <tr><td>ふゆ</td><td>ふゆ</td><td>invierno</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="block col-1">
+      <div class="section-title">2. Part 1：スペイン語 → 日本語（10問）</div>
+      <ul class="exercise-list">
+        <li class="q-item"><span class="q-num">1.</span><span class="q-text">población → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">2.</span><span class="q-text">matemáticas → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">3.</span><span class="q-text">geografía → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">4.</span><span class="q-text">historia → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">5.</span><span class="q-text">amplio → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">6.</span><span class="q-text">estrecho → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">7.</span><span class="q-text">joven → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">8.</span><span class="q-text">ya → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">9.</span><span class="q-text">el más → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">10.</span><span class="q-text">verano → <span class="blank"></span></span></li>
+      </ul>
+    </div>
+
+    <div class="block col-2">
+      <div class="section-title">3. Part 2：日本語 → スペイン語（10問）</div>
+      <ul class="exercise-list">
+        <li class="q-item"><span class="q-num">1.</span><span class="q-text">じんこう → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">2.</span><span class="q-text">すうがく → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">3.</span><span class="q-text">ぶつり → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">4.</span><span class="q-text">ひろい → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">5.</span><span class="q-text">せまい → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">6.</span><span class="q-text">としうえ → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">7.</span><span class="q-text">まだ → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">8.</span><span class="q-text">どっち → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">9.</span><span class="q-text">あき → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">10.</span><span class="q-text">ふゆ → <span class="blank"></span></span></li>
+      </ul>
+    </div>
+
+    <div class="block col-1">
+      <div class="section-title">4. ３択問題（スペイン語 → 日本語）</div>
+      <div class="choice">
+        <div class="opt"><strong>Q1.</strong> ciencias<br> A. すうがく ／ B. かがく ／ C. ぶつり</div>
+        <div class="opt"><strong>Q2.</strong> estrecho<br> A. ひろい ／ B. せまい ／ C. わかい</div>
+        <div class="opt"><strong>Q3.</strong> mayor<br> A. わかい ／ B. としうえ ／ C. いちばん</div>
+        <div class="opt"><strong>Q4.</strong> todavía<br> A. もう ／ B. まだ ／ C. どっち</div>
+        <div class="opt"><strong>Q5.</strong> invierno<br> A. なつ ／ B. あき ／ C. ふゆ</div>
+      </div>
+    </div>
+
+    <div class="block col-2">
+      <div class="section-title">5. 解答</div>
+      <div class="panel answers">
+        <div class="grid">
+          <div><strong>Part 1</strong></div>
+          <div>1. じんこう ／ 2. すうがく ／ 3. ちり ／ 4. れきし ／ 5. ひろい ／ 6. せまい ／ 7. わかい ／ 8. もう ／ 9. いちばん ／ 10. なつ</div>
+          <div><strong>Part 2</strong></div>
+          <div>1. población ／ 2. matemáticas ／ 3. física ／ 4. amplio ／ 5. estrecho ／ 6. mayor ／ 7. todavía ／ 8. cuál ／ 9. otoño ／ 10. invierno</div>
+          <div><strong>３択問題</strong></div>
+          <div>Q1. B ／ Q2. B ／ Q3. B ／ Q4. B ／ Q5. C</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block notes col-all">
+      <div class="section-title">6. メモ欄</div>
+      <div class="lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script>
+  (function(){
+    var d = new Date();
+    var y = d.getFullYear();
+    var m = String(d.getMonth()+1).padStart(2,'0');
+    var da = String(d.getDate()).padStart(2,'0');
+    var el = document.getElementById('today');
+    if(el){ el.textContent = y + '/' + m + '/' + da; }
+  })();
+</script>
+    <script src="../../duolingo_engine.js"></script>
+</body>
+</html>
+

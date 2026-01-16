@@ -1,0 +1,2197 @@
+{
+  "lessons": [
+    {
+      "id": "L45",
+      "title": "Lección 45: 家族と年齢",
+      "goals": [
+        "Tema: 家族人数・年齢表現",
+        "Practicar diálogos situacionales",
+        "Aprender expresiones clave"
+      ],
+      "vocabulary": [
+        {
+          "kanji": "わたしの かぞくは 5人です。",
+          "kana": "",
+          "romaji": "",
+          "es": "Somos cinco personas.",
+          "audioText": "わたしの かぞくは 5人です。",
+          "explanation": "Ono pregunta cuántas personas hay en la familia de Lee.",
+          "examples": []
+        },
+        {
+          "kanji": "いもうとは 5さいです。",
+          "kana": "",
+          "romaji": "",
+          "es": "Tiene cinco años。",
+          "audioText": "いもうとは 5さいです。",
+          "explanation": "Hablan de la hermana menor y preguntan su edad.",
+          "examples": []
+        }
+      ],
+      "phrases": [
+        {
+          "jp_furigana": "リーさん、かぞくは なんにんですか。",
+          "jp": "リーさん、かぞくは なんにんですか。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "リーさん、かぞくは なんにんですか。"
+        },
+        {
+          "jp_furigana": "5人です。ちちと ははと あにと いもうとです。",
+          "jp": "5人です。ちちと ははと あにと いもうとです。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "5人です。ちちと ははと あにと いもうとです。"
+        },
+        {
+          "jp_furigana": "これは だれですか。いもうとさんですか。",
+          "jp": "これは だれですか。いもうとさんですか。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "これは だれですか。いもうとさんですか。"
+        },
+        {
+          "jp_furigana": "ええ、いもうとです。",
+          "jp": "ええ、いもうとです。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "ええ、いもうとです。"
+        },
+        {
+          "jp_furigana": "かわいいですね。なんさいですか。",
+          "jp": "かわいいですね。なんさいですか。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "かわいいですね。なんさいですか。"
+        },
+        {
+          "jp_furigana": "5さいです。",
+          "jp": "5さいです。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "5さいです。"
+        },
+        {
+          "jp_furigana": "おなまえは。",
+          "jp": "おなまえは。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "おなまえは。"
+        },
+        {
+          "jp_furigana": "ジェニーです。",
+          "jp": "ジェニーです。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "ジェニーです。"
+        },
+        {
+          "jp_furigana": "これは だれですか。ハンサムですね。",
+          "jp": "これは だれですか。ハンサムですね。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "これは だれですか。ハンサムですね。"
+        },
+        {
+          "jp_furigana": "これは あにです。",
+          "jp": "これは あにです。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "これは あにです。"
+        },
+        {
+          "jp_furigana": "おにいさんは なんさいですか。",
+          "jp": "おにいさんは なんさいですか。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "おにいさんは なんさいですか。"
+        },
+        {
+          "jp_furigana": "あには 21さいです。",
+          "jp": "あには 21さいです。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "あには 21さいです。"
+        },
+        {
+          "jp_furigana": "そうですか。",
+          "jp": "そうですか。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "そうですか。"
+        }
+      ],
+      "reading": {
+        "jp_furigana": "おの: リーさん、かぞくは なんにんですか。<br>リー: 5人です。ちちと ははと あにと いもうとです。<br>おの: これは だれですか。いもうとさんですか。<br>リー: ええ、いもうとです。<br>おの: かわいいですね。なんさいですか。<br>リー: 5さいです。<br>おの: おなまえは。<br>リー: ジェニーです。<br>おの: これは だれですか。ハンサムですね。<br>リー: これは あにです。<br>おの: おにいさんは なんさいですか。<br>リー: あには 21さいです。<br>おの: そうですか。<br>",
+        "jp": "おの: リーさん、かぞくは なんにんですか。\nリー: 5人です。ちちと ははと あにと いもうとです。\nおの: これは だれですか。いもうとさんですか。\nリー: ええ、いもうとです。\nおの: かわいいですね。なんさいですか。\nリー: 5さいです。\nおの: おなまえは。\nリー: ジェニーです。\nおの: これは だれですか。ハンサムですね。\nリー: これは あにです。\nおの: おにいさんは なんさいですか。\nリー: あには 21さいです。\nおの: そうですか。\n",
+        "es": "Lee los diálogos anteriores para practicar.",
+        "audioText": "おの: リーさん、かぞくは なんにんですか。。リー: 5人です。ちちと ははと あにと いもうとです。。おの: これは だれですか。いもうとさんですか。。リー: ええ、いもうとです。。おの: かわいいですね。なんさいですか。。リー: 5さいです。。おの: おなまえは。。リー: ジェニーです。。おの: これは だれですか。ハンサムですね。。リー: これは あにです。。おの: おにいさんは なんさいですか。。リー: あには 21さいです。。おの: そうですか。。"
+      },
+      "grammarNotes": [
+        {
+          "title": "Notas de la lección",
+          "body": "Revisa las situaciones y cómo responder adecuadamente en cada contexto."
+        }
+      ],
+      "exercises": [
+        {
+          "type": "comprehension",
+          "question": "Ono pregunta cuántas personas hay en la familia de Lee.<br><strong>Somos cinco personas.</strong>",
+          "options": [
+            {
+              "text": "わたしの かぞくは 5人です。",
+              "correct": true
+            },
+            {
+              "text": "いもうとは 5さいです。",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "type": "comprehension",
+          "question": "Hablan de la hermana menor y preguntan su edad.<br><strong>Tiene cinco años。</strong>",
+          "options": [
+            {
+              "text": "わたしの かぞくは 5人です。",
+              "correct": false
+            },
+            {
+              "text": "いもうとは 5さいです。",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "type": "comprehension",
+          "question": "Hablan del hermano mayor y dicen su edad.<br><strong>Tiene veintiún años。</strong>",
+          "options": [
+            {
+              "text": "",
+              "correct": true
+            },
+            {
+              "text": "わたしの かぞくは 5人です。",
+              "correct": false
+            },
+            {
+              "text": "いもうとは 5さいです。",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "L45",
+      "title": "Lección 45: 場所と あります／います",
+      "goals": [
+        "Tema: 場所・存在・距離",
+        "Practicar diálogos situacionales",
+        "Aprender expresiones clave"
+      ],
+      "vocabulary": [
+        {
+          "kanji": "えきの まえに あります。",
+          "kana": "",
+          "romaji": "",
+          "es": "Está delante de la estación.",
+          "audioText": "えきの まえに あります。",
+          "explanation": "Una persona pregunta si hay un banco y dónde está.",
+          "examples": []
+        },
+        {
+          "kanji": "8かいの きょうしつに います。",
+          "kana": "",
+          "romaji": "",
+          "es": "Está en el aula del octavo piso。",
+          "audioText": "8かいの きょうしつに います。",
+          "explanation": "Preguntan dónde está Lee y responden el lugar.",
+          "examples": []
+        }
+      ],
+      "phrases": [
+        {
+          "jp_furigana": "すみません。ぎんこうは ありますか。",
+          "jp": "すみません。ぎんこうは ありますか。",
+          "romaji": "",
+          "es": "Diálogo: A",
+          "audioText": "すみません。ぎんこうは ありますか。"
+        },
+        {
+          "jp_furigana": "ええ、ありますよ。えきの まえに あります。",
+          "jp": "ええ、ありますよ。えきの まえに あります。",
+          "romaji": "",
+          "es": "Diálogo: B",
+          "audioText": "ええ、ありますよ。えきの まえに あります。"
+        },
+        {
+          "jp_furigana": "えきの まえですね。どうも ありがとうございました。",
+          "jp": "えきの まえですね。どうも ありがとうございました。",
+          "romaji": "",
+          "es": "Diálogo: A",
+          "audioText": "えきの まえですね。どうも ありがとうございました。"
+        },
+        {
+          "jp_furigana": "リーさんは いますか。",
+          "jp": "リーさんは いますか。",
+          "romaji": "",
+          "es": "Diálogo: あおき",
+          "audioText": "リーさんは いますか。"
+        },
+        {
+          "jp_furigana": "いいえ、いません。",
+          "jp": "いいえ、いません。",
+          "romaji": "",
+          "es": "Diálogo: マリア",
+          "audioText": "いいえ、いません。"
+        },
+        {
+          "jp_furigana": "どこに いますか。",
+          "jp": "どこに いますか。",
+          "romaji": "",
+          "es": "Diálogo: あおき",
+          "audioText": "どこに いますか。"
+        },
+        {
+          "jp_furigana": "8かいの きょうしつに います。",
+          "jp": "8かいの きょうしつに います。",
+          "romaji": "",
+          "es": "Diálogo: マリア",
+          "audioText": "8かいの きょうしつに います。"
+        },
+        {
+          "jp_furigana": "ゆうびんきょくは、 ここから ちかいですか。",
+          "jp": "ゆうびんきょくは、 ここから ちかいですか。",
+          "romaji": "",
+          "es": "Diálogo: A",
+          "audioText": "ゆうびんきょくは、 ここから ちかいですか。"
+        },
+        {
+          "jp_furigana": "いいえ、とおいですよ。あるいて 20ぷん ぐらいです。",
+          "jp": "いいえ、とおいですよ。あるいて 20ぷん ぐらいです。",
+          "romaji": "",
+          "es": "Diálogo: B",
+          "audioText": "いいえ、とおいですよ。あるいて 20ぷん ぐらいです。"
+        },
+        {
+          "jp_furigana": "ああ、そうですか。",
+          "jp": "ああ、そうですか。",
+          "romaji": "",
+          "es": "Diálogo: A",
+          "audioText": "ああ、そうですか。"
+        }
+      ],
+      "reading": {
+        "jp_furigana": "A: すみません。ぎんこうは ありますか。<br>B: ええ、ありますよ。えきの まえに あります。<br>A: えきの まえですね。どうも ありがとうございました。<br>あおき: リーさんは いますか。<br>マリア: いいえ、いません。<br>あおき: どこに いますか。<br>マリア: 8かいの きょうしつに います。<br>A: ゆうびんきょくは、 ここから ちかいですか。<br>B: いいえ、とおいですよ。あるいて 20ぷん ぐらいです。<br>A: ああ、そうですか。<br>",
+        "jp": "A: すみません。ぎんこうは ありますか。\nB: ええ、ありますよ。えきの まえに あります。\nA: えきの まえですね。どうも ありがとうございました。\nあおき: リーさんは いますか。\nマリア: いいえ、いません。\nあおき: どこに いますか。\nマリア: 8かいの きょうしつに います。\nA: ゆうびんきょくは、 ここから ちかいですか。\nB: いいえ、とおいですよ。あるいて 20ぷん ぐらいです。\nA: ああ、そうですか。\n",
+        "es": "Lee los diálogos anteriores para practicar.",
+        "audioText": "A: すみません。ぎんこうは ありますか。。B: ええ、ありますよ。えきの まえに あります。。A: えきの まえですね。どうも ありがとうございました。。あおき: リーさんは いますか。。マリア: いいえ、いません。。あおき: どこに いますか。。マリア: 8かいの きょうしつに います。。A: ゆうびんきょくは、 ここから ちかいですか。。B: いいえ、とおいですよ。あるいて 20ぷん ぐらいです。。A: ああ、そうですか。。"
+      },
+      "grammarNotes": [
+        {
+          "title": "Notas de la lección",
+          "body": "Revisa las situaciones y cómo responder adecuadamente en cada contexto."
+        }
+      ],
+      "exercises": [
+        {
+          "type": "comprehension",
+          "question": "Una persona pregunta si hay un banco y dónde está.<br><strong>Está delante de la estación.</strong>",
+          "options": [
+            {
+              "text": "えきの まえに あります。",
+              "correct": true
+            },
+            {
+              "text": "8かいの きょうしつに います。",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "type": "comprehension",
+          "question": "Preguntan dónde está Lee y responden el lugar.<br><strong>Está en el aula del octavo piso。</strong>",
+          "options": [
+            {
+              "text": "8かいの きょうしつに います。",
+              "correct": true
+            },
+            {
+              "text": "えきの まえに あります。",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "type": "comprehension",
+          "question": "Preguntan si la oficina de correos está cerca y explican la distancia.<br><strong>Está lejos。</strong>",
+          "options": [
+            {
+              "text": "えきの まえに あります。",
+              "correct": false
+            },
+            {
+              "text": "8かいの きょうしつに います。",
+              "correct": false
+            },
+            {
+              "text": "",
+              "correct": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "L45",
+      "title": "Lección 45: たんじょうび・来週の予定・来日・交通手段",
+      "goals": [
+        "Tema: 日付・予定・来日・移動手段",
+        "Practicar diálogos situacionales",
+        "Aprender expresiones clave"
+      ],
+      "vocabulary": [
+        {
+          "kanji": "わたしの たんじょうびは 8がつ14かです。",
+          "kana": "",
+          "romaji": "",
+          "es": "Mi cumpleaños es el 14 de agosto.",
+          "audioText": "わたしの たんじょうびは 8がつ14かです。",
+          "explanation": "Hablan de las fechas de cumpleaños.",
+          "examples": []
+        },
+        {
+          "kanji": "よこはまへ いきます。",
+          "kana": "",
+          "romaji": "",
+          "es": "Voy a Yokohama.",
+          "audioText": "よこはまへ いきます。",
+          "explanation": "Hablan de planes para el sábado de la próxima semana.",
+          "examples": []
+        },
+        {
+          "kanji": "7がつ12にちに きました。",
+          "kana": "",
+          "romaji": "",
+          "es": "Vine el 12 de julio.",
+          "audioText": "7がつ12にちに きました。",
+          "explanation": "Hablan de cuándo Lee llegó a Japón.",
+          "examples": []
+        }
+      ],
+      "phrases": [
+        {
+          "jp_furigana": "リーさん、たんじょうびは いつですか。",
+          "jp": "リーさん、たんじょうびは いつですか。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "リーさん、たんじょうびは いつですか。"
+        },
+        {
+          "jp_furigana": "5がつ30にちです。おのさんは。",
+          "jp": "5がつ30にちです。おのさんは。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "5がつ30にちです。おのさんは。"
+        },
+        {
+          "jp_furigana": "わたしの たんじょうびは 8がつ14かです。",
+          "jp": "わたしの たんじょうびは 8がつ14かです。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "わたしの たんじょうびは 8がつ14かです。"
+        },
+        {
+          "jp_furigana": "そうですか。らいげつですね。",
+          "jp": "そうですか。らいげつですね。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "そうですか。らいげつですね。"
+        },
+        {
+          "jp_furigana": "らいしゅうの どようびに どこへ いきますか。",
+          "jp": "らいしゅうの どようびに どこへ いきますか。",
+          "romaji": "",
+          "es": "Diálogo: マリア",
+          "audioText": "らいしゅうの どようびに どこへ いきますか。"
+        },
+        {
+          "jp_furigana": "よこはまへ いきます。マリアさんは。",
+          "jp": "よこはまへ いきます。マリアさんは。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "よこはまへ いきます。マリアさんは。"
+        },
+        {
+          "jp_furigana": "わたしは どこへも いきません。",
+          "jp": "わたしは どこへも いきません。",
+          "romaji": "",
+          "es": "Diálogo: マリア",
+          "audioText": "わたしは どこへも いきません。"
+        },
+        {
+          "jp_furigana": "リーさんは どこから きましたか。",
+          "jp": "リーさんは どこから きましたか。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "リーさんは どこから きましたか。"
+        },
+        {
+          "jp_furigana": "シンガポールから きました。",
+          "jp": "シンガポールから きました。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "シンガポールから きました。"
+        },
+        {
+          "jp_furigana": "いつ きましたか。",
+          "jp": "いつ きましたか。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "いつ きましたか。"
+        },
+        {
+          "jp_furigana": "7がつ12にちに きました。",
+          "jp": "7がつ12にちに きました。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "7がつ12にちに きました。"
+        },
+        {
+          "jp_furigana": "ああ、そうですか。いつ くにへ かえりますか。",
+          "jp": "ああ、そうですか。いつ くにへ かえりますか。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "ああ、そうですか。いつ くにへ かえりますか。"
+        },
+        {
+          "jp_furigana": "8がつ30にちに かえります。",
+          "jp": "8がつ30にちに かえります。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "8がつ30にちに かえります。"
+        },
+        {
+          "jp_furigana": "せんしゅう うえのへ いきました。",
+          "jp": "せんしゅう うえのへ いきました。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "せんしゅう うえのへ いきました。"
+        },
+        {
+          "jp_furigana": "だれと、いっしょに いきましたか。",
+          "jp": "だれと、いっしょに いきましたか。",
+          "romaji": "",
+          "es": "Diálogo: あおき",
+          "audioText": "だれと、いっしょに いきましたか。"
+        },
+        {
+          "jp_furigana": "ともだちと いっしょに いきました。",
+          "jp": "ともだちと いっしょに いきました。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "ともだちと いっしょに いきました。"
+        },
+        {
+          "jp_furigana": "なんで いきましたか。",
+          "jp": "なんで いきましたか。",
+          "romaji": "",
+          "es": "Diálogo: あおき",
+          "audioText": "なんで いきましたか。"
+        },
+        {
+          "jp_furigana": "ちかてつで いきました。",
+          "jp": "ちかてつで いきました。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "ちかてつで いきました。"
+        }
+      ],
+      "reading": {
+        "jp_furigana": "おの: リーさん、たんじょうびは いつですか。<br>リー: 5がつ30にちです。おのさんは。<br>おの: わたしの たんじょうびは 8がつ14かです。<br>リー: そうですか。らいげつですね。<br>マリア: らいしゅうの どようびに どこへ いきますか。<br>リー: よこはまへ いきます。マリアさんは。<br>マリア: わたしは どこへも いきません。<br>おの: リーさんは どこから きましたか。<br>リー: シンガポールから きました。<br>おの: いつ きましたか。<br>リー: 7がつ12にちに きました。<br>おの: ああ、そうですか。いつ くにへ かえりますか。<br>リー: 8がつ30にちに かえります。<br>リー: せんしゅう うえのへ いきました。<br>あおき: だれと、いっしょに いきましたか。<br>リー: ともだちと いっしょに いきました。<br>あおき: なんで いきましたか。<br>リー: ちかてつで いきました。<br>",
+        "jp": "おの: リーさん、たんじょうびは いつですか。\nリー: 5がつ30にちです。おのさんは。\nおの: わたしの たんじょうびは 8がつ14かです。\nリー: そうですか。らいげつですね。\nマリア: らいしゅうの どようびに どこへ いきますか。\nリー: よこはまへ いきます。マリアさんは。\nマリア: わたしは どこへも いきません。\nおの: リーさんは どこから きましたか。\nリー: シンガポールから きました。\nおの: いつ きましたか。\nリー: 7がつ12にちに きました。\nおの: ああ、そうですか。いつ くにへ かえりますか。\nリー: 8がつ30にちに かえります。\nリー: せんしゅう うえのへ いきました。\nあおき: だれと、いっしょに いきましたか。\nリー: ともだちと いっしょに いきました。\nあおき: なんで いきましたか。\nリー: ちかてつで いきました。\n",
+        "es": "Lee los diálogos anteriores para practicar.",
+        "audioText": "おの: リーさん、たんじょうびは いつですか。。リー: 5がつ30にちです。おのさんは。。おの: わたしの たんじょうびは 8がつ14かです。。リー: そうですか。らいげつですね。。マリア: らいしゅうの どようびに どこへ いきますか。。リー: よこはまへ いきます。マリアさんは。。マリア: わたしは どこへも いきません。。おの: リーさんは どこから きましたか。。リー: シンガポールから きました。。おの: いつ きましたか。。リー: 7がつ12にちに きました。。おの: ああ、そうですか。いつ くにへ かえりますか。。リー: 8がつ30にちに かえります。。リー: せんしゅう うえのへ いきました。。あおき: だれと、いっしょに いきましたか。。リー: ともだちと いっしょに いきました。。あおき: なんで いきましたか。。リー: ちかてつで いきました。。"
+      },
+      "grammarNotes": [
+        {
+          "title": "Notas de la lección",
+          "body": "Revisa las situaciones y cómo responder adecuadamente en cada contexto."
+        }
+      ],
+      "exercises": [
+        {
+          "type": "comprehension",
+          "question": "Hablan de las fechas de cumpleaños.<br><strong>Mi cumpleaños es el 14 de agosto.</strong>",
+          "options": [
+            {
+              "text": "よこはまへ いきます。",
+              "correct": false
+            },
+            {
+              "text": "7がつ12にちに きました。",
+              "correct": false
+            },
+            {
+              "text": "わたしの たんじょうびは 8がつ14かです。",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "type": "comprehension",
+          "question": "Hablan de planes para el sábado de la próxima semana.<br><strong>Voy a Yokohama.</strong>",
+          "options": [
+            {
+              "text": "7がつ12にちに きました。",
+              "correct": false
+            },
+            {
+              "text": "わたしの たんじょうびは 8がつ14かです。",
+              "correct": false
+            },
+            {
+              "text": "よこはまへ いきます。",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "type": "comprehension",
+          "question": "Hablan de cuándo Lee llegó a Japón.<br><strong>Vine el 12 de julio.</strong>",
+          "options": [
+            {
+              "text": "7がつ12にちに きました。",
+              "correct": true
+            },
+            {
+              "text": "よこはまへ いきます。",
+              "correct": false
+            },
+            {
+              "text": "わたしの たんじょうびは 8がつ14かです。",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "type": "comprehension",
+          "question": "Hablan de un viaje la semana pasada y cómo fue.<br><strong>Fui en metro.</strong>",
+          "options": [
+            {
+              "text": "わたしの たんじょうびは 8がつ14かです。",
+              "correct": false
+            },
+            {
+              "text": "",
+              "correct": true
+            },
+            {
+              "text": "7がつ12にちに きました。",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "L45",
+      "title": "Lección 45: 体調・健康・パーティー",
+      "goals": [
+        "Tema: あいさつ・健康・イベント",
+        "Practicar diálogos situacionales",
+        "Aprender expresiones clave"
+      ],
+      "vocabulary": [
+        {
+          "kanji": "いそがしいです。でも、たのしいです。",
+          "kana": "",
+          "romaji": "",
+          "es": "Estoy ocupado, pero es divertido.",
+          "audioText": "いそがしいです。でも、たのしいです。",
+          "explanation": "Hablan de cómo está la persona y de su vida diaria.",
+          "examples": []
+        },
+        {
+          "kanji": "あたまが いたいです。",
+          "kana": "",
+          "romaji": "",
+          "es": "Me duele la cabeza.",
+          "audioText": "あたまが いたいです。",
+          "explanation": "Hablan de un problema de salud y de cómo se siente la persona.",
+          "examples": []
+        }
+      ],
+      "phrases": [
+        {
+          "jp_furigana": "おげんきですか。",
+          "jp": "おげんきですか。",
+          "romaji": "",
+          "es": "Diálogo: A",
+          "audioText": "おげんきですか。"
+        },
+        {
+          "jp_furigana": "はい、げんきです。",
+          "jp": "はい、げんきです。",
+          "romaji": "",
+          "es": "Diálogo: B",
+          "audioText": "はい、げんきです。"
+        },
+        {
+          "jp_furigana": "まいにち いそがしいですか。",
+          "jp": "まいにち いそがしいですか。",
+          "romaji": "",
+          "es": "Diálogo: A",
+          "audioText": "まいにち いそがしいですか。"
+        },
+        {
+          "jp_furigana": "はい、いそがしいです。でも、たのしいです。",
+          "jp": "はい、いそがしいです。でも、たのしいです。",
+          "romaji": "",
+          "es": "Diálogo: B",
+          "audioText": "はい、いそがしいです。でも、たのしいです。"
+        },
+        {
+          "jp_furigana": "かおいろが わるいですね。どうしましたか。",
+          "jp": "かおいろが わるいですね。どうしましたか。",
+          "romaji": "",
+          "es": "Diálogo: A",
+          "audioText": "かおいろが わるいですね。どうしましたか。"
+        },
+        {
+          "jp_furigana": "あたまが いたいです。",
+          "jp": "あたまが いたいです。",
+          "romaji": "",
+          "es": "Diálogo: B",
+          "audioText": "あたまが いたいです。"
+        },
+        {
+          "jp_furigana": "ねつが ありますか。",
+          "jp": "ねつが ありますか。",
+          "romaji": "",
+          "es": "Diálogo: A",
+          "audioText": "ねつが ありますか。"
+        },
+        {
+          "jp_furigana": "はい、すこし あります。",
+          "jp": "はい、すこし あります。",
+          "romaji": "",
+          "es": "Diálogo: B",
+          "audioText": "はい、すこし あります。"
+        },
+        {
+          "jp_furigana": "だいじょうぶですか。",
+          "jp": "だいじょうぶですか。",
+          "romaji": "",
+          "es": "Diálogo: A",
+          "audioText": "だいじょうぶですか。"
+        },
+        {
+          "jp_furigana": "はい、だいじょうぶです。",
+          "jp": "はい、だいじょうぶです。",
+          "romaji": "",
+          "es": "Diálogo: B",
+          "audioText": "はい、だいじょうぶです。"
+        },
+        {
+          "jp_furigana": "どうぞ おだいじに。",
+          "jp": "どうぞ おだいじに。",
+          "romaji": "",
+          "es": "Diálogo: A",
+          "audioText": "どうぞ おだいじに。"
+        },
+        {
+          "jp_furigana": "ありがとうございます。",
+          "jp": "ありがとうございます。",
+          "romaji": "",
+          "es": "Diálogo: B",
+          "audioText": "ありがとうございます。"
+        },
+        {
+          "jp_furigana": "パーティーは どうでしたか。",
+          "jp": "パーティーは どうでしたか。",
+          "romaji": "",
+          "es": "Diálogo: A",
+          "audioText": "パーティーは どうでしたか。"
+        },
+        {
+          "jp_furigana": "とても にぎやかでした。そして、おもしろかったです。",
+          "jp": "とても にぎやかでした。そして、おもしろかったです。",
+          "romaji": "",
+          "es": "Diálogo: B",
+          "audioText": "とても にぎやかでした。そして、おもしろかったです。"
+        },
+        {
+          "jp_furigana": "それは よかったですね。（１）",
+          "jp": "それは よかったですね。（１）",
+          "romaji": "",
+          "es": "Diálogo: A",
+          "audioText": "それは よかったですね。（１）"
+        }
+      ],
+      "reading": {
+        "jp_furigana": "A: おげんきですか。<br>B: はい、げんきです。<br>A: まいにち いそがしいですか。<br>B: はい、いそがしいです。でも、たのしいです。<br>A: かおいろが わるいですね。どうしましたか。<br>B: あたまが いたいです。<br>A: ねつが ありますか。<br>B: はい、すこし あります。<br>A: だいじょうぶですか。<br>B: はい、だいじょうぶです。<br>A: どうぞ おだいじに。<br>B: ありがとうございます。<br>A: パーティーは どうでしたか。<br>B: とても にぎやかでした。そして、おもしろかったです。<br>A: それは よかったですね。（１）<br>",
+        "jp": "A: おげんきですか。\nB: はい、げんきです。\nA: まいにち いそがしいですか。\nB: はい、いそがしいです。でも、たのしいです。\nA: かおいろが わるいですね。どうしましたか。\nB: あたまが いたいです。\nA: ねつが ありますか。\nB: はい、すこし あります。\nA: だいじょうぶですか。\nB: はい、だいじょうぶです。\nA: どうぞ おだいじに。\nB: ありがとうございます。\nA: パーティーは どうでしたか。\nB: とても にぎやかでした。そして、おもしろかったです。\nA: それは よかったですね。（１）\n",
+        "es": "Lee los diálogos anteriores para practicar.",
+        "audioText": "A: おげんきですか。。B: はい、げんきです。。A: まいにち いそがしいですか。。B: はい、いそがしいです。でも、たのしいです。。A: かおいろが わるいですね。どうしましたか。。B: あたまが いたいです。。A: ねつが ありますか。。B: はい、すこし あります。。A: だいじょうぶですか。。B: はい、だいじょうぶです。。A: どうぞ おだいじに。。B: ありがとうございます。。A: パーティーは どうでしたか。。B: とても にぎやかでした。そして、おもしろかったです。。A: それは よかったですね。（１）。"
+      },
+      "grammarNotes": [
+        {
+          "title": "Notas de la lección",
+          "body": "Revisa las situaciones y cómo responder adecuadamente en cada contexto."
+        }
+      ],
+      "exercises": [
+        {
+          "type": "comprehension",
+          "question": "Hablan de cómo está la persona y de su vida diaria.<br><strong>Estoy ocupado, pero es divertido.</strong>",
+          "options": [
+            {
+              "text": "いそがしいです。でも、たのしいです。",
+              "correct": true
+            },
+            {
+              "text": "あたまが いたいです。",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "type": "comprehension",
+          "question": "Hablan de un problema de salud y de cómo se siente la persona.<br><strong>Me duele la cabeza.</strong>",
+          "options": [
+            {
+              "text": "あたまが いたいです。",
+              "correct": true
+            },
+            {
+              "text": "いそがしいです。でも、たのしいです。",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "type": "comprehension",
+          "question": "Hablan de cómo fue la fiesta.<br><strong>Fue muy animada y divertida.</strong>",
+          "options": [
+            {
+              "text": "あたまが いたいです。",
+              "correct": false
+            },
+            {
+              "text": "いそがしいです。でも、たのしいです。",
+              "correct": false
+            },
+            {
+              "text": "",
+              "correct": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "L45",
+      "title": "Lección 45: 明日の計画・朝のルーティン",
+      "goals": [
+        "Tema: 予定・朝の生活習慣",
+        "Practicar diálogos situacionales",
+        "Aprender expresiones clave"
+      ],
+      "vocabulary": [
+        {
+          "kanji": "えいがを みます。それから レストランで しょくじを します。",
+          "kana": "",
+          "romaji": "",
+          "es": "Veo una película y luego como en un restaurante.",
+          "audioText": "えいがを みます。それから レストランで しょくじを します。",
+          "explanation": "Hablan de los planes para mañana.",
+          "examples": []
+        }
+      ],
+      "phrases": [
+        {
+          "jp_furigana": "あしたは なにを しますか。",
+          "jp": "あしたは なにを しますか。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "あしたは なにを しますか。"
+        },
+        {
+          "jp_furigana": "えいがを みます。それから レストランで しょくじをします。",
+          "jp": "えいがを みます。それから レストランで しょくじをします。",
+          "romaji": "",
+          "es": "Diálogo: マリア",
+          "audioText": "えいがを みます。それから レストランで しょくじをします。"
+        },
+        {
+          "jp_furigana": "いいですね。",
+          "jp": "いいですね。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "いいですね。"
+        },
+        {
+          "jp_furigana": "いつも なんじごろ おきますか。",
+          "jp": "いつも なんじごろ おきますか。",
+          "romaji": "",
+          "es": "Diálogo: あおき",
+          "audioText": "いつも なんじごろ おきますか。"
+        },
+        {
+          "jp_furigana": "６じごろ おきます。",
+          "jp": "６じごろ おきます。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "６じごろ おきます。"
+        },
+        {
+          "jp_furigana": "はやいですね。",
+          "jp": "はやいですね。",
+          "romaji": "",
+          "es": "Diálogo: あおき",
+          "audioText": "はやいですね。"
+        },
+        {
+          "jp_furigana": "ええ、それから、さんぽします。 （１）",
+          "jp": "ええ、それから、さんぽします。 （１）",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "ええ、それから、さんぽします。 （１）"
+        }
+      ],
+      "reading": {
+        "jp_furigana": "リー: あしたは なにを しますか。<br>マリア: えいがを みます。それから レストランで しょくじをします。<br>リー: いいですね。<br>あおき: いつも なんじごろ おきますか。<br>リー: ６じごろ おきます。<br>あおき: はやいですね。<br>リー: ええ、それから、さんぽします。 （１）<br>",
+        "jp": "リー: あしたは なにを しますか。\nマリア: えいがを みます。それから レストランで しょくじをします。\nリー: いいですね。\nあおき: いつも なんじごろ おきますか。\nリー: ６じごろ おきます。\nあおき: はやいですね。\nリー: ええ、それから、さんぽします。 （１）\n",
+        "es": "Lee los diálogos anteriores para practicar.",
+        "audioText": "リー: あしたは なにを しますか。。マリア: えいがを みます。それから レストランで しょくじをします。。リー: いいですね。。あおき: いつも なんじごろ おきますか。。リー: ６じごろ おきます。。あおき: はやいですね。。リー: ええ、それから、さんぽします。 （１）。"
+      },
+      "grammarNotes": [
+        {
+          "title": "Notas de la lección",
+          "body": "Revisa las situaciones y cómo responder adecuadamente en cada contexto."
+        }
+      ],
+      "exercises": [
+        {
+          "type": "comprehension",
+          "question": "Hablan de los planes para mañana.<br><strong>Veo una película y luego como en un restaurante.</strong>",
+          "options": [
+            {
+              "text": "(Otra respuesta)",
+              "correct": false
+            },
+            {
+              "text": "えいがを みます。それから レストランで しょくじを します。",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "type": "comprehension",
+          "question": "Hablan de la rutina de la mañana.<br><strong>Me levanto alrededor de las seis.</strong>",
+          "options": [
+            {
+              "text": "えいがを みます。それから レストランで しょくじを します。",
+              "correct": false
+            },
+            {
+              "text": "",
+              "correct": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "L45",
+      "title": "Lección 45: 日本語の能力・趣味・日本料理",
+      "goals": [
+        "Tema: できる／趣味／食べもの",
+        "Practicar diálogos situacionales",
+        "Aprender expresiones clave"
+      ],
+      "vocabulary": [
+        {
+          "kanji": "かんじを かく ことが できません。",
+          "kana": "",
+          "romaji": "",
+          "es": "No puedo escribir kanji.",
+          "audioText": "かんじを かく ことが できません。",
+          "explanation": "Hablan de lo que Lee puede y no puede hacer con el japonés.",
+          "examples": []
+        },
+        {
+          "kanji": "ええ、わたしの くにの きっても あります。",
+          "kana": "",
+          "romaji": "",
+          "es": "Sí, hay sellos de mi país.",
+          "audioText": "ええ、わたしの くにの きっても あります。",
+          "explanation": "Hablan del pasatiempo de Ono y de sellos de otros países.",
+          "examples": []
+        }
+      ],
+      "phrases": [
+        {
+          "jp_furigana": "リーさんは ひらがなをかく ことが できますか。",
+          "jp": "リーさんは ひらがなをかく ことが できますか。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "リーさんは ひらがなをかく ことが できますか。"
+        },
+        {
+          "jp_furigana": "はい、できます。",
+          "jp": "はい、できます。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "はい、できます。"
+        },
+        {
+          "jp_furigana": "かんじも かく ことが できますか。",
+          "jp": "かんじも かく ことが できますか。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "かんじも かく ことが できますか。"
+        },
+        {
+          "jp_furigana": "いいえ、かく ことは できません。 でも、すこし よむ ことが できます。",
+          "jp": "いいえ、かく ことは できません。 でも、すこし よむ ことが できます。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "いいえ、かく ことは できません。 でも、すこし よむ ことが できます。"
+        },
+        {
+          "jp_furigana": "しゅみは なんですか。",
+          "jp": "しゅみは なんですか。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "しゅみは なんですか。"
+        },
+        {
+          "jp_furigana": "きってを あつめる ことです。",
+          "jp": "きってを あつめる ことです。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "きってを あつめる ことです。"
+        },
+        {
+          "jp_furigana": "ああ、そうですか。わたしの くにのきっても ありますか。",
+          "jp": "ああ、そうですか。わたしの くにのきっても ありますか。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "ああ、そうですか。わたしの くにのきっても ありますか。"
+        },
+        {
+          "jp_furigana": "ええ、ありますよ。",
+          "jp": "ええ、ありますよ。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "ええ、ありますよ。"
+        },
+        {
+          "jp_furigana": "にほんりょうりが すきですか。",
+          "jp": "にほんりょうりが すきですか。",
+          "romaji": "",
+          "es": "Diálogo: あおき",
+          "audioText": "にほんりょうりが すきですか。"
+        },
+        {
+          "jp_furigana": "はい、すきです。でも、さしみは たべる ことが できません。",
+          "jp": "はい、すきです。でも、さしみは たべる ことが できません。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "はい、すきです。でも、さしみは たべる ことが できません。"
+        },
+        {
+          "jp_furigana": "てんぷらは どうですか。",
+          "jp": "てんぷらは どうですか。",
+          "romaji": "",
+          "es": "Diálogo: あおき",
+          "audioText": "てんぷらは どうですか。"
+        },
+        {
+          "jp_furigana": "とても すきです。",
+          "jp": "とても すきです。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "とても すきです。"
+        }
+      ],
+      "reading": {
+        "jp_furigana": "おの: リーさんは ひらがなをかく ことが できますか。<br>リー: はい、できます。<br>おの: かんじも かく ことが できますか。<br>リー: いいえ、かく ことは できません。 でも、すこし よむ ことが できます。<br>リー: しゅみは なんですか。<br>おの: きってを あつめる ことです。<br>リー: ああ、そうですか。わたしの くにのきっても ありますか。<br>おの: ええ、ありますよ。<br>あおき: にほんりょうりが すきですか。<br>リー: はい、すきです。でも、さしみは たべる ことが できません。<br>あおき: てんぷらは どうですか。<br>リー: とても すきです。<br>",
+        "jp": "おの: リーさんは ひらがなをかく ことが できますか。\nリー: はい、できます。\nおの: かんじも かく ことが できますか。\nリー: いいえ、かく ことは できません。 でも、すこし よむ ことが できます。\nリー: しゅみは なんですか。\nおの: きってを あつめる ことです。\nリー: ああ、そうですか。わたしの くにのきっても ありますか。\nおの: ええ、ありますよ。\nあおき: にほんりょうりが すきですか。\nリー: はい、すきです。でも、さしみは たべる ことが できません。\nあおき: てんぷらは どうですか。\nリー: とても すきです。\n",
+        "es": "Lee los diálogos anteriores para practicar.",
+        "audioText": "おの: リーさんは ひらがなをかく ことが できますか。。リー: はい、できます。。おの: かんじも かく ことが できますか。。リー: いいえ、かく ことは できません。 でも、すこし よむ ことが できます。。リー: しゅみは なんですか。。おの: きってを あつめる ことです。。リー: ああ、そうですか。わたしの くにのきっても ありますか。。おの: ええ、ありますよ。。あおき: にほんりょうりが すきですか。。リー: はい、すきです。でも、さしみは たべる ことが できません。。あおき: てんぷらは どうですか。。リー: とても すきです。。"
+      },
+      "grammarNotes": [
+        {
+          "title": "Notas de la lección",
+          "body": "Revisa las situaciones y cómo responder adecuadamente en cada contexto."
+        }
+      ],
+      "exercises": [
+        {
+          "type": "comprehension",
+          "question": "Hablan de lo que Lee puede y no puede hacer con el japonés.<br><strong>No puedo escribir kanji.</strong>",
+          "options": [
+            {
+              "text": "ええ、わたしの くにの きっても あります。",
+              "correct": false
+            },
+            {
+              "text": "かんじを かく ことが できません。",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "type": "comprehension",
+          "question": "Hablan del pasatiempo de Ono y de sellos de otros países.<br><strong>Sí, hay sellos de mi país.</strong>",
+          "options": [
+            {
+              "text": "ええ、わたしの くにの きっても あります。",
+              "correct": true
+            },
+            {
+              "text": "かんじを かく ことが できません。",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "type": "comprehension",
+          "question": "Hablan de comida japonesa y de lo que le gusta a Lee.<br><strong>No puedo comer sashimi.</strong>",
+          "options": [
+            {
+              "text": "",
+              "correct": true
+            },
+            {
+              "text": "かんじを かく ことが できません。",
+              "correct": false
+            },
+            {
+              "text": "ええ、わたしの くにの きっても あります。",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "L45",
+      "title": "Lección 45: 辞書・住所・今どこ",
+      "goals": [
+        "Tema: 貸してください・しりません・〜ています",
+        "Practicar diálogos situacionales",
+        "Aprender expresiones clave"
+      ],
+      "vocabulary": [
+        {
+          "kanji": "すみません。じしょを ちょっと かしてください。",
+          "kana": "",
+          "romaji": "",
+          "es": "Por favor, présteme el diccionario un momento.",
+          "audioText": "すみません。じしょを ちょっと かしてください。",
+          "explanation": "Lee olvidó su diccionario y pide que se lo presten un momento.",
+          "examples": []
+        },
+        {
+          "kanji": "しりません。",
+          "kana": "",
+          "romaji": "",
+          "es": "No lo sé.",
+          "audioText": "しりません。",
+          "explanation": "Ono pregunta si Lee sabe la dirección de María.",
+          "examples": []
+        }
+      ],
+      "phrases": [
+        {
+          "jp_furigana": "じしょを わすれました。すみません。ちょっと かしてください。",
+          "jp": "じしょを わすれました。すみません。ちょっと かしてください。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "じしょを わすれました。すみません。ちょっと かしてください。"
+        },
+        {
+          "jp_furigana": "はい、どうぞ。",
+          "jp": "はい、どうぞ。",
+          "romaji": "",
+          "es": "Diálogo: マリア",
+          "audioText": "はい、どうぞ。"
+        },
+        {
+          "jp_furigana": "マリアさんの じゅうしょを しっていますか。",
+          "jp": "マリアさんの じゅうしょを しっていますか。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "マリアさんの じゅうしょを しっていますか。"
+        },
+        {
+          "jp_furigana": "いいえ、しりません。あおきさんに きいてください。",
+          "jp": "いいえ、しりません。あおきさんに きいてください。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "いいえ、しりません。あおきさんに きいてください。"
+        },
+        {
+          "jp_furigana": "はい。",
+          "jp": "はい。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "はい。"
+        },
+        {
+          "jp_furigana": "リーさんは いますか。",
+          "jp": "リーさんは いますか。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "リーさんは いますか。"
+        },
+        {
+          "jp_furigana": "ええ、いますよ。いま きょうしつで ともだちと はなしています。",
+          "jp": "ええ、いますよ。いま きょうしつで ともだちと はなしています。",
+          "romaji": "",
+          "es": "Diálogo: あおき",
+          "audioText": "ええ、いますよ。いま きょうしつで ともだちと はなしています。"
+        },
+        {
+          "jp_furigana": "マリアさんは。",
+          "jp": "マリアさんは。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "マリアさんは。"
+        },
+        {
+          "jp_furigana": "マリアさんは あそこで しんぶんを よんでいます。",
+          "jp": "マリアさんは あそこで しんぶんを よんでいます。",
+          "romaji": "",
+          "es": "Diálogo: あおき",
+          "audioText": "マリアさんは あそこで しんぶんを よんでいます。"
+        }
+      ],
+      "reading": {
+        "jp_furigana": "リー: じしょを わすれました。すみません。ちょっと かしてください。<br>マリア: はい、どうぞ。<br>おの: マリアさんの じゅうしょを しっていますか。<br>リー: いいえ、しりません。あおきさんに きいてください。<br>おの: はい。<br>おの: リーさんは いますか。<br>あおき: ええ、いますよ。いま きょうしつで ともだちと はなしています。<br>おの: マリアさんは。<br>あおき: マリアさんは あそこで しんぶんを よんでいます。<br>",
+        "jp": "リー: じしょを わすれました。すみません。ちょっと かしてください。\nマリア: はい、どうぞ。\nおの: マリアさんの じゅうしょを しっていますか。\nリー: いいえ、しりません。あおきさんに きいてください。\nおの: はい。\nおの: リーさんは いますか。\nあおき: ええ、いますよ。いま きょうしつで ともだちと はなしています。\nおの: マリアさんは。\nあおき: マリアさんは あそこで しんぶんを よんでいます。\n",
+        "es": "Lee los diálogos anteriores para practicar.",
+        "audioText": "リー: じしょを わすれました。すみません。ちょっと かしてください。。マリア: はい、どうぞ。。おの: マリアさんの じゅうしょを しっていますか。。リー: いいえ、しりません。あおきさんに きいてください。。おの: はい。。おの: リーさんは いますか。。あおき: ええ、いますよ。いま きょうしつで ともだちと はなしています。。おの: マリアさんは。。あおき: マリアさんは あそこで しんぶんを よんでいます。。"
+      },
+      "grammarNotes": [
+        {
+          "title": "Notas de la lección",
+          "body": "Revisa las situaciones y cómo responder adecuadamente en cada contexto."
+        }
+      ],
+      "exercises": [
+        {
+          "type": "comprehension",
+          "question": "Lee olvidó su diccionario y pide que se lo presten un momento.<br><strong>Por favor, présteme el diccionario un momento.</strong>",
+          "options": [
+            {
+              "text": "すみません。じしょを ちょっと かしてください。",
+              "correct": true
+            },
+            {
+              "text": "しりません。",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "type": "comprehension",
+          "question": "Ono pregunta si Lee sabe la dirección de María.<br><strong>No lo sé.</strong>",
+          "options": [
+            {
+              "text": "しりません。",
+              "correct": true
+            },
+            {
+              "text": "すみません。じしょを ちょっと かしてください。",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "type": "comprehension",
+          "question": "Preguntan dónde están Lee y María ahora.<br><strong>Está leyendo el periódico allí.</strong>",
+          "options": [
+            {
+              "text": "しりません。",
+              "correct": false
+            },
+            {
+              "text": "",
+              "correct": true
+            },
+            {
+              "text": "すみません。じしょを ちょっと かしてください。",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "L45",
+      "title": "Lección 45: カメラの希望・夏休みの計画",
+      "goals": [
+        "Tema: ほしい／〜たい（希望）",
+        "Practicar diálogos situacionales",
+        "Aprender expresiones clave"
+      ],
+      "vocabulary": [
+        {
+          "kanji": "ちいさい カメラが ほしいです。",
+          "kana": "",
+          "romaji": "",
+          "es": "Quiero una cámara pequeña.",
+          "audioText": "ちいさい カメラが ほしいです。",
+          "explanation": "Aoki pregunta qué tipo de cámara quiere Lee.",
+          "examples": []
+        }
+      ],
+      "phrases": [
+        {
+          "jp_furigana": "リーさん、どんな カメラが ほしいですか。",
+          "jp": "リーさん、どんな カメラが ほしいですか。",
+          "romaji": "",
+          "es": "Diálogo: あおき",
+          "audioText": "リーさん、どんな カメラが ほしいですか。"
+        },
+        {
+          "jp_furigana": "ちいさい カメラが ほしいです。",
+          "jp": "ちいさい カメラが ほしいです。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "ちいさい カメラが ほしいです。"
+        },
+        {
+          "jp_furigana": "じゃ、これは どうですか。",
+          "jp": "じゃ、これは どうですか。",
+          "romaji": "",
+          "es": "Diálogo: あおき",
+          "audioText": "じゃ、これは どうですか。"
+        },
+        {
+          "jp_furigana": "これは いいですね。",
+          "jp": "これは いいですね。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "これは いいですね。"
+        },
+        {
+          "jp_furigana": "なつやすみに なにを したいですか。",
+          "jp": "なつやすみに なにを したいですか。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "なつやすみに なにを したいですか。"
+        },
+        {
+          "jp_furigana": "きょうとへ いきたいです。きょうとで ふるい おてらを みたいです。おのさんは。",
+          "jp": "きょうとへ いきたいです。きょうとで ふるい おてらを みたいです。おのさんは。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "きょうとへ いきたいです。きょうとで ふるい おてらを みたいです。おのさんは。"
+        },
+        {
+          "jp_furigana": "わたしは アルバイトを したいです。",
+          "jp": "わたしは アルバイトを したいです。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "わたしは アルバイトを したいです。"
+        }
+      ],
+      "reading": {
+        "jp_furigana": "あおき: リーさん、どんな カメラが ほしいですか。<br>リー: ちいさい カメラが ほしいです。<br>あおき: じゃ、これは どうですか。<br>リー: これは いいですね。<br>おの: なつやすみに なにを したいですか。<br>リー: きょうとへ いきたいです。きょうとで ふるい おてらを みたいです。おのさんは。<br>おの: わたしは アルバイトを したいです。<br>",
+        "jp": "あおき: リーさん、どんな カメラが ほしいですか。\nリー: ちいさい カメラが ほしいです。\nあおき: じゃ、これは どうですか。\nリー: これは いいですね。\nおの: なつやすみに なにを したいですか。\nリー: きょうとへ いきたいです。きょうとで ふるい おてらを みたいです。おのさんは。\nおの: わたしは アルバイトを したいです。\n",
+        "es": "Lee los diálogos anteriores para practicar.",
+        "audioText": "あおき: リーさん、どんな カメラが ほしいですか。。リー: ちいさい カメラが ほしいです。。あおき: じゃ、これは どうですか。。リー: これは いいですね。。おの: なつやすみに なにを したいですか。。リー: きょうとへ いきたいです。きょうとで ふるい おてらを みたいです。おのさんは。。おの: わたしは アルバイトを したいです。。"
+      },
+      "grammarNotes": [
+        {
+          "title": "Notas de la lección",
+          "body": "Revisa las situaciones y cómo responder adecuadamente en cada contexto."
+        }
+      ],
+      "exercises": [
+        {
+          "type": "comprehension",
+          "question": "Aoki pregunta qué tipo de cámara quiere Lee.<br><strong>Quiero una cámara pequeña.</strong>",
+          "options": [
+            {
+              "text": "ちいさい カメラが ほしいです。",
+              "correct": true
+            },
+            {
+              "text": "(Otra respuesta)",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "type": "comprehension",
+          "question": "Hablan de lo que quieren hacer en las vacaciones de verano.<br><strong>Quiero ir a Kioto.</strong>",
+          "options": [
+            {
+              "text": "ちいさい カメラが ほしいです。",
+              "correct": false
+            },
+            {
+              "text": "",
+              "correct": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "L45",
+      "title": "Lección 45: 許可・ごみ・プレゼント",
+      "goals": [
+        "Tema: 〜てもいいですか・捨てないで・あげます",
+        "Practicar diálogos situacionales",
+        "Aprender expresiones clave"
+      ],
+      "vocabulary": [
+        {
+          "kanji": "いいえ、だめです。",
+          "kana": "",
+          "romaji": "",
+          "es": "No, no está bien.",
+          "audioText": "いいえ、だめです。",
+          "explanation": "Una persona quiere sentarse allí, pero no puede porque viene un amigo.",
+          "examples": []
+        },
+        {
+          "kanji": "カンの ごみばこは きょうしつの そとに ありますから。",
+          "kana": "",
+          "romaji": "",
+          "es": "Porque el basurero de latas está fuera del aula.",
+          "audioText": "カンの ごみばこは きょうしつの そとに ありますから。",
+          "explanation": "Explican por qué no se pueden tirar latas aquí.",
+          "examples": []
+        }
+      ],
+      "phrases": [
+        {
+          "jp_furigana": "すみません。そこに すわっても いいですか。",
+          "jp": "すみません。そこに すわっても いいですか。",
+          "romaji": "",
+          "es": "Diálogo: A",
+          "audioText": "すみません。そこに すわっても いいですか。"
+        },
+        {
+          "jp_furigana": "ここは ちょっと ..もうすぐ ともだちが きますから。",
+          "jp": "ここは ちょっと ..もうすぐ ともだちが きますから。",
+          "romaji": "",
+          "es": "Diálogo: B",
+          "audioText": "ここは ちょっと ..もうすぐ ともだちが きますから。"
+        },
+        {
+          "jp_furigana": "あ、そうですか。",
+          "jp": "あ、そうですか。",
+          "romaji": "",
+          "es": "Diálogo: A",
+          "audioText": "あ、そうですか。"
+        },
+        {
+          "jp_furigana": "あ、すみません。ここに カンを すてないでください。",
+          "jp": "あ、すみません。ここに カンを すてないでください。",
+          "romaji": "",
+          "es": "Diálogo: A",
+          "audioText": "あ、すみません。ここに カンを すてないでください。"
+        },
+        {
+          "jp_furigana": "どうしてですか。",
+          "jp": "どうしてですか。",
+          "romaji": "",
+          "es": "Diálogo: B",
+          "audioText": "どうしてですか。"
+        },
+        {
+          "jp_furigana": "カンの ごみばこは きょうしつの そとに ありますから。",
+          "jp": "カンの ごみばこは きょうしつの そとに ありますから。",
+          "romaji": "",
+          "es": "Diálogo: A",
+          "audioText": "カンの ごみばこは きょうしつの そとに ありますから。"
+        },
+        {
+          "jp_furigana": "あ、そうですか。わかりました。",
+          "jp": "あ、そうですか。わかりました。",
+          "romaji": "",
+          "es": "Diálogo: B",
+          "audioText": "あ、そうですか。わかりました。"
+        },
+        {
+          "jp_furigana": "マリアさん、にほんの えいがを みたいですか。",
+          "jp": "マリアさん、にほんの えいがを みたいですか。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "マリアさん、にほんの えいがを みたいですか。"
+        },
+        {
+          "jp_furigana": "ええ。",
+          "jp": "ええ。",
+          "romaji": "",
+          "es": "Diálogo: マリア",
+          "audioText": "ええ。"
+        },
+        {
+          "jp_furigana": "じゃ、これを どうぞ。",
+          "jp": "じゃ、これを どうぞ。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "じゃ、これを どうぞ。"
+        },
+        {
+          "jp_furigana": "えいがの きっぷですね。いくらですか。",
+          "jp": "えいがの きっぷですね。いくらですか。",
+          "romaji": "",
+          "es": "Diálogo: マリア",
+          "audioText": "えいがの きっぷですね。いくらですか。"
+        },
+        {
+          "jp_furigana": "それは マリアさんに あげます。",
+          "jp": "それは マリアさんに あげます。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "それは マリアさんに あげます。"
+        },
+        {
+          "jp_furigana": "えっ、もらっても いいですか。",
+          "jp": "えっ、もらっても いいですか。",
+          "romaji": "",
+          "es": "Diálogo: マリア",
+          "audioText": "えっ、もらっても いいですか。"
+        },
+        {
+          "jp_furigana": "ええ。",
+          "jp": "ええ。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "ええ。"
+        },
+        {
+          "jp_furigana": "ありがとうございます。",
+          "jp": "ありがとうございます。",
+          "romaji": "",
+          "es": "Diálogo: マリア",
+          "audioText": "ありがとうございます。"
+        }
+      ],
+      "reading": {
+        "jp_furigana": "A: すみません。そこに すわっても いいですか。<br>B: ここは ちょっと ..もうすぐ ともだちが きますから。<br>A: あ、そうですか。<br>A: あ、すみません。ここに カンを すてないでください。<br>B: どうしてですか。<br>A: カンの ごみばこは きょうしつの そとに ありますから。<br>B: あ、そうですか。わかりました。<br>リー: マリアさん、にほんの えいがを みたいですか。<br>マリア: ええ。<br>リー: じゃ、これを どうぞ。<br>マリア: えいがの きっぷですね。いくらですか。<br>リー: それは マリアさんに あげます。<br>マリア: えっ、もらっても いいですか。<br>リー: ええ。<br>マリア: ありがとうございます。<br>",
+        "jp": "A: すみません。そこに すわっても いいですか。\nB: ここは ちょっと ..もうすぐ ともだちが きますから。\nA: あ、そうですか。\nA: あ、すみません。ここに カンを すてないでください。\nB: どうしてですか。\nA: カンの ごみばこは きょうしつの そとに ありますから。\nB: あ、そうですか。わかりました。\nリー: マリアさん、にほんの えいがを みたいですか。\nマリア: ええ。\nリー: じゃ、これを どうぞ。\nマリア: えいがの きっぷですね。いくらですか。\nリー: それは マリアさんに あげます。\nマリア: えっ、もらっても いいですか。\nリー: ええ。\nマリア: ありがとうございます。\n",
+        "es": "Lee los diálogos anteriores para practicar.",
+        "audioText": "A: すみません。そこに すわっても いいですか。。B: ここは ちょっと ..もうすぐ ともだちが きますから。。A: あ、そうですか。。A: あ、すみません。ここに カンを すてないでください。。B: どうしてですか。。A: カンの ごみばこは きょうしつの そとに ありますから。。B: あ、そうですか。わかりました。。リー: マリアさん、にほんの えいがを みたいですか。。マリア: ええ。。リー: じゃ、これを どうぞ。。マリア: えいがの きっぷですね。いくらですか。。リー: それは マリアさんに あげます。。マリア: えっ、もらっても いいですか。。リー: ええ。。マリア: ありがとうございます。。"
+      },
+      "grammarNotes": [
+        {
+          "title": "Notas de la lección",
+          "body": "Revisa las situaciones y cómo responder adecuadamente en cada contexto."
+        }
+      ],
+      "exercises": [
+        {
+          "type": "comprehension",
+          "question": "Una persona quiere sentarse allí, pero no puede porque viene un amigo.<br><strong>No, no está bien.</strong>",
+          "options": [
+            {
+              "text": "カンの ごみばこは きょうしつの そとに ありますから。",
+              "correct": false
+            },
+            {
+              "text": "いいえ、だめです。",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "type": "comprehension",
+          "question": "Explican por qué no se pueden tirar latas aquí.<br><strong>Porque el basurero de latas está fuera del aula.</strong>",
+          "options": [
+            {
+              "text": "いいえ、だめです。",
+              "correct": false
+            },
+            {
+              "text": "カンの ごみばこは きょうしつの そとに ありますから。",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "type": "comprehension",
+          "question": "Lee le da a María una entrada de cine como regalo.<br><strong>Te lo doy.</strong>",
+          "options": [
+            {
+              "text": "",
+              "correct": true
+            },
+            {
+              "text": "いいえ、だめです。",
+              "correct": false
+            },
+            {
+              "text": "カンの ごみばこは きょうしつの そとに ありますから。",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "L45",
+      "title": "Lección 45: 電話連絡・約束・パーティー開始",
+      "goals": [
+        "Tema: でんわします・あいましょう・〜からです",
+        "Practicar diálogos situacionales",
+        "Aprender expresiones clave"
+      ],
+      "vocabulary": [
+        {
+          "kanji": "じゃ、また でんわを します。",
+          "kana": "",
+          "romaji": "",
+          "es": "Entonces, llamaré otra vez。",
+          "audioText": "じゃ、また でんわを します。",
+          "explanation": "Lee llama por teléfono a Ono, pero Ono no está ahora.",
+          "examples": []
+        },
+        {
+          "kanji": "3じに あさくさえきで あいましょう。",
+          "kana": "",
+          "romaji": "",
+          "es": "Quedemos a las tres en la estación de Asakusa。",
+          "audioText": "3じに あさくさえきで あいましょう。",
+          "explanation": "Hablan de quedar para ir a un festival en Asakusa.",
+          "examples": []
+        }
+      ],
+      "phrases": [
+        {
+          "jp_furigana": "もしもし。リーです。おのさんは いらっしゃいますか。",
+          "jp": "もしもし。リーです。おのさんは いらっしゃいますか。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "もしもし。リーです。おのさんは いらっしゃいますか。"
+        },
+        {
+          "jp_furigana": "いま、いません。",
+          "jp": "いま、いません。",
+          "romaji": "",
+          "es": "Diálogo: おのさんのおかあさん",
+          "audioText": "いま、いません。"
+        },
+        {
+          "jp_furigana": "あ、そうですか。じゃ、また でんわを します。",
+          "jp": "あ、そうですか。じゃ、また でんわを します。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "あ、そうですか。じゃ、また でんわを します。"
+        },
+        {
+          "jp_furigana": "あした あさくさへ おまつりを みに いきませんか。",
+          "jp": "あした あさくさへ おまつりを みに いきませんか。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "あした あさくさへ おまつりを みに いきませんか。"
+        },
+        {
+          "jp_furigana": "いいですね。どこで、あいましょうか。",
+          "jp": "いいですね。どこで、あいましょうか。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "いいですね。どこで、あいましょうか。"
+        },
+        {
+          "jp_furigana": "あさくさえきは どうですか。",
+          "jp": "あさくさえきは どうですか。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "あさくさえきは どうですか。"
+        },
+        {
+          "jp_furigana": "はい、なんじが いいですか。",
+          "jp": "はい、なんじが いいですか。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "はい、なんじが いいですか。"
+        },
+        {
+          "jp_furigana": "3じは どうですか。",
+          "jp": "3じは どうですか。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "3じは どうですか。"
+        },
+        {
+          "jp_furigana": "はい。じゃ、3じに あさくさえきで あいましょう。",
+          "jp": "はい。じゃ、3じに あさくさえきで あいましょう。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "はい。じゃ、3じに あさくさえきで あいましょう。"
+        },
+        {
+          "jp_furigana": "かようびに パーティーが あります。",
+          "jp": "かようびに パーティーが あります。",
+          "romaji": "",
+          "es": "Diálogo: あおき",
+          "audioText": "かようびに パーティーが あります。"
+        },
+        {
+          "jp_furigana": "どこで ありますか。",
+          "jp": "どこで ありますか。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "どこで ありますか。"
+        },
+        {
+          "jp_furigana": "さくらレストランで あります。",
+          "jp": "さくらレストランで あります。",
+          "romaji": "",
+          "es": "Diálogo: あおき",
+          "audioText": "さくらレストランで あります。"
+        },
+        {
+          "jp_furigana": "なんじから ですか。",
+          "jp": "なんじから ですか。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "なんじから ですか。"
+        },
+        {
+          "jp_furigana": "6じからです。",
+          "jp": "6じからです。",
+          "romaji": "",
+          "es": "Diálogo: あおき",
+          "audioText": "6じからです。"
+        },
+        {
+          "jp_furigana": "わかりました。",
+          "jp": "わかりました。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "わかりました。"
+        }
+      ],
+      "reading": {
+        "jp_furigana": "リー: もしもし。リーです。おのさんは いらっしゃいますか。<br>おのさんのおかあさん: いま、いません。<br>リー: あ、そうですか。じゃ、また でんわを します。<br>リー: あした あさくさへ おまつりを みに いきませんか。<br>おの: いいですね。どこで、あいましょうか。<br>リー: あさくさえきは どうですか。<br>おの: はい、なんじが いいですか。<br>リー: 3じは どうですか。<br>おの: はい。じゃ、3じに あさくさえきで あいましょう。<br>あおき: かようびに パーティーが あります。<br>リー: どこで ありますか。<br>あおき: さくらレストランで あります。<br>リー: なんじから ですか。<br>あおき: 6じからです。<br>リー: わかりました。<br>",
+        "jp": "リー: もしもし。リーです。おのさんは いらっしゃいますか。\nおのさんのおかあさん: いま、いません。\nリー: あ、そうですか。じゃ、また でんわを します。\nリー: あした あさくさへ おまつりを みに いきませんか。\nおの: いいですね。どこで、あいましょうか。\nリー: あさくさえきは どうですか。\nおの: はい、なんじが いいですか。\nリー: 3じは どうですか。\nおの: はい。じゃ、3じに あさくさえきで あいましょう。\nあおき: かようびに パーティーが あります。\nリー: どこで ありますか。\nあおき: さくらレストランで あります。\nリー: なんじから ですか。\nあおき: 6じからです。\nリー: わかりました。\n",
+        "es": "Lee los diálogos anteriores para practicar.",
+        "audioText": "リー: もしもし。リーです。おのさんは いらっしゃいますか。。おのさんのおかあさん: いま、いません。。リー: あ、そうですか。じゃ、また でんわを します。。リー: あした あさくさへ おまつりを みに いきませんか。。おの: いいですね。どこで、あいましょうか。。リー: あさくさえきは どうですか。。おの: はい、なんじが いいですか。。リー: 3じは どうですか。。おの: はい。じゃ、3じに あさくさえきで あいましょう。。あおき: かようびに パーティーが あります。。リー: どこで ありますか。。あおき: さくらレストランで あります。。リー: なんじから ですか。。あおき: 6じからです。。リー: わかりました。。"
+      },
+      "grammarNotes": [
+        {
+          "title": "Notas de la lección",
+          "body": "Revisa las situaciones y cómo responder adecuadamente en cada contexto."
+        }
+      ],
+      "exercises": [
+        {
+          "type": "comprehension",
+          "question": "Lee llama por teléfono a Ono, pero Ono no está ahora.<br><strong>Entonces, llamaré otra vez。</strong>",
+          "options": [
+            {
+              "text": "3じに あさくさえきで あいましょう。",
+              "correct": false
+            },
+            {
+              "text": "じゃ、また でんわを します。",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "type": "comprehension",
+          "question": "Hablan de quedar para ir a un festival en Asakusa.<br><strong>Quedemos a las tres en la estación de Asakusa。</strong>",
+          "options": [
+            {
+              "text": "じゃ、また でんわを します。",
+              "correct": false
+            },
+            {
+              "text": "3じに あさくさえきで あいましょう。",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "type": "comprehension",
+          "question": "Aoki explica cuándo empieza la fiesta.<br><strong>Empieza a las seis。</strong>",
+          "options": [
+            {
+              "text": "",
+              "correct": true
+            },
+            {
+              "text": "3じに あさくさえきで あいましょう。",
+              "correct": false
+            },
+            {
+              "text": "じゃ、また でんわを します。",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "L45",
+      "title": "Lección 45: 東京比較・交通・日本料理・誘い",
+      "goals": [
+        "Tema: より・ほうが・いちばん・〜ましょう",
+        "Practicar diálogos situacionales",
+        "Aprender expresiones clave"
+      ],
+      "vocabulary": [
+        {
+          "kanji": "こうつうが べんりです。",
+          "kana": "",
+          "romaji": "",
+          "es": "El transporte es conveniente.",
+          "audioText": "こうつうが べんりです。",
+          "explanation": "Hablan de cómo es Tokio comparado con el país de Lee.",
+          "examples": []
+        },
+        {
+          "kanji": "ちかてつの ほうが はやいです。",
+          "kana": "",
+          "romaji": "",
+          "es": "El metro es más rápido.",
+          "audioText": "ちかてつの ほうが はやいです。",
+          "explanation": "Preguntan cuál es más rápido para ir a Ginza.",
+          "examples": []
+        },
+        {
+          "kanji": "てんぷらが いちばん すきです。",
+          "kana": "",
+          "romaji": "",
+          "es": "Lo que más me gusta es la tempura.",
+          "audioText": "てんぷらが いちばん すきです。",
+          "explanation": "Hablan de comida japonesa y de cuál le gusta más.",
+          "examples": []
+        }
+      ],
+      "phrases": [
+        {
+          "jp_furigana": "リーさん、とうきょうは どうですか。",
+          "jp": "リーさん、とうきょうは どうですか。",
+          "romaji": "",
+          "es": "Diálogo: あおき",
+          "audioText": "リーさん、とうきょうは どうですか。"
+        },
+        {
+          "jp_furigana": "そうですね。とうきょうは わたしの くにより ぶっかが たかいです。 でも、こうつうが べんりです。",
+          "jp": "そうですね。とうきょうは わたしの くにより ぶっかが たかいです。 でも、こうつうが べんりです。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "そうですね。とうきょうは わたしの くにより ぶっかが たかいです。 でも、こうつうが べんりです。"
+        },
+        {
+          "jp_furigana": "ここから ぎんざまで ちかてつと バスと どっちが はやいですか。",
+          "jp": "ここから ぎんざまで ちかてつと バスと どっちが はやいですか。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "ここから ぎんざまで ちかてつと バスと どっちが はやいですか。"
+        },
+        {
+          "jp_furigana": "ちかてつの ほうが はやいですよ。",
+          "jp": "ちかてつの ほうが はやいですよ。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "ちかてつの ほうが はやいですよ。"
+        },
+        {
+          "jp_furigana": "じゃ、ちかてつで いきます。",
+          "jp": "じゃ、ちかてつで いきます。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "じゃ、ちかてつで いきます。"
+        },
+        {
+          "jp_furigana": "にほんりょうりが すきですか。",
+          "jp": "にほんりょうりが すきですか。",
+          "romaji": "",
+          "es": "Diálogo: マリア",
+          "audioText": "にほんりょうりが すきですか。"
+        },
+        {
+          "jp_furigana": "はい、すきです。",
+          "jp": "はい、すきです。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "はい、すきです。"
+        },
+        {
+          "jp_furigana": "にほんりょうりでは なにが いちばん すきですか。",
+          "jp": "にほんりょうりでは なにが いちばん すきですか。",
+          "romaji": "",
+          "es": "Diálogo: マリア",
+          "audioText": "にほんりょうりでは なにが いちばん すきですか。"
+        },
+        {
+          "jp_furigana": "てんぷらが いちばん すきです。",
+          "jp": "てんぷらが いちばん すきです。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "てんぷらが いちばん すきです。"
+        },
+        {
+          "jp_furigana": "ひるごはんは もう たべましたか。",
+          "jp": "ひるごはんは もう たべましたか。",
+          "romaji": "",
+          "es": "Diálogo: マリア",
+          "audioText": "ひるごはんは もう たべましたか。"
+        },
+        {
+          "jp_furigana": "いいえ、まだです。",
+          "jp": "いいえ、まだです。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "いいえ、まだです。"
+        },
+        {
+          "jp_furigana": "じゃ、いっしょに たべましょう。",
+          "jp": "じゃ、いっしょに たべましょう。",
+          "romaji": "",
+          "es": "Diálogo: マリア",
+          "audioText": "じゃ、いっしょに たべましょう。"
+        },
+        {
+          "jp_furigana": "はい。",
+          "jp": "はい。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "はい。"
+        }
+      ],
+      "reading": {
+        "jp_furigana": "あおき: リーさん、とうきょうは どうですか。<br>リー: そうですね。とうきょうは わたしの くにより ぶっかが たかいです。 でも、こうつうが べんりです。<br>リー: ここから ぎんざまで ちかてつと バスと どっちが はやいですか。<br>おの: ちかてつの ほうが はやいですよ。<br>リー: じゃ、ちかてつで いきます。<br>マリア: にほんりょうりが すきですか。<br>リー: はい、すきです。<br>マリア: にほんりょうりでは なにが いちばん すきですか。<br>リー: てんぷらが いちばん すきです。<br>マリア: ひるごはんは もう たべましたか。<br>リー: いいえ、まだです。<br>マリア: じゃ、いっしょに たべましょう。<br>リー: はい。<br>",
+        "jp": "あおき: リーさん、とうきょうは どうですか。\nリー: そうですね。とうきょうは わたしの くにより ぶっかが たかいです。 でも、こうつうが べんりです。\nリー: ここから ぎんざまで ちかてつと バスと どっちが はやいですか。\nおの: ちかてつの ほうが はやいですよ。\nリー: じゃ、ちかてつで いきます。\nマリア: にほんりょうりが すきですか。\nリー: はい、すきです。\nマリア: にほんりょうりでは なにが いちばん すきですか。\nリー: てんぷらが いちばん すきです。\nマリア: ひるごはんは もう たべましたか。\nリー: いいえ、まだです。\nマリア: じゃ、いっしょに たべましょう。\nリー: はい。\n",
+        "es": "Lee los diálogos anteriores para practicar.",
+        "audioText": "あおき: リーさん、とうきょうは どうですか。。リー: そうですね。とうきょうは わたしの くにより ぶっかが たかいです。 でも、こうつうが べんりです。。リー: ここから ぎんざまで ちかてつと バスと どっちが はやいですか。。おの: ちかてつの ほうが はやいですよ。。リー: じゃ、ちかてつで いきます。。マリア: にほんりょうりが すきですか。。リー: はい、すきです。。マリア: にほんりょうりでは なにが いちばん すきですか。。リー: てんぷらが いちばん すきです。。マリア: ひるごはんは もう たべましたか。。リー: いいえ、まだです。。マリア: じゃ、いっしょに たべましょう。。リー: はい。。"
+      },
+      "grammarNotes": [
+        {
+          "title": "Notas de la lección",
+          "body": "Revisa las situaciones y cómo responder adecuadamente en cada contexto."
+        }
+      ],
+      "exercises": [
+        {
+          "type": "comprehension",
+          "question": "Hablan de cómo es Tokio comparado con el país de Lee.<br><strong>El transporte es conveniente.</strong>",
+          "options": [
+            {
+              "text": "てんぷらが いちばん すきです。",
+              "correct": false
+            },
+            {
+              "text": "ちかてつの ほうが はやいです。",
+              "correct": false
+            },
+            {
+              "text": "こうつうが べんりです。",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "type": "comprehension",
+          "question": "Preguntan cuál es más rápido para ir a Ginza.<br><strong>El metro es más rápido.</strong>",
+          "options": [
+            {
+              "text": "こうつうが べんりです。",
+              "correct": false
+            },
+            {
+              "text": "ちかてつの ほうが はやいです。",
+              "correct": true
+            },
+            {
+              "text": "てんぷらが いちばん すきです。",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "type": "comprehension",
+          "question": "Hablan de comida japonesa y de cuál le gusta más.<br><strong>Lo que más me gusta es la tempura.</strong>",
+          "options": [
+            {
+              "text": "こうつうが べんりです。",
+              "correct": false
+            },
+            {
+              "text": "てんぷらが いちばん すきです。",
+              "correct": true
+            },
+            {
+              "text": "ちかてつの ほうが はやいです。",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "type": "comprehension",
+          "question": "Invitan a comer juntos porque aún no han comido.<br><strong>Comamos juntos.</strong>",
+          "options": [
+            {
+              "text": "こうつうが べんりです。",
+              "correct": false
+            },
+            {
+              "text": "",
+              "correct": true
+            },
+            {
+              "text": "てんぷらが いちばん すきです。",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "L45",
+      "title": "Lección 45: 海・意見・帰国前感想・別れ",
+      "goals": [
+        "Tema: 〜たい・と思います・過去・挨拶",
+        "Practicar diálogos situacionales",
+        "Aprender expresiones clave"
+      ],
+      "vocabulary": [
+        {
+          "kanji": "いきたいです。",
+          "kana": "",
+          "romaji": "",
+          "es": "Quiero ir.",
+          "audioText": "いきたいです。",
+          "explanation": "Dos personas hablan de ir al mar mañana juntas.",
+          "examples": []
+        },
+        {
+          "kanji": "ぶっかが たかいと おもいます。",
+          "kana": "",
+          "romaji": "",
+          "es": "Creo que los precios son altos.",
+          "audioText": "ぶっかが たかいと おもいます。",
+          "explanation": "Hablan de cómo es Japón y dan su opinión.",
+          "examples": []
+        },
+        {
+          "kanji": "とても たのしかったです。",
+          "kana": "",
+          "romaji": "",
+          "es": "Fue muy divertido.",
+          "audioText": "とても たのしかったです。",
+          "explanation": "Lee habla de cómo fue Japón antes de volver a su país.",
+          "examples": []
+        }
+      ],
+      "phrases": [
+        {
+          "jp_furigana": "あした うみへ いく。",
+          "jp": "あした うみへ いく。",
+          "romaji": "",
+          "es": "Diálogo: A",
+          "audioText": "あした うみへ いく。"
+        },
+        {
+          "jp_furigana": "うん、いきたい。いっしょに いっても いい。",
+          "jp": "うん、いきたい。いっしょに いっても いい。",
+          "romaji": "",
+          "es": "Diálogo: B",
+          "audioText": "うん、いきたい。いっしょに いっても いい。"
+        },
+        {
+          "jp_furigana": "うん、いい(わ)よ。",
+          "jp": "うん、いい(わ)よ。",
+          "romaji": "",
+          "es": "Diálogo: A",
+          "audioText": "うん、いい(わ)よ。"
+        },
+        {
+          "jp_furigana": "にほんはどうですか。",
+          "jp": "にほんはどうですか。",
+          "romaji": "",
+          "es": "Diálogo: A",
+          "audioText": "にほんはどうですか。"
+        },
+        {
+          "jp_furigana": "にほんはぶっかが たかいと おもいます。",
+          "jp": "にほんはぶっかが たかいと おもいます。",
+          "romaji": "",
+          "es": "Diálogo: B",
+          "audioText": "にほんはぶっかが たかいと おもいます。"
+        },
+        {
+          "jp_furigana": "にほんはひとと くるまがおおいとおもいます。",
+          "jp": "にほんはひとと くるまがおおいとおもいます。",
+          "romaji": "",
+          "es": "Diálogo: C",
+          "audioText": "にほんはひとと くるまがおおいとおもいます。"
+        },
+        {
+          "jp_furigana": "あしたくにへ かえります。",
+          "jp": "あしたくにへ かえります。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "あしたくにへ かえります。"
+        },
+        {
+          "jp_furigana": "にほんはどうでしたか。",
+          "jp": "にほんはどうでしたか。",
+          "romaji": "",
+          "es": "Diálogo: あおき",
+          "audioText": "にほんはどうでしたか。"
+        },
+        {
+          "jp_furigana": "とても たのしかったです。にほんりょうりもおいしかったです。にほんごの べんきょうは ちょっと たいへんでした。でも、おもしろかったです。",
+          "jp": "とても たのしかったです。にほんりょうりもおいしかったです。にほんごの べんきょうは ちょっと たいへんでした。でも、おもしろかったです。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "とても たのしかったです。にほんりょうりもおいしかったです。にほんごの べんきょうは ちょっと たいへんでした。でも、おもしろかったです。"
+        },
+        {
+          "jp_furigana": "それは よかったですね。",
+          "jp": "それは よかったですね。",
+          "romaji": "",
+          "es": "Diálogo: あおき",
+          "audioText": "それは よかったですね。"
+        },
+        {
+          "jp_furigana": "おせわに なりました。ありがとうございました。",
+          "jp": "おせわに なりました。ありがとうございました。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "おせわに なりました。ありがとうございました。"
+        },
+        {
+          "jp_furigana": "いろいろおせわに なりました。",
+          "jp": "いろいろおせわに なりました。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "いろいろおせわに なりました。"
+        },
+        {
+          "jp_furigana": "また にほんへ きてください。",
+          "jp": "また にほんへ きてください。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "また にほんへ きてください。"
+        },
+        {
+          "jp_furigana": "ありがとうございます。わたしの くにへも きてください。とてもきれいなくにです。まって います。",
+          "jp": "ありがとうございます。わたしの くにへも きてください。とてもきれいなくにです。まって います。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "ありがとうございます。わたしの くにへも きてください。とてもきれいなくにです。まって います。"
+        },
+        {
+          "jp_furigana": "ありがとうございます。リーさんもおげんきで。",
+          "jp": "ありがとうございます。リーさんもおげんきで。",
+          "romaji": "",
+          "es": "Diálogo: おの",
+          "audioText": "ありがとうございます。リーさんもおげんきで。"
+        },
+        {
+          "jp_furigana": "おのさんも。おげんきで。さようなら。",
+          "jp": "おのさんも。おげんきで。さようなら。",
+          "romaji": "",
+          "es": "Diálogo: リー",
+          "audioText": "おのさんも。おげんきで。さようなら。"
+        }
+      ],
+      "reading": {
+        "jp_furigana": "A: あした うみへ いく。<br>B: うん、いきたい。いっしょに いっても いい。<br>A: うん、いい(わ)よ。<br>A: にほんはどうですか。<br>B: にほんはぶっかが たかいと おもいます。<br>C: にほんはひとと くるまがおおいとおもいます。<br>リー: あしたくにへ かえります。<br>あおき: にほんはどうでしたか。<br>リー: とても たのしかったです。にほんりょうりもおいしかったです。にほんごの べんきょうは ちょっと たいへんでした。でも、おもしろかったです。<br>あおき: それは よかったですね。<br>リー: おせわに なりました。ありがとうございました。<br>リー: いろいろおせわに なりました。<br>おの: また にほんへ きてください。<br>リー: ありがとうございます。わたしの くにへも きてください。とてもきれいなくにです。まって います。<br>おの: ありがとうございます。リーさんもおげんきで。<br>リー: おのさんも。おげんきで。さようなら。<br>",
+        "jp": "A: あした うみへ いく。\nB: うん、いきたい。いっしょに いっても いい。\nA: うん、いい(わ)よ。\nA: にほんはどうですか。\nB: にほんはぶっかが たかいと おもいます。\nC: にほんはひとと くるまがおおいとおもいます。\nリー: あしたくにへ かえります。\nあおき: にほんはどうでしたか。\nリー: とても たのしかったです。にほんりょうりもおいしかったです。にほんごの べんきょうは ちょっと たいへんでした。でも、おもしろかったです。\nあおき: それは よかったですね。\nリー: おせわに なりました。ありがとうございました。\nリー: いろいろおせわに なりました。\nおの: また にほんへ きてください。\nリー: ありがとうございます。わたしの くにへも きてください。とてもきれいなくにです。まって います。\nおの: ありがとうございます。リーさんもおげんきで。\nリー: おのさんも。おげんきで。さようなら。\n",
+        "es": "Lee los diálogos anteriores para practicar.",
+        "audioText": "A: あした うみへ いく。。B: うん、いきたい。いっしょに いっても いい。。A: うん、いい(わ)よ。。A: にほんはどうですか。。B: にほんはぶっかが たかいと おもいます。。C: にほんはひとと くるまがおおいとおもいます。。リー: あしたくにへ かえります。。あおき: にほんはどうでしたか。。リー: とても たのしかったです。にほんりょうりもおいしかったです。にほんごの べんきょうは ちょっと たいへんでした。でも、おもしろかったです。。あおき: それは よかったですね。。リー: おせわに なりました。ありがとうございました。。リー: いろいろおせわに なりました。。おの: また にほんへ きてください。。リー: ありがとうございます。わたしの くにへも きてください。とてもきれいなくにです。まって います。。おの: ありがとうございます。リーさんもおげんきで。。リー: おのさんも。おげんきで。さようなら。。"
+      },
+      "grammarNotes": [
+        {
+          "title": "Notas de la lección",
+          "body": "Revisa las situaciones y cómo responder adecuadamente en cada contexto."
+        }
+      ],
+      "exercises": [
+        {
+          "type": "comprehension",
+          "question": "Dos personas hablan de ir al mar mañana juntas.<br><strong>Quiero ir.</strong>",
+          "options": [
+            {
+              "text": "ぶっかが たかいと おもいます。",
+              "correct": false
+            },
+            {
+              "text": "とても たのしかったです。",
+              "correct": false
+            },
+            {
+              "text": "いきたいです。",
+              "correct": true
+            }
+          ]
+        },
+        {
+          "type": "comprehension",
+          "question": "Hablan de cómo es Japón y dan su opinión.<br><strong>Creo que los precios son altos.</strong>",
+          "options": [
+            {
+              "text": "ぶっかが たかいと おもいます。",
+              "correct": true
+            },
+            {
+              "text": "いきたいです。",
+              "correct": false
+            },
+            {
+              "text": "とても たのしかったです。",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "type": "comprehension",
+          "question": "Lee habla de cómo fue Japón antes de volver a su país.<br><strong>Fue muy divertido.</strong>",
+          "options": [
+            {
+              "text": "いきたいです。",
+              "correct": false
+            },
+            {
+              "text": "とても たのしかったです。",
+              "correct": true
+            },
+            {
+              "text": "ぶっかが たかいと おもいます。",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "type": "comprehension",
+          "question": "Se despiden y se desean que estén bien.<br><strong>Cuídese.</strong>",
+          "options": [
+            {
+              "text": "ぶっかが たかいと おもいます。",
+              "correct": false
+            },
+            {
+              "text": "",
+              "correct": true
+            },
+            {
+              "text": "いきたいです。",
+              "correct": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

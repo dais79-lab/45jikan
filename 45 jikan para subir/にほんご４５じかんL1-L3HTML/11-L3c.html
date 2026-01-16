@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Situaciones: ぜんぶで いくら／シャツを ください</title>
+<style>
+  :root {
+    --accent: #1E90FF;
+    --text: #111;
+    --muted: #555;
+    --border: #ddd;
+    --panel: #f7faff;
+  }
+  html, body {
+    height: 100%;
+  }
+  body {
+    margin: 0;
+    background: #fff;
+    color: var(--text);
+    font-family: "Hiragino Maru Gothic Pro", "Yu Gothic", "Meiryo", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  }
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+  @media print {
+    body {
+      -webkit-print-color-adjust: exact;
+    }
+    .page {
+      width: 297mm;
+      height: 210mm;
+      page-break-after: always;
+    }
+  }
+  .page {
+    width: 297mm;
+    min-height: 210mm;
+    margin: 0 auto;
+    background: #fff;
+    box-sizing: border-box;
+  }
+  .content {
+    padding: 10mm;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 6mm 8mm;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  header {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2mm;
+    margin-bottom: 2mm;
+  }
+  .title {
+    font-size: 22pt;
+    font-weight: 900;
+    letter-spacing: .02em;
+    color: var(--accent);
+  }
+  .subtitle {
+    font-size: 11pt;
+    color: var(--muted);
+    font-weight: bold;
+  }
+  .block {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 5mm;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+  .vocab-section {
+    grid-column: 1 / -1;
+  }
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8mm;
+  }
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10.5pt;
+  }
+  .table th, .table td {
+    border: 1px solid var(--border);
+    padding: 4px 8px;
+  }
+  .table th {
+    background: #f7f7f7;
+    text-align: left;
+    font-weight: bold;
+    color: var(--muted);
+    font-size: 9pt;
+  }
+  .jp-col { font-weight: bold; color: var(--accent); }
+  .kana-col { color: var(--muted); font-size: 90%; }
+  
+  .section-title {
+    font-size: 13pt;
+    font-weight: 800;
+    color: #0d47a1;
+    margin-bottom: 3mm;
+    display: flex;
+    align-items: center;
+    gap: 2mm;
+  }
+  .section-title::before {
+    content: '';
+    display: block;
+    width: 4mm;
+    height: 4mm;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+  
+  .exercise-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 11pt;
+  }
+  .exercise-list li {
+    margin-bottom: 3mm;
+    display: flex;
+    align-items: baseline;
+  }
+  .exercise-list li:last-child {
+    margin-bottom: 0;
+  }
+  .q-num {
+    display: inline-block;
+    width: 6mm;
+    font-weight: bold;
+    color: var(--accent);
+  }
+  .q-text {
+    flex: 1;
+  }
+  
+  /* Image styling for taped photo appearance */
+  .img-container {
+    text-align: center;
+    margin: 5mm 0 2mm;
+    flex: 1; /* Allow it to take available space in flex container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+  }
+  /* The Tape */
+  .img-container::before {
+    content: '';
+    position: absolute;
+    top: -3mm;
+    left: 50%;
+    width: 20mm;
+    height: 6mm;
+    background-color: rgba(255, 255, 235, 0.55);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    transform: translateX(-50%) rotate(-1.5deg);
+    z-index: 10;
+    backdrop-filter: blur(0.5px);
+  }
+  .img-container img {
+    max-width: 100%;
+    max-height: 50mm; /* Limit height */
+    height: auto;
+    border: 1px solid #ddd;
+    padding: 4px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transform: rotate(-0.5deg);
+    margin-bottom: 2mm;
+  }
+  .img-caption {
+    font-size: 9pt;
+    color: var(--muted);
+    margin-top: 1mm;
+  }
+  .images-wrapper {
+    display: flex;
+    gap: 4mm;
+    justify-content: center;
+  }
+
+  .memo-box {
+    border: 2px dashed var(--border);
+    border-radius: 12px;
+    height: 100%;
+    min-height: 20mm;
+    position: relative;
+  }
+  .memo-label {
+    position: absolute;
+    top: -3mm;
+    left: 5mm;
+    background: #fff;
+    padding: 0 2mm;
+    color: var(--muted);
+    font-size: 9pt;
+    font-weight: bold;
+  }
+  .memo-lines{ display:grid; grid-template-rows: repeat(3, 1fr); gap:4mm; padding:5mm; }
+  .memo-line{ border-bottom:1px dashed var(--border); height:16px; }
+
+  footer {
+    grid-column: 1 / -1;
+    margin-top: auto;
+    padding-top: 4mm;
+    border-top: 1px solid var(--border);
+    font-size: 8pt;
+    color: var(--muted);
+    display: flex;
+    gap: 6mm;
+    flex-wrap: wrap;
+  }
+  .ans-block strong {
+    color: var(--accent);
+    margin-right: 2mm;
+  }
+  .ans-list {
+    display: inline;
+  }
+  .ans-item {
+    margin-right: 3mm;
+  }
+</style>
+    <link rel="stylesheet" href="../../duolingo_style.css">
+</head>
+<body>
+
+<div class="page">
+  <div class="content">
+    <header>
+      <div class="title">【Situaciones】 ぜんぶで いくら／シャツを ください</div>
+      <div class="subtitle">Conversación Práctica</div>
+    </header>
+
+    <div class="block vocab-section">
+      <div class="section-title">Frases Útiles (Diálogos)</div>
+      <div class="vocab-grid">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>日本語 (Japonés)</th>
+              <th>ひらがな</th>
+              <th>スペイン語 (Español)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="3" style="background:#f0f4f8; font-weight:bold; text-align:center;">１ ぜんぶで いくら</td></tr>
+            <tr><td class="jp-col">いらっしゃいませ。</td><td class="kana-col">いらっしゃいませ。</td><td class="es-col">Bienvenido/a.</td></tr>
+            <tr><td class="jp-col">これは いくらですか。</td><td class="kana-col">これは いくらですか。</td><td class="es-col">¿Cuánto cuesta esto?</td></tr>
+            <tr><td class="jp-col">ひとつ １００えんです。</td><td class="kana-col">ひとつ ひゃくえんです。</td><td class="es-col">Cuesta 100 yenes cada uno.</td></tr>
+            <tr><td class="jp-col">じゃ、それを みっつ ください。ぜんぶで いくらですか。</td><td class="kana-col">じゃ、それを みっつ ください。ぜんぶで いくらですか。</td><td class="es-col">Entonces, deme tres de esos. ¿Cuánto es todo?</td></tr>
+            <tr><td class="jp-col">３００えんです。</td><td class="kana-col">さんびゃくえんです。</td><td class="es-col">Son 300 yenes.</td></tr>
+            
+            <tr><td colspan="3" style="background:#f0f4f8; font-weight:bold; text-align:center;">２ シャツを ください</td></tr>
+            <tr><td class="jp-col">シャツを みせてください。</td><td class="kana-col">シャツを みせてください。</td><td class="es-col">Muéstreme la camisa, por favor.</td></tr>
+            <tr><td class="jp-col">１００００えんです。</td><td class="kana-col">いちまんえんです。</td><td class="es-col">Son 10,000 yenes.</td></tr>
+            <tr><td class="jp-col">たかいですね。もっと やすい シャツは ありますか。</td><td class="kana-col">たかいですね。もっと やすい シャツは ありますか。</td><td class="es-col">Es caro. ¿Tiene una camisa más barata?</td></tr>
+            <tr><td class="jp-col">５０００えんです。</td><td class="kana-col">ごせんえんです。</td><td class="es-col">Son 5,000 yenes.</td></tr>
+            <tr><td class="jp-col">じゃ、これを ください。</td><td class="kana-col">じゃ、これを ください。</td><td class="es-col">Entonces, deme esto.</td></tr>
+          </tbody>
+        </table>
+
+        <!-- Images in the second column slot -->
+        <div class="block" style="border:none; padding:0;">
+            <div class="section-title">Imágenes de referencia</div>
+            <div class="images-wrapper">
+              <div class="img-container">
+                <img src="img/L3c_image1.jpg" alt="Imagen 1">
+                <div class="img-caption">Imagen 1</div>
+              </div>
+              <div class="img-container">
+                <img src="img/L3c_image2.jpg" alt="Imagen 2">
+                <div class="img-caption">Imagen 2</div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="section-title">Práctica de Situaciones</div>
+      <ul class="exercise-list">
+        <li>
+          <span class="q-num">1.</span>
+          <span class="q-text">
+            <strong>ぜんぶで いくら (¿Cuánto es todo?)</strong><br>
+            Pregunta: 「¿Cuánto es todo?」<br>
+            → （　　　　　　　　　　　　　　　）
+          </span>
+        </li>
+        <li>
+          <span class="q-num">2.</span>
+          <span class="q-text">
+            <strong>シャツを ください (Deme la camisa)</strong><br>
+            Respuesta: 「Entonces, deme esto.」<br>
+            → （　　　　　　　　　　　　　　　）
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="memo-box">
+      <span class="memo-label">メモ欄</span>
+      <div class="memo-lines">
+        <div class="memo-line"></div>
+        <div class="memo-line"></div>
+        <div class="memo-line"></div>
+        <div class="memo-line"></div>
+        <div class="memo-line"></div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="ans-block">
+        <strong>Respuestas sugeridas:</strong>
+        <div class="ans-list">
+          <span class="ans-item">1. ぜんぶで いくらですか。</span>
+          <span class="ans-item">2. じゃ、これを ください。</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+
+    <script src="../../duolingo_engine.js"></script>
+</body>
+</html>

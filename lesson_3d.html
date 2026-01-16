@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Clase 3D - Japonés 45H</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #000; font-family: 'Nunito', sans-serif; }
+        #info {
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            pointer-events: none;
+            z-index: 100;
+            font-size: 1.2rem;
+            text-shadow: 0 0 5px #000;
+        }
+        #back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background: #58cc02;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 0 4px 0 #46a302;
+            text-decoration: none;
+        }
+        #back-btn:active { transform: translateY(4px); box-shadow: none; }
+        #loading {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 2rem;
+            z-index: 50;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="javascript:history.back()" id="back-btn">⬅ Volver</a>
+    <div id="info">Muevete con el mouse • Rueda para Zoom • Click derecho para mover</div>
+    <div id="loading">Cargando Entorno 3D...</div>
+
+    <!-- Google Fonts: Nunito (Duolingo Style) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <!-- Import Maps Polyfill -->
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.154.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.154.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+        import { CSS3DRenderer, CSS3DObject } from 'three/addons/renderers/CSS3DRenderer.js';
+
+        let camera, scene, renderer, labelRenderer;
+        let controls;
+        let avatarGroup;
+        let isAnimatingDuck = false;
+        let currentAnimationId = 0;
+
+        init();
+        animate();
+
+        function init() {
+            const container = document.createElement('div');
+            document.body.appendChild(container);
+
+            // Camera
+            camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 5000);
+            camera.position.set(0, 300, 1000);
+
+            // Scene
+            scene = new THREE.Scene();
+
+            // Lights
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+            scene.add(ambientLight);
+
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(200, 500, 200);
+            scene.add(directionalLight);
+
+            // Get Lesson Context
+            const urlParams = new URLSearchParams(window.location.search);
+            const lessonSrc = urlParams.get('src') || 'about:blank';
+            const envType = determineEnvironment(lessonSrc);
+            
+            // Load Environment (Floor, Bg, Props, Screen Config)
+            const envConfig = loadEnvironment(envType);
+
+            // CSS3D Object (The Lesson Screen)
+            const lessonDiv = document.createElement('div');
+            lessonDiv.id = 'lesson-screen'; // ID for easier access
+            lessonDiv.style.width = '1000px';
+            lessonDiv.style.height = '700px';
+            lessonDiv.style.backgroundColor = envConfig.screenBg || 'white';
+            lessonDiv.style.pointerEvents = 'auto'; 
+            lessonDiv.style.display = 'flex';
+            lessonDiv.style.flexDirection = 'column';
+            lessonDiv.style.overflow = 'hidden';
+            
+            if (envConfig.screenBorder) {
+                 lessonDiv.style.border = `15px solid ${envConfig.screenBorder}`;
+                 lessonDiv.style.borderRadius = '20px';
+                 lessonDiv.style.boxShadow = `0 0 50px ${envConfig.screenBorder}`;
+            } else {
+                lessonDiv.style.boxShadow = 'none';
+            }
+            
+            // Try to load in "Duolingo Mode" first
+            loadLessonContent(lessonSrc, lessonDiv);
+
+            const object = new CSS3DObject(lessonDiv);
+            object.position.copy(envConfig.screenPosition);
+            if (envConfig.screenRotation) {
+                object.rotation.copy(envConfig.screenRotation);
+            }
+            scene.add(object);
+
+            // Create Duck (Avatar)
+            createDuck();
+
+            // Renderers
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            container.appendChild(renderer.domElement);
+
+            labelRenderer = new CSS3DRenderer();
+            labelRenderer.setSize(window.innerWidth, window.innerHeight);
+            labelRenderer.domElement.style.position = 'absolute';
+            labelRenderer.domElement.style.top = '0px';
+            labelRenderer.domElement.style.pointerEvents = 'none'; // Pass events through to WebGL
+            container.appendChild(labelRenderer.domElement);
+
+            // Controls
+            // Attach controls to WebGL renderer so they don't block CSS3D interaction
+            controls = new OrbitControls(camera, renderer.domElement);
+            controls.minDistance = 500;
+            controls.maxDistance = 2000;
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+
+            // Add Focus Button
+            const focusBtn = document.createElement('button');
+            focusBtn.innerText = "🔍 Enfocar Lección";
+            focusBtn.style.position = 'absolute';
+            focusBtn.style.bottom = '20px';
+            focusBtn.style.right = '20px';
+            focusBtn.style.padding = '10px 20px';
+            focusBtn.style.background = '#58cc02';
+            focusBtn.style.color = 'white';
+            focusBtn.style.border = 'none';
+            focusBtn.style.borderRadius = '10px';
+            focusBtn.style.fontSize = '1.2rem';
+            focusBtn.style.cursor = 'pointer';
+            focusBtn.style.zIndex = '100';
+            focusBtn.style.pointerEvents = 'auto';
+            focusBtn.onclick = () => {
+                const targetPos = new THREE.Vector3().copy(object.position);
+                const offset = new THREE.Vector3(0, 0, 800); // Distance from screen
+                if (object.rotation.y !== 0) offset.applyEuler(object.rotation);
+                
+                const camPos = targetPos.clone().add(offset);
+                
+                // Simple animation (tween could be better but this is fine)
+                camera.position.copy(camPos);
+                controls.target.copy(targetPos);
+            };
+            document.body.appendChild(focusBtn);
+
+            // Resize Handler
+            window.addEventListener('resize', onWindowResize);
+            
+            document.getElementById('loading').style.display = 'none';
+        }
+
+        function createDuck() {
+            avatarGroup = new THREE.Group();
+            
+            // Materials
+            const yellowMat = new THREE.MeshLambertMaterial({ color: 0xffeb3b }); // Duck yellow
+            const orangeMat = new THREE.MeshLambertMaterial({ color: 0xff9800 }); // Beak/Feet
+            const blackMat = new THREE.MeshBasicMaterial({ color: 0x000000 });
+
+            // Body
+            const bodyGeo = new THREE.SphereGeometry(50, 32, 32);
+            const body = new THREE.Mesh(bodyGeo, yellowMat);
+            body.position.y = 50;
+            body.scale.set(1, 0.9, 1);
+            avatarGroup.add(body);
+
+            // Head
+            const headGeo = new THREE.SphereGeometry(35, 32, 32);
+            const head = new THREE.Mesh(headGeo, yellowMat);
+            head.position.y = 90;
+            avatarGroup.add(head);
+
+            // Eyes
+            const eyeGeo = new THREE.SphereGeometry(4, 16, 16);
+            
+            const leftEye = new THREE.Mesh(eyeGeo, blackMat);
+            leftEye.position.set(-12, 100, 30);
+            leftEye.name = "normalEyeL";
+            avatarGroup.add(leftEye);
+
+            const rightEye = new THREE.Mesh(eyeGeo, blackMat);
+            rightEye.position.set(12, 100, 30);
+            rightEye.name = "normalEyeR";
+            avatarGroup.add(rightEye);
+
+            // Dead Eyes (X-X) - Hidden by default
+            const xGeo = new THREE.BoxGeometry(12, 3, 2);
+            
+            const leftX = new THREE.Group();
+            const lx1 = new THREE.Mesh(xGeo, blackMat); lx1.rotation.z = Math.PI/4;
+            const lx2 = new THREE.Mesh(xGeo, blackMat); lx2.rotation.z = -Math.PI/4;
+            leftX.add(lx1, lx2);
+            leftX.position.set(-12, 100, 32); // Slightly in front
+            leftX.visible = false;
+            leftX.name = "deadEyeL";
+            avatarGroup.add(leftX);
+
+            const rightX = new THREE.Group();
+            const rx1 = new THREE.Mesh(xGeo, blackMat); rx1.rotation.z = Math.PI/4;
+            const rx2 = new THREE.Mesh(xGeo, blackMat); rx2.rotation.z = -Math.PI/4;
+            rightX.add(rx1, rx2);
+            rightX.position.set(12, 100, 32);
+            rightX.visible = false;
+            rightX.name = "deadEyeR";
+            avatarGroup.add(rightX);
+
+            // Angry Eyebrows - Hidden by default
+            const browGeo = new THREE.BoxGeometry(15, 3, 2);
+            
+            const leftBrow = new THREE.Mesh(browGeo, blackMat);
+            leftBrow.position.set(-12, 106, 30);
+            leftBrow.rotation.z = Math.PI / 6; // Slanted down inward
+            leftBrow.visible = false;
+            leftBrow.name = "angryBrowL";
+            avatarGroup.add(leftBrow);
+
+            const rightBrow = new THREE.Mesh(browGeo, blackMat);
+            rightBrow.position.set(12, 106, 30);
+            rightBrow.rotation.z = -Math.PI / 6; // Slanted down inward
+            rightBrow.visible = false;
+            rightBrow.name = "angryBrowR";
+            avatarGroup.add(rightBrow);
+
+            // Beak
+            const beakGeo = new THREE.BoxGeometry(20, 5, 15);
+            const beak = new THREE.Mesh(beakGeo, orangeMat);
+            beak.position.set(0, 95, 35);
+            avatarGroup.add(beak);
+
+            // Wings
+            const wingGeo = new THREE.SphereGeometry(25, 32, 32);
+            
+            const leftWing = new THREE.Mesh(wingGeo, yellowMat);
+            leftWing.position.set(-45, 60, 0);
+            leftWing.scale.set(0.5, 1, 0.8);
+            leftWing.rotation.z = 0.5;
+            avatarGroup.add(leftWing);
+
+            const rightWing = new THREE.Mesh(wingGeo, yellowMat);
+            rightWing.position.set(45, 60, 0);
+            rightWing.scale.set(0.5, 1, 0.8);
+            rightWing.rotation.z = -0.5;
+            avatarGroup.add(rightWing);
+
+            // Feet
+            const footGeo = new THREE.BoxGeometry(20, 5, 25);
+            
+            const leftFoot = new THREE.Mesh(footGeo, orangeMat);
+            leftFoot.position.set(-20, 0, 10);
+            avatarGroup.add(leftFoot);
+
+            const rightFoot = new THREE.Mesh(footGeo, orangeMat);
+            rightFoot.position.set(20, 0, 10);
+            avatarGroup.add(rightFoot);
+
+            // Position Group
+            avatarGroup.position.set(650, -50, 100);
+            avatarGroup.rotation.y = -Math.PI / 4;
+            scene.add(avatarGroup);
+        }
+
+        function determineEnvironment(src) {
+            src = src.toLowerCase();
+            if (src.includes('aisatsu') || src.includes('l1') || src.includes('santuario')) return 'shrine';
+            if (src.includes('shopping') || src.includes('l4') || src.includes('tienda') || src.includes('compras')) return 'shop';
+            if (src.includes('city') || src.includes('l14') || src.includes('ciudad')) return 'city';
+            if (src.includes('room') || src.includes('l7') || src.includes('habitacion') || src.includes('casa')) return 'room';
+            if (src.includes('school') || src.includes('l2') || src.includes('clase') || src.includes('aula')) return 'classroom';
+            if (src.includes('restaurant') || src.includes('l9') || src.includes('comida')) return 'restaurant';
+            return 'default';
+        }
+
+        function loadEnvironment(type) {
+            let floorColor = 0x2b3b45;
+            let bgColor = 0x131f24;
+            
+            // Default Config
+            let config = {
+                screenPosition: new THREE.Vector3(0, 100, 0),
+                screenBorder: '#58cc02',
+                screenBg: 'white'
+            };
+
+            if (type === 'shrine') {
+                floorColor = 0x558b2f; // Dark Green
+                bgColor = 0x87CEEB; // Sky Blue
+                config.screenBorder = null; // Use physical wood frame
+                config.screenPosition = new THREE.Vector3(0, 50, -200);
+                
+                // Physical Mount: Shrine Board
+                createShrineBoard(0, 50, -200);
+
+                createTorii(0, -600);
+                createTorii(0, -1000); 
+                
+                createTree(-600, -400);
+                createTree(600, -400);
+                createTree(-800, 200);
+                createTree(800, 200);
+
+            } else if (type === 'city') {
+                floorColor = 0x424242; // Asphalt
+                bgColor = 0x0d0d1a; // Night City
+                config.screenBorder = '#00e5ff'; 
+                config.screenPosition = new THREE.Vector3(0, 200, -400);
+                
+                // Physical Mount: Holographic Billboard
+                createBillboard(0, 200, -400);
+
+                for(let i=0; i<30; i++) {
+                    const x = (Math.random() - 0.5) * 4000;
+                    const z = (Math.random() - 0.5) * 4000;
+                    if (Math.abs(x) < 700 && Math.abs(z) < 600) continue; 
+                    createBuilding(x, z, 300 + Math.random()*500, Math.random() * 0xffffff);
+                }
+
+            } else if (type === 'classroom') {
+                floorColor = 0x8d6e63; // Wood floor
+                bgColor = 0xfff8e1; // Cream wall
+                config.screenBorder = null; // Chalkboard style
+                config.screenPosition = new THREE.Vector3(0, 50, -400);
+                
+                // Physical Mount: Blackboard
+                createBlackboard(0, 50, -400);
+
+                // Walls
+                createWall(0, 250, -450, 2000, 800, 0xfff8e1); // Back Wall
+
+                 for(let x=-500; x<=500; x+=250) {
+                    for(let z=400; z<=1000; z+=300) {
+                        createDesk(x, z);
+                    }
+                }
+
+            } else if (type === 'shop') {
+                floorColor = 0xeeeeee; // Tiles
+                bgColor = 0xffe0b2; // Warm shop light
+                config.screenBorder = '#ff9800'; 
+                config.screenPosition = new THREE.Vector3(0, 50, -100);
+                
+                // Physical Mount: Shop Display
+                createShopDisplay(0, 50, -100);
+
+                 for(let x=-600; x<=600; x+=400) {
+                    if(x===0) continue;
+                    createShelf(x, -200);
+                    createShelf(x, 200);
+                }
+            }
+
+            // Environment Setup
+            scene.background = new THREE.Color(bgColor);
+            scene.fog = new THREE.Fog(bgColor, 500, 4000);
+
+            // Floor
+            const floorGeometry = new THREE.PlaneGeometry(5000, 5000);
+            const floorMaterial = new THREE.MeshLambertMaterial({ color: floorColor, side: THREE.DoubleSide });
+            const floor = new THREE.Mesh(floorGeometry, floorMaterial);
+            floor.rotation.x = -Math.PI / 2;
+            floor.position.y = -200;
+            scene.add(floor);
+
+            if (type === 'default') {
+                 const gridHelper = new THREE.GridHelper(5000, 100, 0x37464f, 0x37464f);
+                 gridHelper.position.y = -199;
+                 scene.add(gridHelper);
+            }
+
+            return config;
+        }
+
+        // --- Prop Helpers ---
+
+        function createShrineBoard(x, y, z) {
+            const woodMat = new THREE.MeshLambertMaterial({ color: 0x5D4037 });
+            const roofMat = new THREE.MeshLambertMaterial({ color: 0x3e2723 });
+            
+            // Posts
+            const postGeo = new THREE.BoxGeometry(40, 600, 40);
+            const leftPost = new THREE.Mesh(postGeo, woodMat);
+            leftPost.position.set(x - 520, y - 100, z);
+            scene.add(leftPost);
+
+            const rightPost = new THREE.Mesh(postGeo, woodMat);
+            rightPost.position.set(x + 520, y - 100, z);
+            scene.add(rightPost);
+
+            // Back Board
+            const board = new THREE.Mesh(new THREE.BoxGeometry(1100, 750, 10), woodMat);
+            board.position.set(x, y, z - 20);
+            scene.add(board);
+
+            // Roof
+            const roof = new THREE.Mesh(new THREE.ConeGeometry(800, 200, 4), roofMat);
+            roof.position.set(x, y + 450, z);
+            roof.scale.set(1.5, 1, 0.5);
+            roof.rotation.y = Math.PI / 4;
+            scene.add(roof);
+        }
+
+        function createBillboard(x, y, z) {
+            const metalMat = new THREE.MeshStandardMaterial({ color: 0x555555, roughness: 0.2, metalness: 0.8 });
+            
+            // Truss Legs
+            const legGeo = new THREE.CylinderGeometry(20, 20, 600);
+            const leftLeg = new THREE.Mesh(legGeo, metalMat);
+            leftLeg.position.set(x - 510, y - 200, z);
+            scene.add(leftLeg);
+            
+            const rightLeg = new THREE.Mesh(legGeo, metalMat);
+            rightLeg.position.set(x + 510, y - 200, z);
+            scene.add(rightLeg);
+
+            // Frame behind screen
+            const frame = new THREE.Mesh(new THREE.BoxGeometry(1050, 750, 20), metalMat);
+            frame.position.set(x, y, z - 20);
+            scene.add(frame);
+        }
+
+        function createBlackboard(x, y, z) {
+            const frameMat = new THREE.MeshLambertMaterial({ color: 0x3e2723 }); // Dark Wood
+            const chalkMat = new THREE.MeshLambertMaterial({ color: 0x2e7d32 }); // Dark Green
+            
+            // Frame
+            const frame = new THREE.Mesh(new THREE.BoxGeometry(1040, 740, 10), frameMat);
+            frame.position.set(x, y, z - 10);
+            scene.add(frame);
+            
+            // Chalk Tray
+            const tray = new THREE.Mesh(new THREE.BoxGeometry(1040, 20, 50), frameMat);
+            tray.position.set(x, y - 360, z + 20);
+            scene.add(tray);
+        }
+
+        function createShopDisplay(x, y, z) {
+            const standMat = new THREE.MeshLambertMaterial({ color: 0xffffff });
+            
+            // Base
+            const base = new THREE.Mesh(new THREE.BoxGeometry(1200, 200, 400), standMat);
+            base.position.set(x, y - 450, z + 100);
+            scene.add(base);
+
+            // Screen Support
+            const support = new THREE.Mesh(new THREE.BoxGeometry(800, 400, 50), standMat);
+            support.position.set(x, y - 150, z - 20);
+            scene.add(support);
+        }
+
+        function createWall(x, y, z, w, h, color) {
+            const wall = new THREE.Mesh(
+                new THREE.BoxGeometry(w, h, 20),
+                new THREE.MeshLambertMaterial({ color: color })
+            );
+            wall.position.set(x, y, z);
+            scene.add(wall);
+        }
+
+        function createTree(x, z) {
+            const trunk = new THREE.Mesh(
+                new THREE.CylinderGeometry(20, 20, 100, 8),
+                new THREE.MeshLambertMaterial({ color: 0x5D4037 })
+            );
+            trunk.position.set(x, -150, z);
+            
+            const leaves = new THREE.Mesh(
+                new THREE.ConeGeometry(80, 200, 8),
+                new THREE.MeshLambertMaterial({ color: 0x2E7D32 })
+            );
+            leaves.position.set(0, 100, 0);
+            trunk.add(leaves);
+            scene.add(trunk);
+        }
+
+        function createBuilding(x, z, h, color) {
+            const b = new THREE.Mesh(
+                new THREE.BoxGeometry(150, h, 150),
+                new THREE.MeshLambertMaterial({ color: color })
+            );
+            b.position.set(x, -200 + h/2, z);
+            scene.add(b);
+            
+            // Lit Windows
+            for(let i=0; i<5; i++) {
+                 const win = new THREE.Mesh(
+                    new THREE.PlaneGeometry(20, 20),
+                    new THREE.MeshBasicMaterial({ color: 0xffff00 })
+                );
+                win.position.set(0, (Math.random()-0.5)*h*0.8, 76);
+                b.add(win);
+            }
+        }
+
+        function createTorii(x, z) {
+            const mat = new THREE.MeshLambertMaterial({ color: 0xd32f2f });
+            
+            const p1 = new THREE.Mesh(new THREE.CylinderGeometry(20, 20, 400), mat);
+            p1.position.set(x-200, 0, z);
+            scene.add(p1);
+            
+            const p2 = new THREE.Mesh(new THREE.CylinderGeometry(20, 20, 400), mat);
+            p2.position.set(x+200, 0, z);
+            scene.add(p2);
+            
+            const top = new THREE.Mesh(new THREE.BoxGeometry(500, 30, 30), mat);
+            top.position.set(x, 150, z);
+            scene.add(top);
+        }
+
+        function createDesk(x, z) {
+             const mat = new THREE.MeshLambertMaterial({ color: 0x8D6E63 });
+             const top = new THREE.Mesh(new THREE.BoxGeometry(120, 10, 80), mat);
+             top.position.set(x, -100, z);
+             scene.add(top);
+             
+             // Legs
+             const leg = new THREE.Mesh(new THREE.BoxGeometry(10, 100, 10), mat);
+             leg.position.set(-50, -50, -30);
+             top.add(leg);
+             
+             const leg2 = leg.clone(); leg2.position.set(50, -50, -30); top.add(leg2);
+             const leg3 = leg.clone(); leg3.position.set(-50, -50, 30); top.add(leg3);
+             const leg4 = leg.clone(); leg4.position.set(50, -50, 30); top.add(leg4);
+        }
+
+        // --- Duolingo Mode Logic ---
+
+        // Listen for data from iframe (fallback for local file access)
+        window.addEventListener('message', (event) => {
+            if (event.data && event.data.type === 'DUOLINGO_DATA') {
+                console.log("Received data from iframe, upgrading to 3D mode!");
+                const container = document.getElementById('lesson-screen');
+                startDuolingoMode(event.data.data, container);
+            }
+        });
+
+        function loadLessonContent(src, container) {
+            // Show loading
+            container.innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100%;font-size:2rem;color:#555;">Cargando lección... 🦆</div>';
+
+            if (src === 'about:blank') return;
+
+            // 1. Try Fetch (Standard)
+            fetch(src)
+                .then(res => {
+                    if (!res.ok) throw new Error("Network response was not ok");
+                    return res.text();
+                })
+                .then(html => {
+                    const data = parseLessonHTML(html);
+                    if (data && (data.vocab.length > 0 || data.quiz.length > 0)) {
+                        startDuolingoMode(data, container);
+                    } else {
+                        loadIframe(src, container);
+                    }
+                })
+                .catch(e => {
+                    console.warn("Fetch failed (CORS?), trying iframe scraping...", e);
+                    
+                    // 2. Try Iframe Scraping
+                    const hiddenFrame = document.createElement('iframe');
+                    hiddenFrame.style.display = 'none';
+                    hiddenFrame.src = src;
+                    document.body.appendChild(hiddenFrame);
+                    
+                    hiddenFrame.onload = () => {
+                        try {
+                            const doc = hiddenFrame.contentDocument || hiddenFrame.contentWindow.document;
+                            if (!doc) throw new Error("No access");
+                            
+                            const html = doc.documentElement.outerHTML;
+                            const data = parseLessonHTML(html);
+                            
+                            if (data && (data.vocab.length > 0 || data.quiz.length > 0)) {
+                                startDuolingoMode(data, container);
+                            } else {
+                                loadIframe(src, container);
+                            }
+                            
+                            setTimeout(() => document.body.removeChild(hiddenFrame), 100);
+                        } catch (err) {
+                            console.error("Iframe scraping blocked:", err);
+                            document.body.removeChild(hiddenFrame);
+                            
+                            // 3. Fallback
+                            loadIframe(src, container);
+                            
+                            // 4. Alert
+                            const overlay = document.createElement('div');
+                            overlay.style.position = 'fixed';
+                            overlay.style.top = '10px';
+                            overlay.style.left = '50%';
+                            overlay.style.transform = 'translateX(-50%)';
+                            overlay.style.background = '#ff4b4b';
+                            overlay.style.color = 'white';
+                            overlay.style.padding = '10px 20px';
+                            overlay.style.borderRadius = '20px';
+                            overlay.style.zIndex = '9999';
+                            overlay.style.fontWeight = 'bold';
+                            overlay.style.boxShadow = '0 4px 10px rgba(0,0,0,0.2)';
+                            overlay.innerText = "⚠️ Error CORS: Usa un Servidor Local (o espera al fallback)";
+                            document.body.appendChild(overlay);
+                            setTimeout(() => overlay.remove(), 5000);
+                        }
+                    };
+                    
+                    hiddenFrame.onerror = () => {
+                         loadIframe(src, container);
+                    };
+                });
+        }
+
+        function loadIframe(src, container) {
+            container.innerHTML = '';
+            const iframe = document.createElement('iframe');
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.border = '0';
+            iframe.src = src;
+            container.appendChild(iframe);
+        }
+
+        function parseLessonHTML(html) {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            
+            const vocab = [];
+            const quiz = [];
+
+            // 1. Parse Vocab (Tables)
+            const rows = doc.querySelectorAll('.vocab-grid table tbody tr');
+            rows.forEach(row => {
+                const cols = row.querySelectorAll('td');
+                if (cols.length >= 3) {
+                    vocab.push({
+                        jp: cols[0].innerText.trim(),
+                        kana: cols[1].innerText.trim(),
+                        es: cols[2].innerText.trim()
+                    });
+                }
+            });
+
+            // 2. Parse Quiz (Quiz Items)
+            // Look for JS object or HTML structure. The file uses a JS object `answers` and HTML structure.
+            // Let's parse the visible HTML structure: .quiz-item
+            const quizItems = doc.querySelectorAll('.quiz-item');
+            quizItems.forEach((item, index) => {
+                const qText = item.querySelector('.quiz-q').innerText.replace(/^\d+\.\s*/, '').trim();
+                const optionsText = item.querySelector('.quiz-options').innerText; // "A. ... / B. ..."
+                
+                const options = optionsText.split('/').map(opt => {
+                    const clean = opt.trim();
+                    // Robust extraction: take first char, or match A-Z
+                    const match = clean.match(/^([A-Z0-9])[\.\)\s]/i);
+                    const letter = match ? match[1].toUpperCase() : clean.charAt(0).toUpperCase();
+                    
+                    // Try to clean the text part nicely
+                    let text = clean.replace(/^[A-Z0-9][\.\)\s]+\s*/i, '').trim();
+                    if(!text) text = clean.substring(2).trim(); // Fallback
+                    
+                    return { letter, text };
+                });
+
+                // Find correct answer (Robust Method)
+                // 1. Try to build a map of all quiz answers found in the document
+                const quizAnswers = {};
+                
+                // Scan all ans-items
+                const allAnsItems = doc.querySelectorAll('.ans-item');
+                allAnsItems.forEach(ans => {
+                    const text = ans.innerText.trim();
+                    // Match pattern: Number + dot + single letter (e.g., "1.B", "2. A")
+                    // We ignore long text answers (like "1.おはよう...")
+                    const match = text.match(/^(\d+)\.\s*([A-Za-z])\s*$/);
+                    if (match) {
+                        const qNum = parseInt(match[1]);
+                        const letter = match[2].toUpperCase();
+                        quizAnswers[qNum] = letter;
+                    }
+                });
+
+                // 2. Assign
+                let correctLetter = quizAnswers[index + 1] || 'A'; // Default to A if not found
+                console.log(`Q${index+1} Answer Lookup: Found ${quizAnswers[index+1] || 'NOT FOUND (Defaulting to A)'}`);
+
+                quiz.push({
+                    question: qText,
+                    options: options,
+                    answer: correctLetter
+                });
+                console.log(`Quiz Item ${index+1}:`, { qText, options, answer: correctLetter });
+            });
+
+            return { vocab, quiz };
+        }
+
+        function startDuolingoMode(data, container) {
+            // Setup UI State
+            let queue = [];
+            
+            data.vocab.forEach(v => {
+                queue.push({ type: 'vocab', data: v });
+            });
+            
+            data.quiz.forEach(q => {
+                queue.push({ type: 'quiz', data: q });
+            });
+
+            // Add a "Completion" card
+            queue.push({ type: 'finish' });
+
+            let currentIndex = 0;
+            let lives = 3;
+            // Sync with opener if available (check if lives are depleted in the lesson html)
+            if (window.opener && window.opener.getLives) {
+                lives = window.opener.getLives();
+            }
+            let hintTimer = null;
+            const HINT_DELAY = 10000; // 10 seconds
+
+            function render() {
+                // Clear any existing timer
+                if (hintTimer) {
+                    clearTimeout(hintTimer);
+                    hintTimer = null;
+                }
+
+                container.innerHTML = '';
+                container.style.display = 'flex';
+                container.style.flexDirection = 'column';
+                
+                // --- Header (Progress + Hearts) ---
+                const header = document.createElement('div');
+                header.style.width = '100%';
+                header.style.display = 'flex';
+                header.style.alignItems = 'center';
+                header.style.marginBottom = '20px';
+
+                // Progress Bar
+                const progressPct = (currentIndex / (queue.length - 1)) * 100;
+                const progressBar = document.createElement('div');
+                progressBar.style.height = '16px';
+                progressBar.style.background = '#e5e5e5';
+                progressBar.style.flex = '1';
+                progressBar.style.borderRadius = '8px';
+                progressBar.style.overflow = 'hidden';
+                
+                const fill = document.createElement('div');
+                fill.style.height = '100%';
+                fill.style.width = `${progressPct}%`;
+                fill.style.background = '#58cc02';
+                fill.style.transition = 'width 0.5s';
+                progressBar.appendChild(fill);
+                header.appendChild(progressBar);
+
+                // Hearts
+                const heartsDiv = document.createElement('div');
+                heartsDiv.style.marginLeft = '15px';
+                heartsDiv.style.fontSize = '1.5rem';
+                heartsDiv.style.color = '#ff4b4b';
+                let heartsHtml = '';
+                for(let i=0; i<lives; i++) heartsHtml += '❤️';
+                if(lives < 3) {
+                     for(let i=lives; i<3; i++) heartsHtml += '<span style="opacity:0.3; filter:grayscale(1);">❤️</span>';
+                }
+                heartsDiv.innerHTML = heartsHtml;
+                header.appendChild(heartsDiv);
+
+                container.appendChild(header);
+
+                // Check Game Over
+                if (lives <= 0) {
+                    renderGameOver();
+                    return;
+                }
+
+                // Content Area
+                const contentDiv = document.createElement('div');
+                contentDiv.style.flex = '1';
+                contentDiv.style.display = 'flex';
+                contentDiv.style.flexDirection = 'column';
+                contentDiv.style.alignItems = 'center';
+                contentDiv.style.justifyContent = 'center';
+                contentDiv.style.padding = '20px';
+                contentDiv.style.fontFamily = "'Nunito', sans-serif";
+                contentDiv.style.textAlign = 'center';
+                container.appendChild(contentDiv);
+
+                const step = queue[currentIndex];
+
+                if (step.type === 'vocab') {
+                    // --- VOCAB CARD ---
+                    contentDiv.innerHTML = `
+                        <div style="font-size: 1.5rem; color: #777; margin-bottom: 20px;">Nueva Palabra 🦆</div>
+                        <div style="font-size: 4rem; color: #3c3c3c; font-weight: bold; margin-bottom: 10px;">${step.data.jp}</div>
+                        <div style="font-size: 2rem; color: #1cb0f6; margin-bottom: 20px;">${step.data.kana}</div>
+                        <div style="font-size: 2.5rem; color: #555; margin-bottom: 40px;">${step.data.es}</div>
+                    `;
+                    
+                    // Audio Button
+                    const audioBtn = document.createElement('button');
+                    audioBtn.innerHTML = '🔊 Escuchar';
+                    audioBtn.style.padding = '15px 30px';
+                    audioBtn.style.fontSize = '1.5rem';
+                    audioBtn.style.background = 'white';
+                    audioBtn.style.border = '2px solid #e5e5e5';
+                    audioBtn.style.borderRadius = '15px';
+                    audioBtn.style.cursor = 'pointer';
+                    audioBtn.style.marginRight = '20px';
+                    audioBtn.onclick = () => speak(step.data.jp);
+                    contentDiv.appendChild(audioBtn);
+
+                    // Continue Button
+                    const nextBtn = createButton('Continuar', '#58cc02');
+                    nextBtn.onclick = () => {
+                        currentIndex++;
+                        render();
+                        duckJump(); // Encouragement
+                    };
+                    contentDiv.appendChild(nextBtn);
+
+                    // Auto speak
+                    speak(step.data.jp);
+
+                } else if (step.type === 'quiz') {
+                    // --- QUIZ CARD ---
+                    contentDiv.innerHTML = `
+                        <div id="duck-status" style="font-size: 3rem; margin-bottom: 10px; transition: transform 0.3s;">🦆</div>
+                        <style>
+                            @keyframes duck-shake {
+                                0% { transform: translateX(0); }
+                                25% { transform: translateX(-10px) rotate(-10deg); }
+                                50% { transform: translateX(10px) rotate(10deg); }
+                                75% { transform: translateX(-10px) rotate(-10deg); }
+                                100% { transform: translateX(0); }
+                            }
+                            @keyframes duck-bounce {
+                                0%, 100% { transform: translateY(0); }
+                                50% { transform: translateY(-15px) scale(1.1); }
+                            }
+                            .duck-shake { animation: duck-shake 0.4s ease-in-out; }
+                            .duck-bounce { animation: duck-bounce 0.4s ease-in-out; }
+                        </style>
+                        <div style="font-size: 2rem; color: #3c3c3c; font-weight: bold; margin-bottom: 30px;">${step.data.question}</div>
+                        <div id="hint-area" style="height: 30px; margin-bottom: 10px; color: #1cb0f6; font-weight: bold; font-size: 1.2rem; opacity: 0; transition: opacity 0.5s;"></div>
+                        <div id="options-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%;"></div>
+                    `;
+                    
+                    const optsContainer = contentDiv.querySelector('#options-container');
+                    const hintArea = contentDiv.querySelector('#hint-area');
+                    const duckStatus = contentDiv.querySelector('#duck-status');
+                    
+                    // Start Hint Timer
+                    hintTimer = setTimeout(() => {
+                        hintArea.innerText = `¡Pst! La respuesta es "${step.data.answer}"...`;
+                        hintArea.style.opacity = '1';
+                        // Maybe play a small sound or make the duck look?
+                    }, HINT_DELAY);
+
+                    step.data.options.forEach(opt => {
+                        const btn = document.createElement('button');
+                        btn.innerText = opt.text;
+                        btn.style.padding = '20px';
+                        btn.style.fontSize = '1.5rem';
+                        btn.style.background = 'white';
+                        btn.style.border = '2px solid #e5e5e5';
+                        btn.style.borderRadius = '15px';
+                        btn.style.cursor = 'pointer';
+                        btn.style.transition = 'all 0.2s';
+                        
+                        btn.onmouseover = () => btn.style.background = '#f7f7f7';
+                        btn.onmouseout = () => { if(!btn.disabled) btn.style.background = 'white'; };
+
+                        btn.onclick = () => {
+                            // Stop hint timer
+                            if(hintTimer) clearTimeout(hintTimer);
+                            hintArea.style.opacity = '0';
+
+                            // Check Answer
+                            console.log(`Checking answer: Clicked=${opt.letter}, Correct=${step.data.answer}`);
+                            const isCorrect = (opt.letter === step.data.answer);
+                            
+                            // Disable all
+                            const allBtns = optsContainer.querySelectorAll('button');
+                            allBtns.forEach(b => b.disabled = true);
+
+                            if (isCorrect) {
+                                btn.style.background = '#d7ffb8';
+                                btn.style.borderColor = '#58cc02';
+                                btn.style.color = '#58cc02';
+                                duckJump();
+                                playSound('correct');
+                                
+                                // Update Duck Status
+                                duckStatus.innerText = '🦆👍';
+                                duckStatus.classList.remove('duck-shake');
+                                void duckStatus.offsetWidth; // trigger reflow
+                                duckStatus.classList.add('duck-bounce');
+
+                            } else {
+                                btn.style.background = '#ffdfe0';
+                                btn.style.borderColor = '#ff4b4b';
+                                btn.style.color = '#ff4b4b';
+                                lives--; // Lose life
+                                console.log("Lives remaining:", lives);
+                                
+                                // Update Duck Status
+                                duckStatus.innerText = '🦆💧';
+                                duckStatus.classList.remove('duck-bounce');
+                                void duckStatus.offsetWidth; // trigger reflow
+                                duckStatus.classList.add('duck-shake');
+
+                                if (lives > 0) {
+                                    console.log("Triggering duckSad");
+                                    duckSad();
+                                } else {
+                                    console.log("Triggering duckDeath");
+                                    duckDeath(); 
+                                }
+                                
+                                playSound('wrong');
+                                
+                                // Highlight correct
+                                step.data.options.forEach((o, i) => {
+                                    if (o.letter === step.data.answer) {
+                                        allBtns[i].style.background = '#d7ffb8';
+                                        allBtns[i].style.borderColor = '#58cc02';
+                                    }
+                                });
+                            }
+
+                            // --- FEEDBACK PANEL (Bottom Sheet Style) ---
+                            const feedbackDiv = document.createElement('div');
+                            feedbackDiv.style.width = '100%';
+                            feedbackDiv.style.padding = '20px';
+                            feedbackDiv.style.boxSizing = 'border-box';
+                            feedbackDiv.style.marginTop = 'auto'; // Push to bottom if flex container has space
+                            
+                            if (isCorrect) {
+                                feedbackDiv.style.background = '#d7ffb8'; // Light Green
+                                feedbackDiv.style.color = '#58cc02';
+                                feedbackDiv.innerHTML = `
+                                    <div style="font-size: 1.5rem; font-weight: bold; margin-bottom: 10px; text-align: left; padding-left: 10px;">¡Correcto!</div>
+                                `;
+                            } else {
+                                feedbackDiv.style.background = '#ffdfe0'; // Light Red
+                                feedbackDiv.style.color = '#ea2b2b';
+                                feedbackDiv.innerHTML = `
+                                    <div style="font-size: 1.5rem; font-weight: bold; margin-bottom: 10px; text-align: left; padding-left: 10px;">Incorrecto...</div>
+                                `;
+                            }
+
+                            const nextBtn = document.createElement('button');
+                            nextBtn.innerText = (!isCorrect && lives <= 0) ? 'VER RESULTADO' : 'CONTINUAR';
+                            nextBtn.style.width = '100%';
+                            nextBtn.style.padding = '15px';
+                            nextBtn.style.fontSize = '1.2rem';
+                            nextBtn.style.fontWeight = 'bold';
+                            nextBtn.style.borderRadius = '15px';
+                            nextBtn.style.cursor = 'pointer';
+                            nextBtn.style.textTransform = 'uppercase';
+                            nextBtn.style.marginTop = '10px';
+                            
+                            if (isCorrect) {
+                                nextBtn.style.background = '#58cc02';
+                                nextBtn.style.color = 'white';
+                                nextBtn.style.border = 'none';
+                                nextBtn.style.borderBottom = '4px solid #46a302';
+                            } else {
+                                nextBtn.style.background = 'white';
+                                nextBtn.style.color = '#ff4b4b';
+                                nextBtn.style.border = '2px solid #ff4b4b';
+                                nextBtn.style.borderBottom = '4px solid #ff4b4b';
+                            }
+
+                            nextBtn.onclick = () => {
+                                if (lives > 0) {
+                                    duckRevive(); 
+                                }
+                                currentIndex++; 
+                                render();
+                            };
+                            
+                            nextBtn.onmouseover = () => {
+                                nextBtn.style.opacity = '0.9';
+                            };
+                            nextBtn.onmouseout = () => {
+                                nextBtn.style.opacity = '1';
+                            };
+
+                            feedbackDiv.appendChild(nextBtn);
+                            container.appendChild(feedbackDiv);
+                            
+                            // Ensure it's visible
+                            feedbackDiv.scrollIntoView({ behavior: 'smooth' });
+                        };
+                        
+                        optsContainer.appendChild(btn);
+                    });
+
+                } else if (step.type === 'finish') {
+                    // Save Progress
+                    try {
+                        const lessonKey = 'progress_' + new URLSearchParams(window.location.search).get('src');
+                        localStorage.setItem(lessonKey, 'true');
+                        console.log("Progress saved for:", lessonKey);
+                    } catch (e) {
+                        console.error("Could not save progress:", e);
+                    }
+
+                    contentDiv.innerHTML = `
+                        <div style="font-size: 3rem; color: #58cc02; font-weight: bold; margin-bottom: 20px;">¡Lección Completada!</div>
+                        <div style="font-size: 5rem;">🎉</div>
+                    `;
+                    
+                    const homeBtn = createButton('Volver al Inicio', '#1cb0f6');
+                    homeBtn.onclick = () => {
+                        window.history.back();
+                    };
+                    contentDiv.appendChild(homeBtn);
+                    duckSpin();
+                }
+            }
+
+            function renderGameOver() {
+                container.innerHTML = '';
+                
+                const contentDiv = document.createElement('div');
+                contentDiv.style.flex = '1';
+                contentDiv.style.display = 'flex';
+                contentDiv.style.flexDirection = 'column';
+                contentDiv.style.alignItems = 'center';
+                contentDiv.style.justifyContent = 'center';
+                contentDiv.style.padding = '40px';
+                contentDiv.style.fontFamily = "'Nunito', sans-serif";
+                contentDiv.style.textAlign = 'center';
+                container.appendChild(contentDiv);
+
+                contentDiv.innerHTML = `
+                    <div style="font-size: 3rem; color: #ff4b4b; font-weight: bold; margin-bottom: 20px;">¡Oh no!</div>
+                    <div style="font-size: 1.5rem; color: #555; margin-bottom: 30px;">Te has quedado sin vidas.</div>
+                    <div style="font-size: 5rem; margin-bottom: 30px;">💔</div>
+                `;
+
+                const restartBtn = createButton('Intentar de Nuevo', '#ff4b4b');
+                restartBtn.onclick = () => {
+                    lives = 3;
+                    currentIndex = 0;
+                    duckRevive();
+                    render();
+                };
+                contentDiv.appendChild(restartBtn);
+                
+                const homeBtn = document.createElement('button');
+                homeBtn.innerText = "Salir";
+                homeBtn.style.marginTop = "20px";
+                homeBtn.style.background = "none";
+                homeBtn.style.border = "none";
+                homeBtn.style.fontSize = "1.2rem";
+                homeBtn.style.color = "#777";
+                homeBtn.style.cursor = "pointer";
+                homeBtn.onclick = () => window.history.back();
+                contentDiv.appendChild(homeBtn);
+            }
+
+            render();
+        }
+
+        function createButton(text, color) {
+            const btn = document.createElement('button');
+            btn.innerText = text;
+            btn.style.padding = '15px 40px';
+            btn.style.fontSize = '1.5rem';
+            btn.style.fontWeight = 'bold';
+            btn.style.color = 'white';
+            btn.style.background = color;
+            btn.style.border = 'none';
+            btn.style.borderBottom = '4px solid ' + adjustColor(color, -20);
+            btn.style.borderRadius = '15px';
+            btn.style.cursor = 'pointer';
+            btn.style.marginTop = '20px';
+            
+            btn.onactive = () => {
+                btn.style.transform = 'translateY(4px)';
+                btn.style.borderBottom = '0';
+            };
+            
+            return btn;
+        }
+
+        function adjustColor(color, amount) {
+            return color; // Simplification, ideally use a color lib or simple hex math
+        }
+
+        function speak(text) {
+            window.speechSynthesis.cancel();
+            const msg = new SpeechSynthesisUtterance(text);
+            msg.lang = 'ja-JP';
+            window.speechSynthesis.speak(msg);
+        }
+
+        function playSound(type) {
+            const file = type === 'correct' ? 'duolingo-correct.mp3' : 'duolingo-wrong.mp3';
+            const audio = new Audio(file);
+            audio.volume = 0.5;
+            audio.play().catch(e => console.log("Audio play failed (interaction needed first)", e));
+        }
+
+        // --- Duck Animations ---
+        function duckJump() {
+            if (!avatarGroup) return;
+            isAnimatingDuck = true;
+            const animId = ++currentAnimationId;
+            const startY = -50;
+            const jumpHeight = 100;
+            
+            // Simple manual animation loop or tween
+            let progress = 0;
+            const duration = 40; // frames
+            
+            function animateJump() {
+                if (animId !== currentAnimationId) return;
+
+                progress++;
+                const phase = progress / duration; // 0 to 1
+                const yOffset = Math.sin(phase * Math.PI) * jumpHeight;
+                
+                avatarGroup.position.y = startY + yOffset;
+                // Also rotate a bit for joy
+                avatarGroup.rotation.y = -Math.PI / 4 + Math.sin(phase * Math.PI * 2) * 0.5;
+
+                if (progress < duration) {
+                    requestAnimationFrame(animateJump);
+                } else {
+                    avatarGroup.position.y = startY;
+                    avatarGroup.rotation.y = -Math.PI / 4;
+                    isAnimatingDuck = false;
+                }
+            }
+            animateJump();
+        }
+
+        function duckSad() {
+            if (!avatarGroup) return;
+            isAnimatingDuck = true;
+            const animId = ++currentAnimationId;
+            // Shake head
+            let progress = 0;
+            const duration = 40;
+            const startRot = -Math.PI / 4;
+            
+            function animateShake() {
+                if (animId !== currentAnimationId) return;
+
+                progress++;
+                const phase = progress / duration * Math.PI * 6; // 3 shakes
+                avatarGroup.rotation.y = startRot + Math.sin(phase) * 0.3;
+                avatarGroup.position.y = -60; // Droop a bit
+                
+                if (progress < duration) {
+                    requestAnimationFrame(animateShake);
+                } else {
+                    // STAY SAD (Head down, looking at floor)
+                    avatarGroup.rotation.y = startRot; 
+                    avatarGroup.position.y = -65; // Stay lowered
+                    avatarGroup.rotation.z = -0.2; // Tilt head slightly
+                    // Note: We do NOT set isAnimatingDuck = false here.
+                    // The duck stays in this state until duckRevive() is called.
+                }
+            }
+            animateShake();
+        }
+
+        function duckSpin() {
+            if (!avatarGroup) return;
+            isAnimatingDuck = true;
+            const animId = ++currentAnimationId;
+            let progress = 0;
+            const duration = 120;
+            
+            function animateSpin() {
+                if (animId !== currentAnimationId) return;
+
+                progress++;
+                avatarGroup.rotation.y += 0.2;
+                avatarGroup.position.y = -50 + Math.sin(progress * 0.2) * 20; // Hop while spinning
+                
+                if (progress < duration) {
+                    requestAnimationFrame(animateSpin);
+                } else {
+                    avatarGroup.rotation.y = -Math.PI / 4; // Reset
+                    isAnimatingDuck = false;
+                }
+            }
+            animateSpin();
+        }
+
+        function duckDeath() {
+            if (!avatarGroup) return;
+            isAnimatingDuck = true;
+            const animId = ++currentAnimationId;
+            
+            // "YO NO MORIRE" - The duck refuses to die!
+            // It gets angry/defiant instead of dying.
+            
+            // Show Normal Eyes + Angry Brows
+            const normalL = avatarGroup.getObjectByName("normalEyeL");
+            const normalR = avatarGroup.getObjectByName("normalEyeR");
+            const deadL = avatarGroup.getObjectByName("deadEyeL");
+            const deadR = avatarGroup.getObjectByName("deadEyeR");
+            const browL = avatarGroup.getObjectByName("angryBrowL");
+            const browR = avatarGroup.getObjectByName("angryBrowR");
+            
+            if (normalL) normalL.visible = true;
+            if (normalR) normalR.visible = true;
+            if (deadL) deadL.visible = false;
+            if (deadR) deadR.visible = false;
+            if (browL) browL.visible = true;
+            if (browR) browR.visible = true;
+
+            // Animate Defiance (Shaking head NO violently + Tantrum Jumps)
+            let progress = 0;
+            // Longer duration for the tantrum
+            const duration = 120; 
+            
+            function animateDefiance() {
+                if (animId !== currentAnimationId) return;
+
+                progress++;
+                
+                // Fast Head Shake (NO!)
+                const shakePhase = progress * 0.5; 
+                avatarGroup.rotation.y = -Math.PI / 4 + Math.sin(shakePhase) * 0.5;
+                
+                // Angry Hops (Short, fast jumps)
+                const hopPhase = progress * 0.8;
+                const hopY = Math.abs(Math.sin(hopPhase)) * 20;
+                avatarGroup.position.y = -50 + hopY;
+                
+                // Tilt forward aggressively
+                avatarGroup.rotation.z = 0.2 + Math.sin(progress * 0.2) * 0.1;
+
+                if (progress < duration) {
+                    requestAnimationFrame(animateDefiance);
+                } else {
+                    // End state: Angry Stare
+                    // Frozen in an aggressive pose
+                    avatarGroup.rotation.y = -Math.PI / 4; // Face forward
+                    avatarGroup.position.y = -50;
+                    avatarGroup.rotation.z = 0; // Reset tilt
+                    
+                    // KEEP ANIMATING flag true so it doesn't go back to idle bobbing
+                    // isAnimatingDuck = false; // <--- COMMENTED OUT INTENTIONALLY
+                }
+            }
+            animateDefiance();
+        }
+
+        function duckRevive() {
+            if (!avatarGroup) return;
+            currentAnimationId++; // Stop any running animations
+            isAnimatingDuck = false;
+            
+            // Reset Eyes & Brows
+            const normalL = avatarGroup.getObjectByName("normalEyeL");
+            const normalR = avatarGroup.getObjectByName("normalEyeR");
+            const deadL = avatarGroup.getObjectByName("deadEyeL");
+            const deadR = avatarGroup.getObjectByName("deadEyeR");
+            const browL = avatarGroup.getObjectByName("angryBrowL");
+            const browR = avatarGroup.getObjectByName("angryBrowR");
+            
+            if (normalL) normalL.visible = true;
+            if (normalR) normalR.visible = true;
+            if (deadL) deadL.visible = false;
+            if (deadR) deadR.visible = false;
+            if (browL) browL.visible = false;
+            if (browR) browR.visible = false;
+
+            // Reset Position
+            avatarGroup.rotation.z = 0;
+            avatarGroup.rotation.y = -Math.PI / 4;
+            avatarGroup.position.y = -50;
+        }
+
+        function createShelf(x, z) {
+             const mat = new THREE.MeshLambertMaterial({ color: 0xffffff });
+             const shelf = new THREE.Mesh(new THREE.BoxGeometry(200, 300, 50), mat);
+             shelf.position.set(x, -50, z);
+             scene.add(shelf);
+             
+             // Items
+             for(let i=0; i<10; i++) {
+                 const item = new THREE.Mesh(new THREE.BoxGeometry(20, 20, 20), new THREE.MeshLambertMaterial({ color: Math.random()*0xffffff }));
+                 item.position.set((Math.random()-0.5)*150, (Math.random()-0.5)*250, 25);
+                 shelf.add(item);
+             }
+        }
+
+        // --- Debug / Testing Helper ---
+        window.testDuck = function(input) {
+            // Allow flexible input: string, object, or direct state name
+            let state = input;
+            
+            if (typeof input === 'object') {
+                // Handle {pato: {state: "..."}} or {state: "..."}
+                if (input.pato && input.pato.state) state = input.pato.state;
+                else if (input.state) state = input.state;
+                
+                // Handle user's specific pseudo-json format "endadado": true if passed as object keys
+                // e.g. {pato: {state: {enfadado: true}}}
+                if (input.pato && typeof input.pato.state === 'object') {
+                    const keys = Object.keys(input.pato.state);
+                    if (keys.length > 0) state = keys[0];
+                }
+            } else if (typeof input === 'string') {
+                // Try parsing if it looks like JSON
+                if (input.trim().startsWith('{')) {
+                    try {
+                        const parsed = JSON.parse(input);
+                        if (parsed.pato && parsed.pato.state) state = parsed.pato.state;
+                        else if (parsed.state) state = parsed.state;
+                    } catch(e) {}
+                }
+            }
+
+            console.log("🦆 Debugging Duck State:", state);
+
+            switch(String(state).toLowerCase()) {
+                case 'enfadado':
+                case 'angry':
+                case 'death': // Alias for the defiant animation
+                    duckDeath();
+                    return "Duck is now ANGRY (Defiant)";
+                case 'triste':
+                case 'sad':
+                    duckSad();
+                    return "Duck is now SAD";
+                case 'feliz':
+                case 'happy':
+                case 'jump':
+                    duckJump();
+                    return "Duck is now HAPPY";
+                case 'girar':
+                case 'spin':
+                case 'win':
+                    duckSpin();
+                    return "Duck is now SPINNING";
+                case 'normal':
+                case 'revive':
+                case 'idle':
+                    duckRevive();
+                    return "Duck is now NORMAL";
+                default:
+                    console.warn("Estado desconocido. Usa: enfadado, triste, feliz, girar, normal");
+                    return "Unknown state. Try: enfadado, triste, feliz, girar, normal";
+            }
+        };
+        
+        console.log("%c🦆 Debug Mode Ready: Run testDuck({state: 'enfadado'})", "color: #ff9800; font-weight: bold; font-size: 1.2em; background: #222; padding: 4px; border-radius: 4px;");
+
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            labelRenderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            
+            // Animate Duck (Idle)
+            if (avatarGroup && !isAnimatingDuck) {
+                avatarGroup.position.y = -50 + Math.sin(Date.now() * 0.002) * 10;
+                avatarGroup.rotation.y = -Math.PI / 4 + Math.sin(Date.now() * 0.001) * 0.1;
+            }
+
+            renderer.render(scene, camera);
+            labelRenderer.render(scene, camera);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Situación： たんじょうび・来週の予定・来日・交通手段 — A4横・PDF</title>
+<style>
+  :root{ --accent:#1E90FF; --accent2:#0d47a1; --text:#111; --muted:#555; --border:#d9e2ec; --panel:#f7faff; }
+  html,body{ height:100%; }
+  body{ margin:0; background:#fff; color:var(--text); font-family:"Hiragino Maru Gothic Pro","Yu Gothic","Meiryo",system-ui,-apple-system,Segoe UI,Roboto,sans-serif; line-height:1.6; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page{ width:297mm; min-height:210mm; margin:0 auto; background:#fff; }
+  .content{ padding:10mm; display:grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto auto 1fr auto; gap:9mm; }
+  header{ grid-column:1 / -1; display:flex; align-items:center; justify-content:space-between; border-bottom:2.5px solid var(--accent); padding-bottom:5mm; }
+  .title{ font-size:26pt; font-weight:900; letter-spacing:.02em; color:var(--accent); }
+  .badge{ font-size:10pt; font-weight:700; color:#fff; background:linear-gradient(90deg,var(--accent2),#1565c0); padding:6px 12px; border-radius:999px; }
+  .subtitle{ font-size:12pt; color:var(--muted); }
+  .print-btn{ border:none; background:var(--accent); color:#fff; font-size:10pt; font-weight:700; padding:7px 16px; border-radius:999px; cursor:pointer; }
+  .block{ border:1px solid var(--border); border-radius:14px; padding:8mm; background:#fff; break-inside: avoid; page-break-inside: avoid; }
+  .col-1{ grid-column:1; }
+  .col-2{ grid-column:2; }
+  .col-all{ grid-column:1 / -1; }
+  .section-title{ position:relative; font-size:14pt; font-weight:800; color:var(--accent2); margin-bottom:4mm; padding-left:5mm; }
+  .section-title::before{ content:""; position:absolute; left:0; top:50%; transform:translateY(-50%); width:3mm; height:70%; background:var(--accent); border-radius:2px; }
+  .panel{ background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:6mm; }
+  .exercise-list{ list-style:none; padding:0; margin:0; display:grid; gap:5mm; }
+  .q-item{ display:grid; gap:2mm; }
+  .q-head{ font-weight:800; color:var(--accent2); }
+  .hint{ color:var(--muted); font-size:11pt; }
+  .q-es{ font-size:12pt; }
+  .blank{ display:inline-block; min-width:80mm; border-bottom:2px solid #9aa5b1; translate: 0 -1px; }
+  .dialog{ display:grid; grid-template-columns: max-content 1fr; gap:2mm 6mm; }
+  .dialog .name{ font-weight:800; color:var(--accent2); white-space: nowrap; padding-right:6px; }
+  .answers{ line-height:1.9; }
+  .answers .grid{ display:grid; grid-template-columns: 1fr; gap:3mm; }
+  .notes .lines{ display:grid; grid-template-rows: repeat(4, 1fr); gap:6mm; }
+  .notes .line{ border-bottom:1px dashed #b7c2d0; height:26px; }
+  @page{ size: A4 landscape; margin:10mm; }
+  @media print{ .content{ padding:0; } .page{ width:auto; min-height:auto; } .screen-only{ display:none !important; } }
+  @media screen{ .block{ box-shadow: 0 4px 16px rgba(0,0,0,.08); } .print-btn{ box-shadow:0 2px 6px rgba(0,0,0,.15); } }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="content">
+    <header>
+      <div style="display:flex; align-items:center; gap:8mm;">
+        <div class="title">Situación： たんじょうび・来週の予定・来日・交通手段</div>
+        <div class="badge">日付・予定・来日・移動手段</div>
+      </div>
+      <div style="display:flex; align-items:center; gap:6mm;">
+        <div class="subtitle">A4横・PDF教材／対象：入門〜一般</div>
+        <button class="print-btn screen-only" onclick="window.print()">PDFで印刷</button>
+      </div>
+    </header>
+
+    <div class="block col-all">
+      <div class="section-title">1. Diálogo（例）</div>
+      <div class="panel" style="display:grid; gap:6mm;">
+        <div>
+          <img src="6ka1.png" style="width:100%; height:auto; display:block; margin-bottom:4mm; border-radius:6px; border:1px solid #eee;">
+          <div class="dialog">
+            <div class="name">おの:</div><div>リーさん、たんじょうびは いつですか。</div>
+            <div class="name">リー:</div><div>5がつ30にちです。おのさんは。</div>
+            <div class="name">おの:</div><div>わたしの たんじょうびは 8がつ14かです。</div>
+            <div class="name">リー:</div><div>そうですか。らいげつですね。</div>
+          </div>
+        </div>
+        <div>
+          <img src="6ka2.png" style="width:100%; height:auto; display:block; margin-bottom:4mm; border-radius:6px; border:1px solid #eee;">
+          <div class="dialog">
+            <div class="name">マリア:</div><div>らいしゅうの どようびに どこへ いきますか。</div>
+            <div class="name">リー:</div><div>よこはまへ いきます。マリアさんは。</div>
+            <div class="name">マリア:</div><div>わたしは どこへも いきません。</div>
+          </div>
+        </div>
+        <div>
+          <div class="dialog">
+            <div class="name">おの:</div><div>リーさんは どこから きましたか。</div>
+            <div class="name">リー:</div><div>シンガポールから きました。</div>
+            <div class="name">おの:</div><div>いつ きましたか。</div>
+            <div class="name">リー:</div><div>7がつ12にちに きました。</div>
+            <div class="name">おの:</div><div>ああ、そうですか。いつ くにへ かえりますか。</div>
+            <div class="name">リー:</div><div>8がつ30にちに かえります。</div>
+          </div>
+        </div>
+        <div>
+          <div class="dialog">
+            <div class="name">リー:</div><div>せんしゅう うえのへ いきました。</div>
+            <div class="name">あおき:</div><div>だれと、いっしょに いきましたか。</div>
+            <div class="name">リー:</div><div>ともだちと いっしょに いきました。</div>
+            <div class="name">あおき:</div><div>なんで いきましたか。</div>
+            <div class="name">リー:</div><div>ちかてつで いきました。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block col-all">
+      <div class="section-title">2. Situación y Pregunta（4題）</div>
+      <ul class="exercise-list">
+        <li class="q-item">
+          <div class="q-head">（１）</div>
+          <div class="hint">【Situación】 Hablan de las fechas de cumpleaños.</div>
+          <div class="q-es">Dices en español: 「Mi cumpleaños es el 14 de agosto.」</div>
+          <div>→ にほんごで なんですか。 <span class="blank"></span></div>
+        </li>
+        <li class="q-item">
+          <div class="q-head">（２）</div>
+          <div class="hint">【Situación】 Hablan de planes para el sábado de la próxima semana.</div>
+          <div class="q-es">Dices en español: 「Voy a Yokohama.」</div>
+          <div>→ にほんごで なんですか。 <span class="blank"></span></div>
+        </li>
+        <li class="q-item">
+          <div class="q-head">（３）</div>
+          <div class="hint">【Situación】 Hablan de cuándo Lee llegó a Japón.</div>
+          <div class="q-es">Dices en español: 「Vine el 12 de julio.」</div>
+          <div>→ にほんごで なんですか。 <span class="blank"></span></div>
+        </li>
+        <li class="q-item">
+          <div class="q-head">（４）</div>
+          <div class="hint">【Situación】 Hablan de un viaje la semana pasada y cómo fue.</div>
+          <div class="q-es">Dices en español: 「Fui en metro.」</div>
+          <div>→ にほんごで なんですか。 <span class="blank"></span></div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="block col-all">
+      <div class="section-title">3. Respuestas</div>
+      <div class="panel answers">
+        <div class="grid">
+          <div>（１） わたしの たんじょうびは 8がつ14かです。</div>
+          <div>（２） よこはまへ いきます。</div>
+          <div>（３） 7がつ12にちに きました。</div>
+          <div>（４） ちかてつで いきました。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block notes col-all">
+      <div class="section-title">4. メモ欄</div>
+      <div class="panel">
+        <div class="lines">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
+

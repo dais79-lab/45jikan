@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japonés 45 Horas - Inicio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --duo-green: #58cc02;
+            --duo-green-shadow: #58a700;
+            --duo-blue: #1cb0f6;
+            --duo-blue-shadow: #1899d6;
+            --duo-purple: #ce82ff;
+            --duo-purple-shadow: #a568cc;
+            --duo-red: #ff4b4b;
+            --duo-red-shadow: #d43f3f;
+            --duo-yellow: #ffc800;
+            --duo-yellow-shadow: #e5b400;
+            --duo-white: #ffffff;
+            --duo-gray: #3c3c3c;
+            --duo-light-gray: #e5e5e5;
+            --bg-color: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--duo-gray);
+        }
+
+        /* Header */
+        header {
+            background-color: #fff;
+            border-bottom: 2px solid #e5e5e5;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+        }
+
+        .header-content {
+            width: 100%;
+            max-width: 1000px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--duo-green);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Unit Card Style */
+        .unit-card {
+            border: 2px solid #e5e5e5;
+            border-radius: 16px;
+            overflow: hidden;
+            background: white;
+            margin-bottom: 20px;
+            transition: transform 0.2s;
+        }
+
+        .unit-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .unit-header {
+            padding: 15px 20px;
+            color: white;
+            font-weight: 800;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .unit-content {
+            padding: 20px;
+        }
+
+        .unit-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin: 0 0 5px 0;
+            color: var(--duo-gray);
+        }
+
+        .unit-desc {
+            color: #777;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        /* Button Grid */
+        .lesson-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px 10px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.1s;
+            letter-spacing: 0.5px;
+            border: 2px solid transparent;
+            text-align: center;
+            box-sizing: border-box;
+            min-height: 50px;
+        }
+
+        .btn:active {
+            transform: translateY(4px);
+            box-shadow: none !important;
+        }
+
+        /* Button Variants */
+        .btn-vocab {
+            background-color: white;
+            color: var(--duo-blue);
+            border: 2px solid var(--duo-blue);
+            box-shadow: 0 4px 0 var(--duo-blue-shadow);
+        }
+        .btn-vocab:hover { background-color: #f0faff; }
+
+        .btn-grammar {
+            background-color: white;
+            color: var(--duo-purple);
+            border: 2px solid var(--duo-purple);
+            box-shadow: 0 4px 0 var(--duo-purple-shadow);
+        }
+        .btn-grammar:hover { background-color: #f9f0ff; }
+
+        .btn-situation {
+            background-color: var(--duo-green);
+            color: white;
+            border: 2px solid var(--duo-green);
+            box-shadow: 0 4px 0 var(--duo-green-shadow);
+        }
+        .btn-situation:hover { filter: brightness(1.1); }
+        
+        .btn-extra {
+             background-color: white;
+            color: var(--duo-yellow);
+            border: 2px solid var(--duo-yellow);
+            box-shadow: 0 4px 0 var(--duo-yellow-shadow);
+        }
+        .btn-extra:hover { background-color: #fffdf0; }
+
+
+        /* Colors for units */
+        .color-green .unit-header { background-color: var(--duo-green); }
+        .color-blue .unit-header { background-color: var(--duo-blue); }
+        .color-purple .unit-header { background-color: var(--duo-purple); }
+        .color-red .unit-header { background-color: var(--duo-red); }
+        .color-yellow .unit-header { background-color: var(--duo-yellow); }
+
+        /* Extra section */
+        .extras-section {
+            margin-top: 40px;
+            border-top: 2px solid #e5e5e5;
+            padding-top: 20px;
+        }
+        
+        .extras-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--duo-gray);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Floating Owl (Decoración) */
+        .floating-owl {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            background-color: var(--duo-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            cursor: pointer;
+            z-index: 200;
+            transition: transform 0.2s;
+        }
+        .floating-owl:hover { transform: scale(1.1); }
+
+        .check-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #58cc02;
+            color: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+        .btn {
+            position: relative; /* Ensure badge is positioned relative to button */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <a href="#" class="logo">Japonés 45H</a>
+    </div>
+</header>
+
+<div class="container">
+    
+    <!-- Introducción -->
+    <div class="unit-card color-yellow">
+        <div class="unit-header">Introducción</div>
+        <div class="unit-content">
+            <h3 class="unit-title">Saludos</h3>
+            <p class="unit-desc">Aisatsu</p>
+            <div class="lesson-grid">
+                 <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL1-L3HTML/1-aisatsu.html" class="btn btn-situation">Saludos</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lección 1 -->
+    <div class="unit-card color-green">
+        <div class="unit-header">Unidad 1</div>
+        <div class="unit-content">
+            <h3 class="unit-title">Presentación</h3>
+            <p class="unit-desc">自己紹介</p>
+            <div class="lesson-grid">
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL1-L3HTML/2-L1v.html" class="btn btn-vocab">Vocabulario</a>
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL1-L3HTML/3-L1g.html" class="btn btn-grammar">Gramática</a>
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL1-L3HTML/4-L1c.html" class="btn btn-situation">Situación</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lección 2 -->
+    <div class="unit-card color-blue">
+        <div class="unit-header">Unidad 2</div>
+        <div class="unit-content">
+            <h3 class="unit-title">Cosas y Demostrativos</h3>
+            <p class="unit-desc">これ・それ・あれ</p>
+            <div class="lesson-grid">
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL1-L3HTML/5-L2v.html" class="btn btn-vocab">Vocabulario</a>
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL1-L3HTML/6-L2g.html" class="btn btn-grammar">Gramática</a>
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL1-L3HTML/7-L2c.html" class="btn btn-situation">Situación</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lección 3 -->
+    <div class="unit-card color-purple">
+        <div class="unit-header">Unidad 3</div>
+        <div class="unit-content">
+            <h3 class="unit-title">Lugares y Números</h3>
+            <p class="unit-desc">ここ・そこ・あそこ</p>
+            <div class="lesson-grid">
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL1-L3HTML/8-L3-1.html" class="btn btn-vocab">Vocab 1</a>
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL1-L3HTML/9-L3-2.html" class="btn btn-vocab">Vocab 2</a>
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL1-L3HTML/10-L3g.html" class="btn btn-grammar">Gramática</a>
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL1-L3HTML/11-L3c.html" class="btn btn-situation">Situación</a>
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL1-L3HTML/12-L1-L3_Examen_de_repaso.html" class="btn btn-extra">Examen L1-3</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lección 4 -->
+    <div class="unit-card color-red">
+        <div class="unit-header">Unidad 4</div>
+        <div class="unit-content">
+            <h3 class="unit-title">Familia y Edad</h3>
+            <p class="unit-desc">家族と年齢</p>
+            <div class="lesson-grid">
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL4からL6/45jikan4v.html" class="btn btn-vocab">Vocabulario</a>
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL4からL6/45jikan4kag.html" class="btn btn-grammar">Gramática</a>
+                <a href="lesson_3d.html?src=45jikan4kac.html" class="btn btn-situation">Situación</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lección 5 -->
+    <div class="unit-card color-yellow">
+        <div class="unit-header">Unidad 5</div>
+        <div class="unit-content">
+            <h3 class="unit-title">Lugares y Existencia</h3>
+            <p class="unit-desc">場所と あります／います</p>
+             <div class="lesson-grid">
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL4からL6/45jikan5v.html" class="btn btn-vocab">Vocabulario</a>
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL4からL6/45jikan5kag.html" class="btn btn-grammar">Gramática</a>
+                <a href="lesson_3d.html?src=45jikan5kac.html" class="btn btn-situation">Situación</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lección 6 -->
+    <div class="unit-card color-green">
+        <div class="unit-header">Unidad 6</div>
+        <div class="unit-content">
+            <h3 class="unit-title">Planes y Transporte</h3>
+            <p class="unit-desc">たんじょうび・来週の予定・来日・交通手段</p>
+             <div class="lesson-grid">
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL4からL6/45jikanL6-1v.html" class="btn btn-vocab">Vocab 1</a>
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL4からL6/45jikanL6-2v.html" class="btn btn-vocab">Vocab 2</a>
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL4からL6/45jikan6kag.html" class="btn btn-grammar">Gramática</a>
+                <a href="lesson_3d.html?src=45jikan6kac.html" class="btn btn-situation">Situación</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lección 7 -->
+    <div class="unit-card color-blue">
+        <div class="unit-header">Unidad 7</div>
+        <div class="unit-content">
+            <h3 class="unit-title">Salud y Eventos</h3>
+            <p class="unit-desc">体調・健康・パーティー</p>
+             <div class="lesson-grid">
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL7からL9/45jikanL7v.html" class="btn btn-vocab">Vocabulario</a>
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL7からL9/45jikan7kag.html" class="btn btn-grammar">Gramática</a>
+                <a href="lesson_3d.html?src=45jikan7kac.html" class="btn btn-situation">Situación</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lección 8 -->
+    <div class="unit-card color-purple">
+        <div class="unit-header">Unidad 8</div>
+        <div class="unit-content">
+            <h3 class="unit-title">Rutina Diaria</h3>
+            <p class="unit-desc">明日の計画・朝のルーティン</p>
+             <div class="lesson-grid">
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL7からL9/45jikanL8v.html" class="btn btn-vocab">Vocabulario</a>
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL7からL9/45jikan8kag.html" class="btn btn-grammar">Gramática</a>
+                <a href="lesson_3d.html?src=45jikan8kac.html" class="btn btn-situation">Situación</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lección 9 -->
+    <div class="unit-card color-red">
+        <div class="unit-header">Unidad 9</div>
+        <div class="unit-content">
+            <h3 class="unit-title">Habilidades y Hobbies</h3>
+            <p class="unit-desc">日本語の能力・趣味・日本料理</p>
+             <div class="lesson-grid">
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL7からL9/45jikanL9v.html" class="btn btn-vocab">Vocabulario</a>
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL7からL9/45jikan9kag.html" class="btn btn-grammar">Gramática</a>
+                <a href="lesson_3d.html?src=45jikan9kac.html" class="btn btn-situation">Situación</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lección 10 -->
+    <div class="unit-card color-yellow">
+        <div class="unit-header">Unidad 10</div>
+        <div class="unit-content">
+            <h3 class="unit-title">Ubicación y Direcciones</h3>
+            <p class="unit-desc">辞書・住所・今どこ</p>
+             <div class="lesson-grid">
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL10-12/45jikanL10v.html" class="btn btn-vocab">Vocabulario</a>
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL10-12/45jikan10kag.html" class="btn btn-grammar">Gramática</a>
+                <a href="lesson_3d.html?src=45jikan10kac.html" class="btn btn-situation">Situación</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lección 11 -->
+    <div class="unit-card color-green">
+        <div class="unit-header">Unidad 11</div>
+        <div class="unit-content">
+            <h3 class="unit-title">Deseos y Verano</h3>
+            <p class="unit-desc">カメラの希望・夏休みの計画</p>
+             <div class="lesson-grid">
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL10-12/45jikanL11v.html" class="btn btn-vocab">Vocabulario</a>
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL10-12/45jikan11kag.html" class="btn btn-grammar">Gramática</a>
+                <a href="lesson_3d.html?src=45jikan11kac.html" class="btn btn-situation">Situación</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lección 12 -->
+    <div class="unit-card color-blue">
+        <div class="unit-header">Unidad 12</div>
+        <div class="unit-content">
+            <h3 class="unit-title">Permisos y Reglas</h3>
+            <p class="unit-desc">許可・ごみ・プレゼント</p>
+             <div class="lesson-grid">
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL10-12/45jikanL12v.html" class="btn btn-vocab">Vocabulario</a>
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL10-12/45jikan12kag.html" class="btn btn-grammar">Gramática</a>
+                <a href="lesson_3d.html?src=45jikan12kac.html" class="btn btn-situation">Situación</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lección 13 -->
+    <div class="unit-card color-purple">
+        <div class="unit-header">Unidad 13</div>
+        <div class="unit-content">
+            <h3 class="unit-title">Comunicación</h3>
+            <p class="unit-desc">電話連絡・約束・パーティー開始</p>
+             <div class="lesson-grid">
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL13-15/45jikanL13v.html" class="btn btn-vocab">Vocabulario</a>
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL13-15/45jikan13kag.html" class="btn btn-grammar">Gramática</a>
+                <a href="lesson_3d.html?src=45jikan13kac.html" class="btn btn-situation">Situación</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lección 14 -->
+    <div class="unit-card color-red">
+        <div class="unit-header">Unidad 14</div>
+        <div class="unit-content">
+            <h3 class="unit-title">Comparaciones y Ciudad</h3>
+            <p class="unit-desc">東京比較・交通・日本料理・誘い</p>
+             <div class="lesson-grid">
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL13-15/45jikan14v.html" class="btn btn-vocab">Vocabulario</a>
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL13-15/45jikan14kag.html" class="btn btn-grammar">Gramática</a>
+                <a href="lesson_3d.html?src=45jikan14kac.html" class="btn btn-situation">Situación</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lección 15 -->
+    <div class="unit-card color-yellow">
+        <div class="unit-header">Unidad 15</div>
+        <div class="unit-content">
+            <h3 class="unit-title">Opiniones y Despedida</h3>
+            <p class="unit-desc">海・意見・帰国前感想・別れ</p>
+             <div class="lesson-grid">
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL13-15/45jikanL15v.html" class="btn btn-vocab">Vocabulario</a>
+                <a href="lesson_3d.html?src=45%20jikan%20para%20subir/にほんご４５じかんL13-15/45jikan15kag.html" class="btn btn-grammar">Gramática</a>
+                <a href="lesson_3d.html?src=45jikan15kac.html" class="btn btn-situation">Situación</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="extras-section">
+        <h2 class="extras-title">Extras y Prácticas</h2>
+        
+        <div class="unit-card color-yellow">
+            <div class="unit-header">Juego</div>
+            <div class="unit-content">
+                <h3 class="unit-title">Juego Interactivo</h3>
+                <p class="unit-desc">Practica de forma divertida</p>
+                <div class="lesson-grid">
+                     <a href="lesson_3d.html?src=juego_interactivo.html" class="btn btn-situation">Jugar</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="unit-card color-red">
+            <div class="unit-header">Examen</div>
+            <div class="unit-content">
+                <h3 class="unit-title">Prueba de Material</h3>
+                <p class="unit-desc">Prueba tus conocimientos</p>
+                <div class="lesson-grid">
+                    <a href="lesson_3d.html?src=prueba japones material.html" class="btn btn-situation">Entrar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="floating-owl" id="secret-owl" title="¡Hola, soy Pen!">
+    🐧
+</div>
+
+<script>
+    const owl = document.getElementById('secret-owl');
+    let tapCount = 0;
+    let lastTapTime = 0;
+    const TAP_LIMIT = 5;
+    const TIME_WINDOW = 1000; // 1 second to chain taps
+
+    owl.addEventListener('click', (e) => {
+        const currentTime = new Date().getTime();
+        
+        // Reset if too much time passed
+        if (currentTime - lastTapTime > TIME_WINDOW) {
+            tapCount = 0;
+            owl.style.transform = 'scale(1) rotate(0deg)';
+        }
+        
+        lastTapTime = currentTime;
+        tapCount++;
+        
+        // Visual Feedback
+        owl.style.transform = `scale(${1 + (tapCount * 0.15)}) rotate(${tapCount * 20}deg)`;
+        
+        if (tapCount === TAP_LIMIT) {
+            // Success!
+            owl.style.backgroundColor = '#ffc800'; // Gold
+            owl.innerText = '🚀';
+            
+            setTimeout(() => {
+                window.location.href = 'dashboard_pro.html';
+            }, 500);
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const buttons = document.querySelectorAll('a.btn');
+        buttons.forEach(btn => {
+            const href = btn.getAttribute('href');
+            if (href && href.includes('src=')) {
+                // The src in the URL might be encoded or not, let's try to match what we save
+                // In lesson_3d.html we save: 'progress_' + new URLSearchParams(...).get('src')
+                // Here we need to extract the src param manually or use URL object
+                
+                try {
+                    const url = new URL(href, window.location.origin); // Construct full URL
+                    const srcParam = url.searchParams.get('src');
+                    
+                    if (srcParam) {
+                        const lessonKey = 'progress_' + srcParam;
+                        
+                        if (localStorage.getItem(lessonKey) === 'true') {
+                            const badge = document.createElement('div');
+                            badge.className = 'check-badge';
+                            badge.innerHTML = '✔';
+                            btn.appendChild(badge);
+                            
+                            // Gold border for completed items
+                            btn.style.borderColor = '#ffd700'; 
+                            btn.style.borderWidth = '3px';
+                        }
+                    }
+                } catch (e) {
+                    console.log("Error checking progress for", href, e);
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>
