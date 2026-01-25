@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>日本語文法練習 - 第3課</title>
+<style>
+  :root {
+    --accent: #1E90FF;
+    --text: #111;
+    --muted: #555;
+    --border: #ddd;
+    --panel: #f7faff;
+  }
+  html, body {
+    height: 100%;
+  }
+  body {
+    margin: 0;
+    background: #fff;
+    color: var(--text);
+    font-family: "Hiragino Maru Gothic Pro", "Yu Gothic", "Meiryo", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  }
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+  @media print {
+    body {
+      -webkit-print-color-adjust: exact;
+    }
+    .page {
+      width: 297mm;
+      height: 210mm;
+      page-break-after: always;
+    }
+  }
+  .page {
+    width: 297mm;
+    min-height: 210mm;
+    margin: 0 auto;
+    background: #fff;
+    box-sizing: border-box;
+  }
+  .content {
+    padding: 10mm;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 6mm 8mm;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  header {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2mm;
+    margin-bottom: 2mm;
+  }
+  .title {
+    font-size: 22pt;
+    font-weight: 900;
+    letter-spacing: .02em;
+    color: var(--accent);
+  }
+  .subtitle {
+    font-size: 11pt;
+    color: var(--muted);
+    font-weight: bold;
+  }
+  .block {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 5mm;
+    background: #fff;
+  }
+  .vocab-section {
+    grid-column: 1 / -1;
+  }
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8mm;
+  }
+  .section-title {
+    font-size: 13pt;
+    font-weight: 800;
+    color: #0d47a1;
+    margin-bottom: 3mm;
+    display: flex;
+    align-items: center;
+    gap: 2mm;
+  }
+  .section-title::before {
+    content: '';
+    display: block;
+    width: 4mm;
+    height: 4mm;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+  .exercise-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 11pt;
+  }
+  .exercise-list li {
+    margin-bottom: 3mm;
+    display: flex;
+    align-items: baseline;
+  }
+  .exercise-list li:last-child {
+    margin-bottom: 0;
+  }
+  .q-num {
+    display: inline-block;
+    width: 6mm;
+    font-weight: bold;
+    color: var(--accent);
+  }
+  .q-text {
+    flex: 1;
+  }
+  .quiz-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2mm 6mm;
+    font-size: 10pt;
+  }
+  .quiz-item {
+    margin-bottom: 2mm;
+  }
+  .quiz-q {
+    font-weight: bold;
+    margin-bottom: 1mm;
+  }
+  .quiz-options {
+    display: flex;
+    gap: 3mm;
+    color: var(--muted);
+    font-size: 90%;
+  }
+  .memo-box {
+    border: 2px dashed var(--border);
+    border-radius: 12px;
+    height: 100%;
+    min-height: 20mm;
+    position: relative;
+  }
+  .memo-label {
+    position: absolute;
+    top: -3mm;
+    left: 5mm;
+    background: #fff;
+    padding: 0 2mm;
+    color: var(--muted);
+    font-size: 9pt;
+    font-weight: bold;
+  }
+  .memo-lines{ display:grid; grid-template-rows: repeat(3, 1fr); gap:4mm; padding:5mm; }
+  .memo-line{ border-bottom:1px dashed var(--border); height:16px; }
+  footer {
+    grid-column: 1 / -1;
+    margin-top: auto;
+    padding-top: 4mm;
+    border-top: 1px solid var(--border);
+    font-size: 8pt;
+    color: var(--muted);
+    display: flex;
+    gap: 6mm;
+    flex-wrap: wrap;
+  }
+  .ans-block strong {
+    color: var(--accent);
+  }
+  /* Additional Styles for Grammar Explanation */
+  .grammar-box {
+    background: var(--panel);
+    padding: 3mm;
+    border-radius: 8px;
+    margin-bottom: 3mm;
+  }
+  .grammar-jp { font-size: 12pt; font-weight: bold; margin-bottom: 1mm; }
+  .grammar-es { font-size: 10pt; color: var(--muted); margin-bottom: 2mm; }
+  .example-list { padding-left: 4mm; font-size: 10.5pt; }
+  .example-item { margin-bottom: 1mm; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="content">
+    <header>
+      <div class="title-group">
+        <div class="subtitle">第3課 文法 (L3 Grammar)</div>
+        <div class="title">いくら ですか ／ 〜を〜つ おねがいします</div>
+      </div>
+      <div class="meta">45時間 - Lesson 3</div>
+    </header>
+
+    <div class="block vocab-section">
+      <div class="section-title">文法解説 (Explicación)</div>
+      <div class="vocab-grid">
+         <div class="grammar-box">
+            <div class="grammar-jp">いくらですか</div>
+            <div class="grammar-es">「いくらですか」は、値段を聞く時の文です。(¿Cuánto cuesta?)</div>
+            <div class="example-list">
+               <div class="example-item">・これはいくらですか。(¿Cuánto cuesta esto?)</div>
+            </div>
+         </div>
+         <div class="grammar-box">
+             <div class="grammar-jp">〜を〜つ おねがいします</div>
+             <div class="grammar-es">「〜を〜つ おねがいします」は、店で数を言って頼む時に使います。(Pedir algo diciendo la cantidad)</div>
+             <div class="example-list">
+               <div class="example-item">・コーヒーをふたつおねがいします。(Dos cafés, por favor.)</div>
+               <div class="example-item">・パンをひとつおねがいします。(Un pan, por favor.)</div>
+            </div>
+         </div>
+      </div>
+    </div>
+
+    <div class="block">
+       <div class="section-title">練習1: Español → Japonés</div>
+       <ul class="exercise-list">
+          <li><span class="q-num">1.</span> <span class="q-text">¿Cuánto cuesta esto?</span></li>
+          <li><span class="q-num">2.</span> <span class="q-text">Un té, por favor.</span></li>
+          <li><span class="q-num">3.</span> <span class="q-text">¿Cuánto cuesta el café?</span></li>
+          <li><span class="q-num">4.</span> <span class="q-text">Dos panes, por favor.</span></li>
+          <li><span class="q-num">5.</span> <span class="q-text">¿Cuánto cuesta eso?</span></li>
+       </ul>
+    </div>
+
+    <div class="block">
+       <div class="section-title">練習2: Japonés → Español</div>
+       <ul class="exercise-list">
+          <li><span class="q-num">1.</span> <span class="q-text">これはいくらですか。</span></li>
+          <li><span class="q-num">2.</span> <span class="q-text">それはいくらですか。</span></li>
+          <li><span class="q-num">3.</span> <span class="q-text">コーヒーをひとつおねがいします。</span></li>
+          <li><span class="q-num">4.</span> <span class="q-text">ケーキをふたつおねがいします。</span></li>
+          <li><span class="q-num">5.</span> <span class="q-text">おちゃをひとつおねがいします。</span></li>
+       </ul>
+    </div>
+
+    <div class="block vocab-section" style="grid-row: 3;">
+       <div class="section-title">確認問題 (Quiz)</div>
+       <div class="quiz-list" style="grid-template-columns: 1fr 1fr 1fr;">
+          <div class="quiz-item">
+             <div class="quiz-q">1. 「いくらですか」はいつ使う？</div>
+             <div class="quiz-options">A.頼む時 B.値段を聞く時 C.数を言う時</div>
+          </div>
+          <div class="quiz-item">
+             <div class="quiz-q">2. コーヒーを2つ頼む時は？</div>
+             <div class="quiz-options">A.〜がふたつです B.〜をふたつおねがいします C.〜はふたついくらですか</div>
+          </div>
+          <div class="quiz-item">
+             <div class="quiz-q">3. 「ひとつ」の意味は？</div>
+             <div class="quiz-options">A.uno B.dos C.tres</div>
+          </div>
+          <div class="quiz-item">
+             <div class="quiz-q">4. 正しい文は？</div>
+             <div class="quiz-options">A.これはいくら B.これをいくらですか C.これはいくらですか</div>
+          </div>
+          <div class="quiz-item">
+             <div class="quiz-q">5. どこでよく使う？</div>
+             <div class="quiz-options">A.学校 B.店やレストラン C.病院</div>
+          </div>
+       </div>
+    </div>
+    
+    <footer>
+       <div class="ans-block"><strong>練習1 答え:</strong> 1.これはいくらですか 2.おちゃをひとつおねがいします 3.コーヒーはいくらですか 4.パンをふたつおねがいします 5.それはいくらですか</div>
+       <div class="ans-block"><strong>練習2 答え:</strong> 1.¿Cuánto cuesta esto? 2.¿Cuánto cuesta eso? 3.Un café, por favor. 4.Dos pasteles, por favor. 5.Un té, por favor.</div>
+       <div class="ans-block"><strong>Quiz 答え:</strong> 1.B 2.B 3.A 4.C 5.B</div>
+    </footer>
+  </div>
+</div>
+</body>
+</html>

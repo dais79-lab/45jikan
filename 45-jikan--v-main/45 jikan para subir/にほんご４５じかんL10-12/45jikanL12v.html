@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>語彙ワークシート：動作・記憶・喫煙・ごみ・明暗 — A4横・PDF</title>
+<style>
+  :root{ --accent:#0ea5e9; --accent2:#0c4a6e; --accent3:#60a5fa; --text:#111; --muted:#555; --border:#d8dee9; --panel:#f2f8ff; }
+  html,body{ height:100%; }
+  body{ margin:0; background:#fff; color:var(--text); font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo","Segoe UI",system-ui,-apple-system,Roboto,sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page{ width:297mm; min-height:210mm; margin:0 auto; background:#fff; }
+  .content{ padding:10mm; display:grid; grid-template-columns: 1.15fr 0.85fr; grid-template-rows: auto auto auto auto auto 1fr auto; gap:8mm; }
+  header{ grid-column:1 / -1; display:flex; align-items:center; justify-content:space-between; border-bottom:2.5px solid var(--accent); padding-bottom:5mm; }
+  header::after{ content:""; display:block; height:4px; background:linear-gradient(90deg,var(--accent),var(--accent3)); border-radius:4px; margin-top:4mm; }
+  .title{ font-size:26pt; font-weight:900; letter-spacing:.02em; color:var(--accent2); display:flex; align-items:center; gap:6mm; }
+  .title::before{ content:""; display:inline-block; width:6mm; height:6mm; border-radius:2mm; background:linear-gradient(135deg,var(--accent),#60a5fa); }
+  .badge{ font-size:10pt; font-weight:700; color:#fff; background:var(--accent2); padding:4px 12px; border-radius:999px; }
+  .subtitle{ font-size:12pt; color:var(--muted); }
+  .print-meta{ font-size:10pt; color:var(--muted); }
+  .print-btn{ border:none; background:var(--accent); color:#fff; font-size:10pt; font-weight:700; padding:6px 12px; border-radius:10px; cursor:pointer; }
+  .block{ border:1px solid var(--border); border-radius:14px; padding:8mm; background:#fff; break-inside: avoid; page-break-inside: avoid; }
+  .block.vocab{ break-inside: auto; page-break-inside: auto; }
+  .col-1{ grid-column:1; }
+  .col-2{ grid-column:2; }
+  .col-all{ grid-column:1 / -1; }
+  .section-title{ font-size:14pt; font-weight:800; color:var(--accent2); margin-bottom:4mm; display:flex; align-items:center; gap:4mm; }
+  .section-title::before{ content:""; width:4mm; height:4mm; border-radius:1.5mm; background:var(--accent); }
+  .panel{ background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:6mm; }
+  .table{ width:100%; border-collapse:collapse; table-layout: fixed; }
+  .table th, .table td{ border:1px solid var(--border); padding:7px 9px; font-size:11pt; }
+  .table thead th{ background:#e6f2ff; color:var(--accent2); font-weight:800; }
+  .table tbody tr:nth-child(odd){ background:#fafcff; }
+  thead{ display: table-header-group; }
+  .exercise-list{ list-style:none; padding:0; margin:0; display:grid; gap:4mm; }
+  .q-item{ display:flex; gap:8px; align-items:flex-start; }
+  .q-num{ font-weight:800; color:var(--accent2); min-width:22px; }
+  .q-text{ flex:1; }
+  .blank{ display:inline-block; min-width:50mm; border-bottom:2px solid #9aa5b1; translate: 0 -1px; }
+  .choice{ margin-left:22px; }
+  .choice .opt{ margin:2px 0; line-height:1.7; }
+  .answers{ line-height:1.9; }
+  .answers .grid{ display:grid; grid-template-columns: 1fr; gap:3mm; }
+  .notes .lines{ display:grid; grid-template-rows: repeat(3, 1fr); gap:6mm; }
+  .notes .line{ border-bottom:1px dashed #aab; height:28px; }
+  @page{ size: A4 landscape; margin:10mm; }
+  @media print{ .content{ padding:0; } .page{ width:auto; min-height:auto; } .screen-only{ display:none !important; } }
+  @media screen{ .block{ box-shadow: 0 4px 16px rgba(0,0,0,.08); } }
+</style>
+    <link rel="stylesheet" href="../../duolingo_style.css">
+</head>
+<body>
+<div class="page">
+  <div class="content">
+    <header>
+      <div style="display:flex; align-items:center; gap:8mm;">
+        <div class="title">語彙ワークシート：動作・記憶・喫煙・ごみ・明暗</div>
+        <div class="badge">Vocab + Practice</div>
+      </div>
+      <div style="display:flex; align-items:center; gap:6mm;">
+        <div class="subtitle">A4横・PDF教材／対象：入門〜一般</div>
+        <div class="print-meta">印刷日: <span id="today"></span></div>
+        <button class="print-btn screen-only" onclick="window.print()">PDFで印刷</button>
+      </div>
+    </header>
+
+    <div class="block vocab col-all">
+      <div class="section-title">1. 語彙表（にほんご／ひらがな／スペイン語）</div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>にほんご</th>
+            <th>ひらがな</th>
+            <th>スペイン語</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>おきます</td><td>おきます</td><td>levantarse</td></tr>
+          <tr><td>すてます</td><td>すてます</td><td>tirar / desechar</td></tr>
+          <tr><td>なくします</td><td>なくします</td><td>perder</td></tr>
+          <tr><td>いそぎます</td><td>いそぎます</td><td>darse prisa</td></tr>
+          <tr><td>おぼえます</td><td>おぼえます</td><td>memorizar</td></tr>
+          <tr><td>わすれます</td><td>わすれます</td><td>olvidar</td></tr>
+          <tr><td>すいます</td><td>すいます</td><td>fumar</td></tr>
+          <tr><td>あげます</td><td>あげます</td><td>dar</td></tr>
+          <tr><td>もらいます</td><td>もらいます</td><td>recibir</td></tr>
+          <tr><td>あかるい</td><td>あかるい</td><td>claro / luminoso</td></tr>
+          <tr><td>くらい</td><td>くらい</td><td>oscuro</td></tr>
+          <tr><td>あぶない</td><td>あぶない</td><td>peligroso</td></tr>
+          <tr><td>たいせつ</td><td>たいせつ</td><td>importante</td></tr>
+          <tr><td>ごみばこ</td><td>ごみばこ</td><td>basurero</td></tr>
+          <tr><td>カン</td><td>カン</td><td>lata</td></tr>
+          <tr><td>たばこ</td><td>たばこ</td><td>cigarrillo</td></tr>
+          <tr><td>きんえん</td><td>きんえん</td><td>no fumar</td></tr>
+          <tr><td>もうすぐ</td><td>もうすぐ</td><td>pronto / dentro de poco</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="block col-1">
+      <div class="section-title">2. Part 1：スペイン語 → 日本語（10問）</div>
+      <ul class="exercise-list">
+        <li class="q-item"><span class="q-num">1.</span><span class="q-text">levantarse → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">2.</span><span class="q-text">tirar / desechar → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">3.</span><span class="q-text">perder → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">4.</span><span class="q-text">darse prisa → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">5.</span><span class="q-text">memorizar → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">6.</span><span class="q-text">fumar → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">7.</span><span class="q-text">recibir → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">8.</span><span class="q-text">oscuro → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">9.</span><span class="q-text">peligroso → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">10.</span><span class="q-text">pronto → <span class="blank"></span></span></li>
+      </ul>
+    </div>
+
+    <div class="block col-2">
+      <div class="section-title">3. Part 2：日本語 → スペイン語（10問）</div>
+      <ul class="exercise-list">
+        <li class="q-item"><span class="q-num">1.</span><span class="q-text">おきます → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">2.</span><span class="q-text">すてます → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">3.</span><span class="q-text">なくします → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">4.</span><span class="q-text">おぼえます → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">5.</span><span class="q-text">わすれます → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">6.</span><span class="q-text">あげます → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">7.</span><span class="q-text">あかるい → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">8.</span><span class="q-text">たいせつ → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">9.</span><span class="q-text">ごみばこ → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">10.</span><span class="q-text">きんえん → <span class="blank"></span></span></li>
+      </ul>
+    </div>
+
+    <div class="block col-1">
+      <div class="section-title">4. ３択問題（スペイン語 → 日本語）</div>
+      <div class="choice">
+        <div class="opt"><strong>Q1.</strong> perder<br> A. おぼえます ／ B. なくします ／ C. すてます</div>
+        <div class="opt"><strong>Q2.</strong> fumar<br> A. すいます ／ B. のみます ／ C. たべます</div>
+        <div class="opt"><strong>Q3.</strong> importante<br> A. あぶない ／ B. たいせつ ／ C. あかるい</div>
+        <div class="opt"><strong>Q4.</strong> basurero<br> A. カン ／ B. ごみばこ ／ C. たばこ</div>
+        <div class="opt"><strong>Q5.</strong> oscuro<br> A. あかるい ／ B. くらい ／ C. あぶない</div>
+      </div>
+    </div>
+
+    <div class="block col-2">
+      <div class="section-title">5. 解答</div>
+      <div class="panel answers">
+        <div class="grid">
+          <div><strong>Part 1</strong></div>
+          <div>1. おきます ／ 2. すてます ／ 3. なくします ／ 4. いそぎます ／ 5. おぼえます ／ 6. すいます ／ 7. もらいます ／ 8. くらい ／ 9. あぶない ／ 10. もうすぐ</div>
+          <div><strong>Part 2</strong></div>
+          <div>1. levantarse ／ 2. tirar / desechar ／ 3. perder ／ 4. memorizar ／ 5. olvidar ／ 6. dar ／ 7. claro / luminoso ／ 8. importante ／ 9. basurero ／ 10. no fumar</div>
+          <div><strong>３択問題</strong></div>
+          <div>Q1. B ／ Q2. A ／ Q3. B ／ Q4. B ／ Q5. B</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block notes col-all">
+      <div class="section-title">6. メモ欄</div>
+      <div class="lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script>
+  (function(){
+    var d = new Date();
+    var y = d.getFullYear();
+    var m = String(d.getMonth()+1).padStart(2,'0');
+    var da = String(d.getDate()).padStart(2,'0');
+    var el = document.getElementById('today');
+    if(el){ el.textContent = y + '/' + m + '/' + da; }
+  })();
+</script>
+    <script src="../../duolingo_engine.js"></script>
+</body>
+</html>

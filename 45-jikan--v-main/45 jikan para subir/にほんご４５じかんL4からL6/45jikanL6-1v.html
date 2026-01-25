@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>語彙ワークシート：移動・交通・時間 — A4横・PDF</title>
+<style>
+  :root{ --accent:#0ea5e9; --accent2:#0c4a6e; --text:#111; --muted:#555; --border:#d8dee9; --panel:#f2f8ff; --ink:#0b1220; }
+  html,body{ height:100%; }
+  body{ margin:0; background:#fff; color:var(--text); font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo","Segoe UI",system-ui,-apple-system,Roboto,sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page{ width:297mm; min-height:210mm; margin:0 auto; background:#fff; }
+  .content{ padding:10mm; display:grid; grid-template-columns: 1.15fr 0.85fr; grid-template-rows: auto auto auto auto auto 1fr auto; gap:8mm; }
+  header{ grid-column:1 / -1; display:flex; align-items:center; justify-content:space-between; border-bottom:2.5px solid var(--accent); padding-bottom:5mm; }
+  .title{ font-size:26pt; font-weight:900; letter-spacing:.02em; color:var(--accent2); display:flex; align-items:center; gap:6mm; }
+  .title::before{ content:""; display:inline-block; width:6mm; height:6mm; border-radius:2mm; background:linear-gradient(135deg,var(--accent),#60a5fa); }
+  .badge{ font-size:10pt; font-weight:700; color:#fff; background:var(--accent2); padding:4px 12px; border-radius:999px; }
+  .subtitle{ font-size:12pt; color:var(--muted); }
+  .print-btn{ border:none; background:var(--accent); color:#fff; font-size:10pt; font-weight:700; padding:6px 12px; border-radius:10px; cursor:pointer; }
+  .block{ border:1px solid var(--border); border-radius:14px; padding:8mm; background:#fff; break-inside: avoid; page-break-inside: avoid; }
+  .col-1{ grid-column:1; }
+  .col-2{ grid-column:2; }
+  .col-all{ grid-column:1 / -1; }
+  .section-title{ font-size:14pt; font-weight:800; color:var(--accent2); margin-bottom:4mm; display:flex; align-items:center; gap:4mm; }
+  .section-title::before{ content:""; width:4mm; height:4mm; border-radius:1.5mm; background:var(--accent); }
+  .panel{ background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:6mm; }
+  .table{ width:100%; border-collapse:collapse; }
+  .table th, .table td{ border:1px solid var(--border); padding:7px 9px; font-size:11pt; }
+  .table thead th{ background:#e6f2ff; color:var(--accent2); font-weight:800; }
+  .table tbody tr:nth-child(odd){ background:#fafcff; }
+  .exercise-list{ list-style:none; padding:0; margin:0; display:grid; gap:4mm; }
+  .q-item{ display:flex; gap:8px; align-items:flex-start; }
+  .q-num{ font-weight:800; color:var(--accent2); min-width:22px; }
+  .q-text{ flex:1; }
+  .blank{ display:inline-block; min-width:45mm; border-bottom:2px solid #9aa5b1; translate: 0 -1px; }
+  .choice{ margin-left:22px; }
+  .choice .opt{ margin:2px 0; line-height:1.7; }
+  .answers{ line-height:1.9; }
+  .answers .grid{ display:grid; grid-template-columns: 1fr; gap:3mm; }
+  .notes .lines{ display:grid; grid-template-rows: repeat(3, 1fr); gap:6mm; }
+  .notes .line{ border-bottom:1px dashed #aab; height:28px; }
+  .footer{ grid-column:1 / -1; display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:10pt; }
+  @page{ size: A4 landscape; margin:10mm; }
+  @media print{ .content{ padding:0; } .page{ width:auto; min-height:auto; } .screen-only{ display:none !important; } }
+  @media screen{ .block{ box-shadow: 0 4px 16px rgba(0,0,0,.08); } }
+</style>
+    <link rel="stylesheet" href="../../duolingo_style.css">
+</head>
+<body>
+<div class="page">
+  <div class="content">
+    <header>
+      <div style="display:flex; align-items:center; gap:8mm;">
+        <div class="title">語彙ワークシート：移動・交通・時間</div>
+        <div class="badge">Vocab + Practice</div>
+      </div>
+      <div style="display:flex; align-items:center; gap:6mm;">
+        <div class="subtitle">A4横・PDF教材／対象：入門〜一般</div>
+        <button class="print-btn screen-only" onclick="window.print()">PDFで印刷</button>
+      </div>
+    </header>
+
+    <div class="block col-all">
+      <div class="section-title">1. 語彙表（にほんご／ひらがな／スペイン語）</div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>にほんご</th>
+            <th>ひらがな</th>
+            <th>スペイン語</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>いきます</td><td>いきます</td><td>ir</td></tr>
+          <tr><td>きます</td><td>きます</td><td>venir</td></tr>
+          <tr><td>かえります</td><td>かえります</td><td>volver</td></tr>
+          <tr><td>しんかんせん</td><td>しんかんせん</td><td>tren bala</td></tr>
+          <tr><td>くるま</td><td>くるま</td><td>coche</td></tr>
+          <tr><td>じてんしゃ</td><td>じてんしゃ</td><td>bicicleta</td></tr>
+          <tr><td>ひこうき</td><td>ひこうき</td><td>avión</td></tr>
+          <tr><td>ちかてつ</td><td>ちかてつ</td><td>metro</td></tr>
+          <tr><td>でんしゃ</td><td>でんしゃ</td><td>tren</td></tr>
+          <tr><td>かいしゃ</td><td>かいしゃ</td><td>empresa</td></tr>
+          <tr><td>ともだち</td><td>ともだち</td><td>amigo</td></tr>
+          <tr><td>たんじょうび</td><td>たんじょうび</td><td>cumpleaños</td></tr>
+          <tr><td>ふじさん</td><td>ふじさん</td><td>monte Fuji</td></tr>
+          <tr><td>あさ</td><td>あさ</td><td>mañana</td></tr>
+          <tr><td>ひる</td><td>ひる</td><td>mediodía</td></tr>
+          <tr><td>ばん（よる）</td><td>ばん（よる）</td><td>noche</td></tr>
+          <tr><td>ひとりで</td><td>ひとりで</td><td>solo</td></tr>
+          <tr><td>ふたりで</td><td>ふたりで</td><td>entre dos</td></tr>
+          <tr><td>いっしょに</td><td>いっしょに</td><td>juntos</td></tr>
+          <tr><td>ごろ</td><td>ごろ</td><td>alrededor de</td></tr>
+          <tr><td>いる</td><td>いる</td><td>estar (personas/animales)</td></tr>
+          <tr><td>きのう</td><td>きのう</td><td>ayer</td></tr>
+          <tr><td>きょう</td><td>きょう</td><td>hoy</td></tr>
+          <tr><td>あした</td><td>あした</td><td>mañana (futuro)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="block col-1">
+      <div class="section-title">2. Part 1：スペイン語 → 日本語（10問）</div>
+      <ul class="exercise-list">
+        <li class="q-item"><span class="q-num">1.</span><span class="q-text">ir → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">2.</span><span class="q-text">venir → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">3.</span><span class="q-text">volver → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">4.</span><span class="q-text">tren bala → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">5.</span><span class="q-text">coche → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">6.</span><span class="q-text">avión → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">7.</span><span class="q-text">amigo → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">8.</span><span class="q-text">cumpleaños → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">9.</span><span class="q-text">ayer → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">10.</span><span class="q-text">hoy → <span class="blank"></span></span></li>
+      </ul>
+    </div>
+
+    <div class="block col-2">
+      <div class="section-title">3. Part 2：日本語 → スペイン語（10問）</div>
+      <ul class="exercise-list">
+        <li class="q-item"><span class="q-num">1.</span><span class="q-text">いきます → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">2.</span><span class="q-text">きます → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">3.</span><span class="q-text">かえります → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">4.</span><span class="q-text">じてんしゃ → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">5.</span><span class="q-text">ちかてつ → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">6.</span><span class="q-text">ともだち → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">7.</span><span class="q-text">あさ → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">8.</span><span class="q-text">ひとりで → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">9.</span><span class="q-text">いっしょに → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">10.</span><span class="q-text">あした → <span class="blank"></span></span></li>
+      </ul>
+    </div>
+
+    <div class="block col-1">
+      <div class="section-title">4. ３択問題（スペイン語 → 日本語）</div>
+      <div class="choice">
+        <div class="opt"><strong>Q1.</strong> venir<br> A. いきます ／ B. きます ／ C. かえります</div>
+        <div class="opt"><strong>Q2.</strong> metro<br> A. でんしゃ ／ B. ちかてつ ／ C. ひこうき</div>
+        <div class="opt"><strong>Q3.</strong> juntos<br> A. ひとりで ／ B. ふたりで ／ C. いっしょに</div>
+        <div class="opt"><strong>Q4.</strong> alrededor de<br> A. ごろ ／ B. きょう ／ C. ばん</div>
+        <div class="opt"><strong>Q5.</strong> mañana (futuro)<br> A. きのう ／ B. きょう ／ C. あした</div>
+      </div>
+    </div>
+
+    <div class="block col-2">
+      <div class="section-title">5. 解答</div>
+      <div class="panel answers">
+        <div class="grid">
+          <div><strong>Part 1</strong></div>
+          <div>1. いきます ／ 2. きます ／ 3. かえります ／ 4. しんかんせん ／ 5. くるま ／ 6. ひこうき ／ 7. ともだち ／ 8. たんじょうび ／ 9. きのう ／ 10. きょう</div>
+          <div><strong>Part 2</strong></div>
+          <div>1. ir ／ 2. venir ／ 3. volver ／ 4. bicicleta ／ 5. metro ／ 6. amigo ／ 7. mañana ／ 8. solo ／ 9. juntos ／ 10. mañana (futuro)</div>
+          <div><strong>３択問題</strong></div>
+          <div>Q1. B ／ Q2. B ／ Q3. C ／ Q4. A ／ Q5. C</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block notes col-all">
+      <div class="section-title">6. メモ欄</div>
+      <div class="lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+    <script src="../../duolingo_engine.js"></script>
+</body>
+</html>

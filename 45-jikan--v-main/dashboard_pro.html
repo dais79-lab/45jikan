@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japonés 45H - PRO Mode</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --duo-green: #58cc02;
+            --duo-green-shadow: #58a700;
+            --duo-blue: #1cb0f6;
+            --duo-blue-shadow: #1899d6;
+            --duo-purple: #ce82ff;
+            --duo-purple-shadow: #a568cc;
+            --duo-red: #ff4b4b;
+            --duo-red-shadow: #d43f3f;
+            --duo-yellow: #ffc800;
+            --duo-yellow-shadow: #e5b400;
+            --duo-white: #ffffff;
+            --duo-gray: #3c3c3c;
+            --duo-light-gray: #e5e5e5;
+            --bg-color: #ffffff;
+            --path-gray: #e5e5e5;
+        }
+
+        body.dark-mode {
+            --bg-color: #131f24;
+            --duo-gray: #ffffff;
+            --duo-light-gray: #2b3b45;
+            --path-gray: #37464f;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--duo-gray);
+            transition: background-color 0.3s, color 0.3s;
+            overflow-x: hidden;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 250px;
+            border-right: 2px solid var(--duo-light-gray);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--bg-color);
+            z-index: 100;
+            transition: border-color 0.3s;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--duo-green);
+            text-decoration: none;
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--duo-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 2px solid transparent;
+            transition: background 0.2s;
+        }
+
+        .nav-item:hover {
+            background-color: var(--duo-light-gray);
+        }
+
+        .nav-item.active {
+            border-color: var(--duo-blue-shadow);
+            background-color: #ddf4ff;
+            color: var(--duo-blue);
+        }
+        
+        body.dark-mode .nav-item.active {
+            background-color: #202f36;
+        }
+
+        .nav-icon {
+            width: 32px;
+            height: 32px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .path-container {
+            width: 100%;
+            max-width: 600px;
+            padding-top: 40px;
+            padding-bottom: 100px;
+            position: relative;
+        }
+
+        /* SVG Path Layer */
+        .path-svg-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        #snake-path-line {
+            fill: none;
+            stroke: var(--duo-light-gray);
+            stroke-width: 10;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: stroke 0.3s;
+        }
+
+        /* Section Header */
+        .section-header {
+            background-color: var(--duo-green);
+            color: white;
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 0 var(--duo-green-shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-info h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .section-info p {
+            margin: 5px 0 0 0;
+            opacity: 0.9;
+        }
+
+        /* The Path */
+        .level-row {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px; /* Increased spacing */
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Snake pattern offsets */
+        .level-row:nth-child(4n+1) { transform: translateX(0); }
+        .level-row:nth-child(4n+2) { transform: translateX(50px); }
+        .level-row:nth-child(4n+3) { transform: translateX(0); }
+        .level-row:nth-child(4n+4) { transform: translateX(-50px); }
+
+        .level-node {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .level-node:hover {
+            transform: scale(1.05);
+        }
+        
+        .level-node:active {
+            transform: scale(0.95);
+        }
+
+        /* Crown/Circle styles */
+        .circle-bg {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+        
+        .level-node .circle-bg {
+             box-shadow: 0 6px 0 rgba(0,0,0,0.2);
+        }
+        
+        .level-node:active .circle-bg {
+            box-shadow: none;
+            top: 6px;
+        }
+
+        /* Colors */
+        .color-green .circle-bg { background-color: var(--duo-green); }
+        .color-blue .circle-bg { background-color: var(--duo-blue); }
+        .color-purple .circle-bg { background-color: var(--duo-purple); }
+        .color-red .circle-bg { background-color: var(--duo-red); }
+        .color-yellow .circle-bg { background-color: var(--duo-yellow); }
+
+        .level-icon {
+            font-size: 32px;
+            color: white;
+            z-index: 3;
+        }
+
+        /* Popover for Level Details */
+        .level-popover {
+            position: absolute;
+            top: -170px;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            width: 280px;
+            background: white;
+            border-radius: 16px;
+            padding: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            z-index: 10;
+            text-align: center;
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+            border: 2px solid var(--duo-light-gray);
+        }
+
+        .level-node.open .level-popover {
+            transform: translateX(-50%) scale(1);
+            pointer-events: auto;
+        }
+        
+        body.dark-mode .level-popover {
+            background-color: #202f36;
+            border-color: #37464f;
+        }
+
+        .popover-title {
+            margin: 0 0 5px 0;
+            font-size: 1.1rem;
+            color: var(--duo-gray);
+        }
+
+        .popover-desc {
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        body.dark-mode .popover-desc { color: #a0a0a0; }
+
+        .btn-start {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: var(--duo-green);
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 800;
+            text-transform: uppercase;
+            box-shadow: 0 4px 0 var(--duo-green-shadow);
+            margin-bottom: 8px;
+            box-sizing: border-box;
+        }
+        
+        .btn-sub {
+            display: inline-block;
+            width: 45%;
+            padding: 8px;
+            font-size: 0.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            background-color: var(--bg-color);
+            border: 2px solid var(--duo-light-gray);
+            color: var(--duo-blue);
+            box-sizing: border-box;
+        }
+
+        .level-popover::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 10px;
+            border-style: solid;
+            border-color: white transparent transparent transparent;
+        }
+        
+        body.dark-mode .level-popover::after {
+            border-color: #202f36 transparent transparent transparent;
+        }
+
+        /* Floating Stats */
+        .stats-bar {
+            position: fixed;
+            top: 20px;
+            right: 40px;
+            display: flex;
+            gap: 20px;
+            z-index: 100;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            font-weight: 800;
+            color: var(--duo-gray);
+        }
+
+        .stat-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Store Modal */
+        .store-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        .store-modal.open {
+            display: flex;
+        }
+
+        .store-content {
+            background: var(--bg-color);
+            width: 90%;
+            max-width: 500px;
+            border-radius: 20px;
+            padding: 25px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            border: 3px solid var(--duo-light-gray);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .store-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--duo-light-gray);
+            padding-bottom: 10px;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--duo-gray);
+        }
+
+        .store-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid var(--duo-light-gray);
+        }
+
+        .store-item:last-child { border-bottom: none; }
+
+        .item-icon {
+            font-size: 2.5rem;
+            margin-right: 15px;
+        }
+
+        .item-info {
+            flex: 1;
+        }
+
+        .item-name {
+            font-weight: 800;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .item-desc {
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        .item-price {
+            background: var(--bg-color);
+            border: 2px solid var(--duo-light-gray);
+            padding: 8px 15px;
+            border-radius: 10px;
+            font-weight: 800;
+            color: var(--duo-blue);
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .item-price:hover {
+            transform: scale(1.05);
+            background: var(--duo-light-gray);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                bottom: 0;
+                top: auto;
+                left: 0;
+                right: 0;
+                width: 100%;
+                height: 70px;
+                flex-direction: row;
+                justify-content: space-around;
+                padding: 10px;
+                border-right: none;
+                border-top: 2px solid var(--duo-light-gray);
+                box-sizing: border-box;
+            }
+            .main-content {
+                margin-left: 0;
+                margin-bottom: 80px;
+            }
+            .logo { display: none; }
+            .nav-item span { display: none; }
+            .nav-item { margin-bottom: 0; }
+            .nav-icon { margin-right: 0; }
+            .stats-bar {
+                top: 10px;
+                right: 10px;
+                background: var(--bg-color);
+                padding: 5px 10px;
+                border-radius: 20px;
+                border: 2px solid var(--duo-light-gray);
+            }
+        }
+        
+        /* Dark Mode Toggle */
+        .toggle-container {
+            margin-top: auto;
+        }
+        @media(max-width: 768px) {
+            .toggle-container { display: none; } 
+        }
+        
+        .theme-switch {
+            background: none;
+            border: 2px solid var(--duo-gray);
+            color: var(--duo-gray);
+            padding: 5px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .theme-switch:hover {
+            background: var(--duo-light-gray);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <a href="#" class="logo">Japonés 45H</a>
+        <div class="nav-item active" onclick="showSection('learn')">
+            <div class="nav-icon">🏠</div>
+            <span>Aprender</span>
+        </div>
+        <div class="nav-item" onclick="alert('Próximamente: Cuentos')">
+            <div class="nav-icon">📖</div>
+            <span>Cuentos</span>
+        </div>
+        <div class="nav-item" onclick="toggleStore()">
+            <div class="nav-icon">🛒</div>
+            <span>Tienda</span>
+        </div>
+        <div class="nav-item" onclick="alert('Próximamente: Logros')">
+            <div class="nav-icon">🎖️</div>
+            <span>Logros</span>
+        </div>
+        
+        <div class="toggle-container">
+            <button class="theme-switch" onclick="toggleTheme()">🌙 Modo Oscuro</button>
+        </div>
+    </div>
+
+    <div class="stats-bar">
+        <div class="stat-item" style="color: #ff9600">
+            <span class="stat-icon">🔥</span> <span id="streak-count">5</span>
+        </div>
+        <div class="stat-item" style="color: #1cb0f6">
+            <span class="stat-icon">💎</span> <span id="gem-count">450</span>
+        </div>
+        <div class="stat-item" style="color: #ff4b4b">
+            <span class="stat-icon">❤️</span> 5
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="path-container" id="path-container">
+            <!-- SVG Layer -->
+            <svg class="path-svg-layer" id="snake-svg">
+                <path id="snake-path-line" d="" />
+            </svg>
+
+            <!-- Header Section 1 -->
+            <div class="section-header">
+                <div class="section-info">
+                    <h2>Sección 1: Fundamentos</h2>
+                    <p>Comienza tu viaje en japonés</p>
+                </div>
+                <div class="section-icon">🎌</div>
+            </div>
+
+            <!-- Path Nodes will be injected here -->
+            
+        </div>
+    </div>
+
+    <!-- Store Modal -->
+    <div class="store-modal" id="store-modal">
+        <div class="store-content">
+            <div class="store-header">
+                <h2>Tienda</h2>
+                <button class="close-btn" onclick="toggleStore()">×</button>
+            </div>
+            
+            <div class="store-item">
+                <div class="item-icon">🔥</div>
+                <div class="item-info">
+                    <span class="item-name">Protector de Racha</span>
+                    <span class="item-desc">Impide que pierdas tu racha por un día.</span>
+                </div>
+                <button class="item-price" onclick="buyItem(200)">
+                    💎 200
+                </button>
+            </div>
+
+            <div class="store-item">
+                <div class="item-icon">💎</div>
+                <div class="item-info">
+                    <span class="item-name">Doble o Nada</span>
+                    <span class="item-desc">Duplica tu apuesta de 50 gemas si mantienes 7 días de racha.</span>
+                </div>
+                <button class="item-price" onclick="buyItem(50)">
+                    💎 50
+                </button>
+            </div>
+
+            <div class="store-item">
+                <div class="item-icon">🏆</div>
+                <div class="item-info">
+                    <span class="item-name">Trofeo del millonario</span>
+                    <span class="item-desc">un desperdicio de dinero que se ve bien.</span>
+                </div>
+                <button class="item-price" onclick="buyItem(100000)">
+                    💎 100000
+                </button>
+            </div>
+
+            <div class="store-item">
+                <div class="item-icon">🦆</div>
+                <div class="item-info">
+                    <span class="item-name">Modo ahiru</span>
+                    <span class="item-desc">Acceso especial desbloqueado.</span>
+                </div>
+                <button class="item-price" style="background:#ffc800; color:white; border:none; cursor:default;">
+                    ADQUIRIDO
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const lessons = [
+            { id: 0, title: "Saludos", desc: "Aisatsu", color: "color-yellow", icon: "👋", 
+              links: { sit: "45%20jikan%20para%20subir/にほんご４５じかんL1-L3HTML/1-aisatsu.html" } },
+            { id: 1, title: "Presentación", desc: "Unidad 1", color: "color-green", icon: "👤", 
+              links: { voc: "45%20jikan%20para%20subir/にほんご４５じかんL1-L3HTML/2-L1v.html", gram: "45%20jikan%20para%20subir/にほんご４５じかんL1-L3HTML/3-L1g.html", sit: "45%20jikan%20para%20subir/にほんご４５じかんL1-L3HTML/4-L1c.html" } },
+            { id: 2, title: "Cosas", desc: "Unidad 2", color: "color-blue", icon: "🍎", 
+              links: { voc: "45%20jikan%20para%20subir/にほんご４５じかんL1-L3HTML/5-L2v.html", gram: "45%20jikan%20para%20subir/にほんご４５じかんL1-L3HTML/6-L2g.html", sit: "45%20jikan%20para%20subir/にほんご４５じかんL1-L3HTML/7-L2c.html" } },
+            { id: 3, title: "Lugares", desc: "Unidad 3", color: "color-purple", icon: "📍", 
+              links: { voc: "45%20jikan%20para%20subir/にほんご４５じかんL1-L3HTML/8-L3-1.html", gram: "45%20jikan%20para%20subir/にほんご４５じかんL1-L3HTML/10-L3g.html", sit: "45%20jikan%20para%20subir/にほんご４５じかんL1-L3HTML/11-L3c.html", extra: "45%20jikan%20para%20subir/にほんご４５じかんL1-L3HTML/12-L1-L3_Examen_de_repaso.html" } },
+            { id: 4, title: "Familia", desc: "Unidad 4", color: "color-red", icon: "👨‍👩‍👧", 
+              links: { voc: "45%20jikan%20para%20subir/にほんご４５じかんL4からL6/45jikan4v.html", gram: "45%20jikan%20para%20subir/にほんご４５じかんL4からL6/45jikan4kag.html", sit: "45jikan4kac.html" } },
+            { id: 5, title: "Existencia", desc: "Unidad 5", color: "color-yellow", icon: "🐱", 
+              links: { voc: "45%20jikan%20para%20subir/にほんご４５じかんL4からL6/45jikan5v.html", gram: "45%20jikan%20para%20subir/にほんご４５じかんL4からL6/45jikan5kag.html", sit: "45jikan5kac.html" } },
+            { id: 6, title: "Planes", desc: "Unidad 6", color: "color-green", icon: "📅", 
+              links: { voc: "45%20jikan%20para%20subir/にほんご４５じかんL4からL6/45jikanL6-1v.html", gram: "45%20jikan%20para%20subir/にほんご４５じかんL4からL6/45jikan6kag.html", sit: "45jikan6kac.html" } },
+            { id: 7, title: "Salud", desc: "Unidad 7", color: "color-blue", icon: "🏥", 
+              links: { voc: "45%20jikan%20para%20subir/にほんご４５じかんL7からL9/45jikanL7v.html", gram: "45%20jikan%20para%20subir/にほんご４５じかんL7からL9/45jikan7kag.html", sit: "45jikan7kac.html" } },
+            { id: 8, title: "Rutina", desc: "Unidad 8", color: "color-purple", icon: "⏰", 
+              links: { voc: "45%20jikan%20para%20subir/にほんご４５じかんL7からL9/45jikanL8v.html", gram: "45%20jikan%20para%20subir/にほんご４５じかんL7からL9/45jikan8kag.html", sit: "45jikan8kac.html" } },
+            { id: 9, title: "Habilidades", desc: "Unidad 9", color: "color-red", icon: "🎨", 
+              links: { voc: "45%20jikan%20para%20subir/にほんご４５じかんL7からL9/45jikanL9v.html", gram: "45%20jikan%20para%20subir/にほんご４５じかんL7からL9/45jikan9kag.html", sit: "45jikan9kac.html" } },
+            { id: 10, title: "Ubicación", desc: "Unidad 10", color: "color-yellow", icon: "🗺️", 
+              links: { voc: "45%20jikan%20para%20subir/にほんご４５じかんL10-12/45jikanL10v.html", gram: "45%20jikan%20para%20subir/にほんご４５じかんL10-12/45jikan10kag.html", sit: "45jikan10kac.html" } },
+            { id: 11, title: "Deseos", desc: "Unidad 11", color: "color-green", icon: "🎁", 
+              links: { voc: "45%20jikan%20para%20subir/にほんご４５じかんL10-12/45jikanL11v.html", gram: "45%20jikan%20para%20subir/にほんご４５じかんL10-12/45jikan11kag.html", sit: "45jikan11kac.html" } },
+            { id: 12, title: "Reglas", desc: "Unidad 12", color: "color-blue", icon: "🚯", 
+              links: { voc: "45%20jikan%20para%20subir/にほんご４５じかんL10-12/45jikanL12v.html", gram: "45%20jikan%20para%20subir/にほんご４５じかんL10-12/45jikan12kag.html", sit: "45jikan12kac.html" } },
+            { id: 13, title: "Comunicación", desc: "Unidad 13", color: "color-purple", icon: "📞", 
+              links: { voc: "45%20jikan%20para%20subir/にほんご４５じかんL13-15/45jikanL13v.html", gram: "45%20jikan%20para%20subir/にほんご４５じかんL13-15/45jikan13kag.html", sit: "45jikan13kac.html" } },
+            { id: 14, title: "Ciudad", desc: "Unidad 14", color: "color-red", icon: "🏙️", 
+              links: { voc: "45%20jikan%20para%20subir/にほんご４５じかんL13-15/45jikan14v.html", gram: "45%20jikan%20para%20subir/にほんご４５じかんL13-15/45jikan14kag.html", sit: "45jikan14kac.html" } },
+            { id: 15, title: "Opiniones", desc: "Unidad 15", color: "color-yellow", icon: "💭", 
+              links: { voc: "45%20jikan%20para%20subir/にほんご４５じかんL13-15/45jikanL15v.html", gram: "45%20jikan%20para%20subir/にほんご４５じかんL13-15/45jikan15kag.html", sit: "45jikan15kac.html" } },
+        ];
+
+        const container = document.getElementById('path-container');
+        let activePopover = null;
+
+        // Render Lessons
+        lessons.forEach((lesson, index) => {
+            const row = document.createElement('div');
+            row.className = 'level-row';
+            
+            const node = document.createElement('div');
+            node.className = `level-node ${lesson.color}`;
+            node.innerHTML = `
+                <div class="circle-bg">
+                    <span class="level-icon">${lesson.icon}</span>
+                </div>
+                <div class="level-popover">
+                    <h3 class="popover-title">${lesson.title}</h3>
+                    <p class="popover-desc">${lesson.desc}</p>
+                    ${lesson.links.sit ? `<a href="lesson_3d.html?src=${lesson.links.sit}" class="btn-start">SITUACIÓN</a>` : ''}
+                    <div style="display:flex; justify-content:space-between; gap:5px;">
+                        ${lesson.links.voc ? `<a href="lesson_3d.html?src=${lesson.links.voc}" class="btn-sub">Vocab</a>` : ''}
+                        ${lesson.links.gram ? `<a href="lesson_3d.html?src=${lesson.links.gram}" class="btn-sub">Gramática</a>` : ''}
+                    </div>
+                     ${lesson.links.extra ? `<a href="lesson_3d.html?src=${lesson.links.extra}" class="btn-sub" style="width:100%; margin-top:5px; border-color:#ffc800; color:#e5b400;">EXAMEN</a>` : ''}
+                </div>
+            `;
+            
+            // Handle Popover
+            node.addEventListener('click', (e) => {
+                e.stopPropagation();
+                
+                // If clicking the same node, close it
+                if (activePopover === node) {
+                    node.classList.remove('open');
+                    activePopover = null;
+                    return;
+                }
+                
+                // Close previous
+                if (activePopover) {
+                    activePopover.classList.remove('open');
+                }
+                
+                // Open new
+                node.classList.add('open');
+                activePopover = node;
+            });
+
+            row.appendChild(node);
+            container.appendChild(row);
+        });
+
+        // Extras Section
+        const extraHeader = document.createElement('div');
+        extraHeader.className = 'section-header';
+        extraHeader.style.marginTop = '60px';
+        extraHeader.innerHTML = `
+            <div class="section-info">
+                <h2>Zona de Práctica</h2>
+                <p>Juegos y Exámenes</p>
+            </div>
+            <div class="section-icon">🎮</div>
+        `;
+        container.appendChild(extraHeader);
+
+        const extraRow = document.createElement('div');
+        extraRow.className = 'level-row';
+        extraRow.innerHTML = `
+             <div class="level-node color-red" onclick="window.location.href='lesson_3d.html?src=juego_interactivo.html'">
+                <div class="circle-bg">
+                    <span class="level-icon">🎮</span>
+                </div>
+            </div>
+        `;
+        container.appendChild(extraRow);
+
+        // Path Drawing Logic
+        function drawPath() {
+            const svg = document.getElementById('snake-svg');
+            const path = document.getElementById('snake-path-line');
+            const nodes = document.querySelectorAll('.level-node');
+            
+            if (nodes.length === 0) return;
+
+            // Update SVG dimensions
+            const contRect = container.getBoundingClientRect();
+            svg.setAttribute('width', contRect.width);
+            svg.setAttribute('height', contRect.height);
+
+            let d = '';
+
+            nodes.forEach((node, index) => {
+                const rect = node.getBoundingClientRect();
+                
+                // Calculate center relative to container
+                const x = rect.left + rect.width / 2 - contRect.left;
+                const y = rect.top + rect.height / 2 - contRect.top;
+
+                if (index === 0) {
+                    d += `M ${x} ${y}`;
+                } else {
+                    const prevNode = nodes[index - 1];
+                    const prevRect = prevNode.getBoundingClientRect();
+                    const prevX = prevRect.left + prevRect.width / 2 - contRect.left;
+                    const prevY = prevRect.top + prevRect.height / 2 - contRect.top;
+
+                    // Curvier path (Duolingo style)
+                    const cp1x = prevX;
+                    const cp1y = (prevY + y) / 2;
+                    const cp2x = x;
+                    const cp2y = (prevY + y) / 2;
+
+                    d += ` C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${x} ${y}`;
+                }
+            });
+
+            path.setAttribute('d', d);
+        }
+
+        // Redraw on load and resize
+        window.addEventListener('load', drawPath);
+        window.addEventListener('resize', drawPath);
+        // Also draw after a small delay to ensure rendering
+        setTimeout(drawPath, 100);
+
+        // Close popover when clicking outside
+        document.addEventListener('click', () => {
+            if (activePopover) {
+                activePopover.classList.remove('open');
+                activePopover = null;
+            }
+        });
+
+        // Store Logic
+        function toggleStore() {
+            const modal = document.getElementById('store-modal');
+            modal.classList.toggle('open');
+        }
+
+        let gems = 450;
+        function buyItem(price) {
+            if (gems >= price) {
+                gems -= price;
+                document.getElementById('gem-count').innerText = gems;
+                alert('¡Compra realizada con éxito!');
+            } else {
+                alert('No tienes suficientes gemas. ¡Sigue aprendiendo!');
+            }
+        }
+
+        // Dark Mode Logic
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const isDark = document.body.classList.contains('dark-mode');
+            localStorage.setItem('duo-theme', isDark ? 'dark' : 'light');
+            document.querySelector('.theme-switch').innerText = isDark ? '☀️ Modo Claro' : '🌙 Modo Oscuro';
+            
+            // Redraw path because colors might not change but just in case of layout shift
+            setTimeout(drawPath, 50); 
+        }
+
+        if (localStorage.getItem('duo-theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            document.querySelector('.theme-switch').innerText = '☀️ Modo Claro';
+        }
+
+    </script>
+</body>
+</html>

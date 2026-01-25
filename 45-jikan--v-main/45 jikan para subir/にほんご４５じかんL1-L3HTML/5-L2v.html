@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>日本語語彙練習 - 場所・時間・数字編</title>
+<style>
+  :root {
+    --accent: #1E90FF;
+    --text: #111;
+    --muted: #555;
+    --border: #ddd;
+    --panel: #f7faff;
+  }
+  html, body {
+    height: 100%;
+  }
+  body {
+    margin: 0;
+    background: #fff;
+    color: var(--text);
+    font-family: "Hiragino Maru Gothic Pro", "Yu Gothic", "Meiryo", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  }
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+  @media print {
+    body {
+      -webkit-print-color-adjust: exact;
+    }
+    .page {
+      width: 297mm;
+      height: 210mm;
+      page-break-after: always;
+    }
+  }
+  .page {
+    width: 297mm;
+    min-height: 210mm;
+    margin: 0 auto;
+    background: #fff;
+    box-sizing: border-box;
+  }
+  .content {
+    padding: 10mm;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    gap: 6mm 8mm;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  header {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2mm;
+    margin-bottom: 2mm;
+  }
+  .title {
+    font-size: 22pt;
+    font-weight: 900;
+    letter-spacing: .02em;
+    color: var(--accent);
+  }
+  .subtitle {
+    font-size: 11pt;
+    color: var(--muted);
+    font-weight: bold;
+  }
+  .block {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 5mm;
+    background: #fff;
+  }
+  .vocab-section {
+    grid-column: 1 / -1;
+  }
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8mm;
+  }
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10.5pt;
+  }
+  .table th, .table td {
+    border: 1px solid var(--border);
+    padding: 4px 8px;
+  }
+  .table th {
+    background: #f7f7f7;
+    text-align: left;
+    font-weight: bold;
+    color: var(--muted);
+    font-size: 9pt;
+  }
+  .jp-col { font-weight: bold; color: var(--accent); }
+  .kana-col { color: var(--muted); font-size: 90%; }
+  
+  .section-title {
+    font-size: 13pt;
+    font-weight: 800;
+    color: #0d47a1;
+    margin-bottom: 3mm;
+    display: flex;
+    align-items: center;
+    gap: 2mm;
+  }
+  .section-title::before {
+    content: '';
+    display: block;
+    width: 4mm;
+    height: 4mm;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+  
+  .exercise-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 11pt;
+  }
+  .exercise-list li {
+    margin-bottom: 3mm;
+    display: flex;
+    align-items: baseline;
+  }
+  .exercise-list li:last-child {
+    margin-bottom: 0;
+  }
+  .q-num {
+    display: inline-block;
+    width: 6mm;
+    font-weight: bold;
+    color: var(--accent);
+  }
+  .q-text {
+    flex: 1;
+  }
+  
+  .quiz-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2mm 6mm;
+    font-size: 10pt;
+  }
+  .quiz-item {
+    margin-bottom: 2mm;
+  }
+  .quiz-q {
+    font-weight: bold;
+    margin-bottom: 1mm;
+  }
+  .quiz-options {
+    display: flex;
+    gap: 3mm;
+    color: var(--muted);
+    font-size: 90%;
+  }
+
+  .memo-box {
+    border: 2px dashed var(--border);
+    border-radius: 12px;
+    height: 100%;
+    min-height: 20mm;
+    position: relative;
+  }
+  .memo-label {
+    position: absolute;
+    top: -3mm;
+    left: 5mm;
+    background: #fff;
+    padding: 0 2mm;
+    color: var(--muted);
+    font-size: 9pt;
+    font-weight: bold;
+  }
+  .memo-lines{ display:grid; grid-template-rows: repeat(3, 1fr); gap:4mm; padding:5mm; }
+  .memo-line{ border-bottom:1px dashed var(--border); height:16px; }
+
+  footer {
+    grid-column: 1 / -1;
+    margin-top: auto;
+    padding-top: 4mm;
+    border-top: 1px solid var(--border);
+    font-size: 8pt;
+    color: var(--muted);
+    display: flex;
+    gap: 6mm;
+    flex-wrap: wrap;
+  }
+  .ans-block strong {
+    color: var(--accent);
+    margin-right: 2mm;
+  }
+  .ans-list {
+    display: inline;
+  }
+  .ans-item {
+    margin-right: 3mm;
+  }
+</style>
+    <link rel="stylesheet" href="../../duolingo_style.css">
+</head>
+<body>
+
+<div class="page">
+  <div class="content">
+    <header>
+      <div class="title">日本語語彙練習</div>
+      <div class="subtitle">場所・時間・数字編 (Lugares, Tiempo y Números)</div>
+    </header>
+
+    <div class="block vocab-section">
+      <div class="vocab-grid">
+        <!-- Left Column -->
+        <table class="table">
+          <thead>
+            <tr>
+              <th>日本語 (Japonés)</th>
+              <th>ひらがな (Lectura)</th>
+              <th>スペイン語 (Español)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="jp-col">えき</td><td class="kana-col">えき</td><td class="es-col">estación</td></tr>
+            <tr><td class="jp-col">ぎんこう</td><td class="kana-col">ぎんこう</td><td class="es-col">banco</td></tr>
+            <tr><td class="jp-col">コンビニ</td><td class="kana-col">こんびに</td><td class="es-col">tienda de conveniencia</td></tr>
+            <tr><td class="jp-col">スーパー</td><td class="kana-col">すーぱー</td><td class="es-col">supermercado</td></tr>
+            <tr><td class="jp-col">がっこう</td><td class="kana-col">がっこう</td><td class="es-col">escuela</td></tr>
+            <tr><td class="jp-col">レストラン</td><td class="kana-col">れすとらん</td><td class="es-col">restaurante</td></tr>
+            <tr><td class="jp-col">ゆうびんきょく</td><td class="kana-col">ゆうびんきょく</td><td class="es-col">oficina de correos</td></tr>
+            <tr><td class="jp-col">きっぷうりば</td><td class="kana-col">きっぷうりば</td><td class="es-col">taquilla</td></tr>
+            <tr><td class="jp-col">デパート</td><td class="kana-col">でぱーと</td><td class="es-col">grandes almacenes</td></tr>
+            <tr><td class="jp-col">エスカレーター</td><td class="kana-col">えすかれーたー</td><td class="es-col">escalera mecánica</td></tr>
+            <tr><td class="jp-col">エレベーター</td><td class="kana-col">えれべーたー</td><td class="es-col">ascensor</td></tr>
+            <tr><td class="jp-col">きっぷ</td><td class="kana-col">きっぷ</td><td class="es-col">billete</td></tr>
+            <tr><td class="jp-col">くつ</td><td class="kana-col">くつ</td><td class="es-col">zapatos</td></tr>
+            <tr><td class="jp-col">カメラ</td><td class="kana-col">かめら</td><td class="es-col">cámara</td></tr>
+            <tr><td class="jp-col">きもの</td><td class="kana-col">きもの</td><td class="es-col">kimono</td></tr>
+            <tr><td class="jp-col">トイレ</td><td class="kana-col">といれ</td><td class="es-col">baño</td></tr>
+            <tr><td class="jp-col">ここ</td><td class="kana-col">ここ</td><td class="es-col">aquí</td></tr>
+            <tr><td class="jp-col">そこ</td><td class="kana-col">そこ</td><td class="es-col">ahí</td></tr>
+            <tr><td class="jp-col">あそこ</td><td class="kana-col">あそこ</td><td class="es-col">allí</td></tr>
+            <tr><td class="jp-col">どこ</td><td class="kana-col">どこ</td><td class="es-col">dónde</td></tr>
+          </tbody>
+        </table>
+        
+        <!-- Right Column -->
+        <table class="table">
+          <thead>
+            <tr>
+              <th>日本語 (Japonés)</th>
+              <th>ひらがな (Lectura)</th>
+              <th>スペイン語 (Español)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="jp-col">（すうじ）1～10000</td><td class="kana-col">（すうじ）いち〜いちまん</td><td class="es-col">números del 1 al 10000</td></tr>
+            <tr><td class="jp-col">いまなんじですか</td><td class="kana-col">いまなんじですか</td><td class="es-col">¿qué hora es ahora?</td></tr>
+            <tr><td class="jp-col">いちじ</td><td class="kana-col">いちじ</td><td class="es-col">la una</td></tr>
+            <tr><td class="jp-col">にじ</td><td class="kana-col">にじ</td><td class="es-col">las dos</td></tr>
+            <tr><td class="jp-col">さんじ</td><td class="kana-col">さんじ</td><td class="es-col">las tres</td></tr>
+            <tr><td class="jp-col">よじ</td><td class="kana-col">よじ</td><td class="es-col">las cuatro</td></tr>
+            <tr><td class="jp-col">ごじ</td><td class="kana-col">ごじ</td><td class="es-col">las cinco</td></tr>
+            <tr><td class="jp-col">ろくじ</td><td class="kana-col">ろくじ</td><td class="es-col">las seis</td></tr>
+            <tr><td class="jp-col">しちじ</td><td class="kana-col">しちじ</td><td class="es-col">las siete</td></tr>
+            <tr><td class="jp-col">はちじ</td><td class="kana-col">はちじ</td><td class="es-col">las ocho</td></tr>
+            <tr><td class="jp-col">くじ</td><td class="kana-col">くじ</td><td class="es-col">las nueve</td></tr>
+            <tr><td class="jp-col">じゅうじ</td><td class="kana-col">じゅうじ</td><td class="es-col">las diez</td></tr>
+            <tr><td class="jp-col">じゅういちじ</td><td class="kana-col">じゅういちじ</td><td class="es-col">las once</td></tr>
+            <tr><td class="jp-col">じゅうにじ</td><td class="kana-col">じゅうにじ</td><td class="es-col">las doce</td></tr>
+            <tr><td class="jp-col">なんじ</td><td class="kana-col">なんじ</td><td class="es-col">qué hora</td></tr>
+            <tr><td class="jp-col">ごぜん</td><td class="kana-col">ごぜん</td><td class="es-col">a. m.</td></tr>
+            <tr><td class="jp-col">ごご</td><td class="kana-col">ごご</td><td class="es-col">p. m.</td></tr>
+            <tr><td class="jp-col">いちじごふん</td><td class="kana-col">いちじごふん</td><td class="es-col">la una y cinco</td></tr>
+            <tr><td class="jp-col">いちじじゅっぷん</td><td class="kana-col">いちじじゅっぷん</td><td class="es-col">la una y diez</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="content">
+    <header>
+      <div class="title">日本語語彙練習</div>
+      <div class="subtitle">場所・時間・数字編 (Lugares, Tiempo y Números)</div>
+    </header>
+
+    <div class="block vocab-section">
+      <div class="vocab-grid">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>日本語 (Japonés)</th>
+              <th>ひらがな (Lectura)</th>
+              <th>スペイン語 (Español)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="jp-col">いっぷん</td><td class="kana-col">いっぷん</td><td class="es-col">un minuto</td></tr>
+            <tr><td class="jp-col">にふん</td><td class="kana-col">にふん</td><td class="es-col">dos minutos</td></tr>
+            <tr><td class="jp-col">さんぷん</td><td class="kana-col">さんぷん</td><td class="es-col">tres minutos</td></tr>
+            <tr><td class="jp-col">よんぷん</td><td class="kana-col">よんぷん</td><td class="es-col">cuatro minutos</td></tr>
+            <tr><td class="jp-col">ごふん</td><td class="kana-col">ごふん</td><td class="es-col">cinco minutos</td></tr>
+            <tr><td class="jp-col">ろっぷん</td><td class="kana-col">ろっぷん</td><td class="es-col">seis minutos</td></tr>
+            <tr><td class="jp-col">ななふん</td><td class="kana-col">ななふん</td><td class="es-col">siete minutos</td></tr>
+            <tr><td class="jp-col">はっぷん</td><td class="kana-col">はっぷん</td><td class="es-col">ocho minutos</td></tr>
+            <tr><td class="jp-col">きゅうふん</td><td class="kana-col">きゅうふん</td><td class="es-col">nueve minutos</td></tr>
+            <tr><td class="jp-col">じゅっぷん</td><td class="kana-col">じゅっぷん</td><td class="es-col">diez minutos</td></tr>
+            <tr><td class="jp-col">じゅういっぷん</td><td class="kana-col">じゅういっぷん</td><td class="es-col">once minutos</td></tr>
+            <tr><td class="jp-col">じゅうにふん</td><td class="kana-col">じゅうにふん</td><td class="es-col">doce minutos</td></tr>
+            <tr><td class="jp-col">なんぷん</td><td class="kana-col">なんぷん</td><td class="es-col">cuántos minutos</td></tr>
+          </tbody>
+        </table>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>日本語 (Japonés)</th>
+              <th>ひらがな (Lectura)</th>
+              <th>スペイン語 (Español)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="jp-col">いっかい</td><td class="kana-col">いっかい</td><td class="es-col">primer piso</td></tr>
+            <tr><td class="jp-col">にかい</td><td class="kana-col">にかい</td><td class="es-col">segundo piso</td></tr>
+            <tr><td class="jp-col">さんがい</td><td class="kana-col">さんがい</td><td class="es-col">tercer piso</td></tr>
+            <tr><td class="jp-col">よんかい</td><td class="kana-col">よんかい</td><td class="es-col">cuarto piso</td></tr>
+            <tr><td class="jp-col">ごかい</td><td class="kana-col">ごかい</td><td class="es-col">quinto piso</td></tr>
+            <tr><td class="jp-col">ちかいっかい</td><td class="kana-col">ちかいっかい</td><td class="es-col">primer sótano</td></tr>
+            <tr><td class="jp-col">ちかにかい</td><td class="kana-col">ちかにかい</td><td class="es-col">segundo sótano</td></tr>
+            <tr><td class="jp-col">なんがい</td><td class="kana-col">なんがい</td><td class="es-col">qué piso</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="section-title">Part 1 (Español → 日本語)</div>
+      <ul class="exercise-list">
+        <li><span class="q-num">1.</span><span class="q-text">estación → （　　　　　）</span></li>
+        <li><span class="q-num">2.</span><span class="q-text">banco → （　　　　　）</span></li>
+        <li><span class="q-num">3.</span><span class="q-text">supermercado → （　　　　　）</span></li>
+        <li><span class="q-num">4.</span><span class="q-text">restaurante → （　　　　　）</span></li>
+        <li><span class="q-num">5.</span><span class="q-text">billete → （　　　　　）</span></li>
+        <li><span class="q-num">6.</span><span class="q-text">baño → （　　　　　）</span></li>
+        <li><span class="q-num">7.</span><span class="q-text">aquí → （　　　　　）</span></li>
+        <li><span class="q-num">8.</span><span class="q-text">dónde → （　　　　　）</span></li>
+        <li><span class="q-num">9.</span><span class="q-text">¿qué hora es ahora? → （　　　　　）</span></li>
+        <li><span class="q-num">10.</span><span class="q-text">primer piso → （　　　　　）</span></li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <div class="section-title">Part 2 (日本語 → Español)</div>
+      <ul class="exercise-list">
+        <li><span class="q-num">1.</span><span class="q-text">えき → （　　　　　）</span></li>
+        <li><span class="q-num">2.</span><span class="q-text">コンビニ → （　　　　　）</span></li>
+        <li><span class="q-num">3.</span><span class="q-text">ゆうびんきょく → （　　　　　）</span></li>
+        <li><span class="q-num">4.</span><span class="q-text">きっぷうりば → （　　　　　）</span></li>
+        <li><span class="q-num">5.</span><span class="q-text">エレベーター → （　　　　　）</span></li>
+        <li><span class="q-num">6.</span><span class="q-text">くつ → （　　　　　）</span></li>
+        <li><span class="q-num">7.</span><span class="q-text">トイレ → （　　　　　）</span></li>
+        <li><span class="q-num">8.</span><span class="q-text">どこ → （　　　　　）</span></li>
+        <li><span class="q-num">9.</span><span class="q-text">ごぜん → （　　　　　）</span></li>
+        <li><span class="q-num">10.</span><span class="q-text">なんがい → （　　　　　）</span></li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <div class="section-title">Quiz (Español → 日本語)</div>
+      <div class="quiz-list">
+        <div class="quiz-item">
+          <div class="quiz-q">1. estación</div>
+          <div class="quiz-options">A. えき / B. がっこう / C. デパート</div>
+        </div>
+        <div class="quiz-item">
+          <div class="quiz-q">2. aquí</div>
+          <div class="quiz-options">A. そこ / B. ここ / C. あそこ</div>
+        </div>
+        <div class="quiz-item">
+          <div class="quiz-q">3. baño</div>
+          <div class="quiz-options">A. トイレ / B. レストラン / C. ぎんこう</div>
+        </div>
+        <div class="quiz-item">
+          <div class="quiz-q">4. ¿qué hora es ahora?</div>
+          <div class="quiz-options">A. なんじ / B. いまなんじですか / C. なんぷん</div>
+        </div>
+        <div class="quiz-item">
+          <div class="quiz-q">5. tercer piso</div>
+          <div class="quiz-options">A. にかい / B. さんがい / C. よんかい</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="memo-box">
+      <span class="memo-label">メモ欄</span>
+      <div class="memo-lines">
+        <div class="memo-line"></div>
+        <div class="memo-line"></div>
+        <div class="memo-line"></div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="ans-block">
+        <strong>Part 1:</strong>
+        <div class="ans-list">
+          <span class="ans-item">1.えき</span>
+          <span class="ans-item">2.ぎんこう</span>
+          <span class="ans-item">3.スーパー</span>
+          <span class="ans-item">4.レストラン</span>
+          <span class="ans-item">5.きっぷ</span>
+          <span class="ans-item">6.トイレ</span>
+          <span class="ans-item">7.ここ</span>
+          <span class="ans-item">8.どこ</span>
+          <span class="ans-item">9.いまなんじですか</span>
+          <span class="ans-item">10.いっかい</span>
+        </div>
+      </div>
+      <div class="ans-block">
+        <strong>Part 2:</strong>
+        <div class="ans-list">
+          <span class="ans-item">1.estación</span>
+          <span class="ans-item">2.tienda de conveniencia</span>
+          <span class="ans-item">3.oficina de correos</span>
+          <span class="ans-item">4.taquilla</span>
+          <span class="ans-item">5.ascensor</span>
+          <span class="ans-item">6.zapatos</span>
+          <span class="ans-item">7.baño</span>
+          <span class="ans-item">8.dónde</span>
+          <span class="ans-item">9.a. m.</span>
+          <span class="ans-item">10.qué piso</span>
+        </div>
+      </div>
+      <div class="ans-block">
+        <strong>Quiz:</strong>
+        <div class="ans-list">
+          <span class="ans-item">1.A</span>
+          <span class="ans-item">2.B</span>
+          <span class="ans-item">3.A</span>
+          <span class="ans-item">4.B</span>
+          <span class="ans-item">5.B</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+
+    <script src="../../duolingo_engine.js"></script>
+</body>
+</html>
+

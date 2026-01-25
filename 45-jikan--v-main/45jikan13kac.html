@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Situación： 電話連絡・約束・パーティー開始 — A4横・PDF</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{ --accent:#1E90FF; --accent2:#0d47a1; --accent3:#82b1ff; --text:#111; --muted:#555; --border:#d9e2ec; --panel:#f7faff; }
+  html,body{ height:100%; }
+  body{ margin:0; background:#fff; color:var(--text); font-family:"Noto Sans JP","Yu Gothic","Meiryo",system-ui,-apple-system,Segoe UI,Roboto,sans-serif; line-height:1.7; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page{ width:297mm; min-height:210mm; margin:0 auto; background:#fff; }
+  .content{ padding:10mm; display:grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto auto 1fr auto; gap:9mm; }
+  header{ grid-column:1 / -1; display:flex; align-items:center; justify-content:space-between; border-bottom:3px solid var(--accent); padding-bottom:5mm; }
+  .title{ font-size:26pt; font-weight:900; letter-spacing:.02em; color:var(--accent); }
+  .badge{ font-size:10pt; font-weight:700; color:#fff; background:linear-gradient(90deg,var(--accent2),#1565c0); padding:6px 12px; border-radius:999px; box-shadow:0 2px 8px rgba(13,71,161,.25); }
+  .subtitle{ font-size:12pt; color:var(--muted); }
+  .print-btn{ border:none; background:var(--accent); color:#fff; font-size:10pt; font-weight:700; padding:7px 16px; border-radius:999px; cursor:pointer; }
+  .block{ border:1px solid var(--border); border-radius:16px; padding:8mm; background:#fff; break-inside: avoid; page-break-inside: avoid; }
+  .col-all{ grid-column:1 / -1; }
+  .section-title{ position:relative; font-size:14pt; font-weight:900; color:var(--accent2); margin-bottom:4mm; padding-left:6mm; }
+  .section-title::before{ content:""; position:absolute; left:0; top:50%; transform:translateY(-50%); width:4mm; height:70%; background:linear-gradient(180deg,var(--accent),var(--accent3)); border-radius:2px; }
+  .panel{ background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:6mm; }
+  .dialog{ display:grid; grid-template-columns: max-content 1fr; gap:2mm 6mm; }
+  .dialog .name{ font-weight:800; color:var(--accent2); white-space: nowrap; padding-right:6px; }
+  .exercise-list{ list-style:none; padding:0; margin:0; display:grid; gap:5mm; }
+  .q-item{ display:grid; gap:2mm; }
+  .q-head{ font-weight:900; color:var(--accent2); }
+  .hint{ color:var(--muted); font-size:11pt; }
+  .q-es{ font-size:12pt; }
+  .blank{ display:inline-block; min-width:80mm; border-bottom:2.5px solid #9aa5b1; translate: 0 -1px; }
+  .answers{ line-height:1.9; }
+  .answers .grid{ display:grid; grid-template-columns: 1fr; gap:3mm; }
+  .notes .lines{ display:grid; grid-template-rows: repeat(4, 1fr); gap:6mm; }
+  .notes .line{ border-bottom:1.5px dashed #b7c2d0; height:28px; }
+  @page{ size: A4 landscape; margin:10mm; }
+  @media print{ .content{ padding:0; } .page{ width:auto; min-height:auto; } .screen-only{ display:none !important; } }
+  @media screen{ .block{ box-shadow: 0 4px 16px rgba(0,0,0,.08); } .print-btn{ box-shadow:0 2px 6px rgba(0,0,0,.15); } }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="content">
+    <header>
+      <div style="display:flex; align-items:center; gap:8mm;">
+        <div class="title">Situación： 電話連絡・約束・パーティー開始</div>
+        <div class="badge">でんわします・あいましょう・〜からです</div>
+      </div>
+      <div style="display:flex; align-items:center; gap:6mm;">
+        <div class="subtitle">A4横・PDF教材／対象：入門〜一般</div>
+        <button class="print-btn screen-only" onclick="window.print()">PDFで印刷</button>
+      </div>
+    </header>
+
+    <div class="block col-all">
+      <div class="section-title">1. Diálogo（例）</div>
+      <div class="panel" style="display:grid; gap:6mm;">
+        <div>
+          <img src="13ka1.png" style="width:100%; height:auto; display:block; margin-bottom:4mm; border-radius:6px; border:1px solid #eee;">
+          <div class="dialog">
+            <div class="name">リー:</div><div>もしもし。リーです。おのさんは いらっしゃいますか。</div>
+            <div class="name">おのさんのおかあさん:</div><div>いま、いません。</div>
+            <div class="name">リー:</div><div>あ、そうですか。じゃ、また でんわを します。</div>
+          </div>
+        </div>
+        <div>
+          <div class="img-container">
+            <img src="13ka2.png" alt="Situation 2">
+          </div>
+          <div class="dialog">
+            <div class="name">リー:</div><div>あした あさくさへ おまつりを みに いきませんか。</div>
+            <div class="name">おの:</div><div>いいですね。どこで、あいましょうか。</div>
+            <div class="name">リー:</div><div>あさくさえきは どうですか。</div>
+            <div class="name">おの:</div><div>はい、なんじが いいですか。</div>
+            <div class="name">リー:</div><div>3じは どうですか。</div>
+            <div class="name">おの:</div><div>はい。じゃ、3じに あさくさえきで あいましょう。</div>
+          </div>
+        </div>
+        <div>
+          <div class="dialog">
+            <div class="name">あおき:</div><div>かようびに パーティーが あります。</div>
+            <div class="name">リー:</div><div>どこで ありますか。</div>
+            <div class="name">あおき:</div><div>さくらレストランで あります。</div>
+            <div class="name">リー:</div><div>なんじから ですか。</div>
+            <div class="name">あおき:</div><div>6じからです。</div>
+            <div class="name">リー:</div><div>わかりました。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block col-all">
+      <div class="section-title">2. Situación y Pregunta（3題）</div>
+      <ul class="exercise-list">
+        <li class="q-item">
+          <div class="q-head">（１）</div>
+          <div class="hint">【Situación】 Lee llama por teléfono a Ono, pero Ono no está ahora.</div>
+          <div class="q-es">Dices en español: 「Entonces, llamaré otra vez。」</div>
+          <div>→ にほんごでなんですか。 <span class="blank"></span></div>
+        </li>
+        <li class="q-item">
+          <div class="q-head">（２）</div>
+          <div class="hint">【Situación】 Hablan de quedar para ir a un festival en Asakusa.</div>
+          <div class="q-es">Dices en español: 「Quedemos a las tres en la estación de Asakusa。」</div>
+          <div>→ にほんごでなんですか。 <span class="blank"></span></div>
+        </li>
+        <li class="q-item">
+          <div class="q-head">（３）</div>
+          <div class="hint">【Situación】 Aoki explica cuándo empieza la fiesta.</div>
+          <div class="q-es">Dices en español: 「Empieza a las seis。」</div>
+          <div>→ にほんごでなんですか。 <span class="blank"></span></div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="block col-all">
+      <div class="section-title">3. Respuestas</div>
+      <div class="panel answers">
+        <div class="grid">
+          <div>（１） じゃ、また でんわを します。</div>
+          <div>（２） 3じに あさくさえきで あいましょう。</div>
+          <div>（３） 6じからです。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block notes col-all">
+      <div class="section-title">4. メモ欄</div>
+      <div class="panel">
+        <div class="lines">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

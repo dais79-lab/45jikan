@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>語彙ワークシート：時間・カレンダー — A4横・PDF</title>
+<style>
+  :root{ --accent:#0ea5e9; --accent2:#0c4a6e; --text:#111; --muted:#555; --border:#d8dee9; --panel:#f2f8ff; }
+  html,body{ height:100%; }
+  body{ margin:0; background:#fff; color:var(--text); font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo","Segoe UI",system-ui,-apple-system,Roboto,sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page{ width:297mm; min-height:210mm; margin:0 auto; background:#fff; }
+  .content{ padding:10mm; display:grid; grid-template-columns: 1.15fr 0.85fr; grid-template-rows: auto auto auto auto auto 1fr auto; gap:8mm; }
+  header{ grid-column:1 / -1; display:flex; align-items:center; justify-content:space-between; border-bottom:2.5px solid var(--accent); padding-bottom:5mm; }
+  .title{ font-size:26pt; font-weight:900; letter-spacing:.02em; color:var(--accent2); display:flex; align-items:center; gap:6mm; }
+  .title::before{ content:""; display:inline-block; width:6mm; height:6mm; border-radius:2mm; background:linear-gradient(135deg,var(--accent),#60a5fa); }
+  .badge{ font-size:10pt; font-weight:700; color:#fff; background:var(--accent2); padding:4px 12px; border-radius:999px; }
+  .subtitle{ font-size:12pt; color:var(--muted); }
+  .print-btn{ border:none; background:var(--accent); color:#fff; font-size:10pt; font-weight:700; padding:6px 12px; border-radius:10px; cursor:pointer; }
+  .block{ border:1px solid var(--border); border-radius:14px; padding:8mm; background:#fff; break-inside: avoid; page-break-inside: avoid; }
+  .block.vocab{ break-inside: auto; page-break-inside: auto; }
+  .col-1{ grid-column:1; }
+  .col-2{ grid-column:2; }
+  .col-all{ grid-column:1 / -1; }
+  .section-title{ font-size:14pt; font-weight:800; color:var(--accent2); margin-bottom:4mm; display:flex; align-items:center; gap:4mm; }
+  .section-title::before{ content:""; width:4mm; height:4mm; border-radius:1.5mm; background:var(--accent); }
+  .panel{ background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:6mm; }
+  .table{ width:100%; border-collapse:collapse; }
+  .table th, .table td{ border:1px solid var(--border); padding:7px 9px; font-size:11pt; }
+  .table thead th{ background:#e6f2ff; color:var(--accent2); font-weight:800; }
+  .table tbody tr:nth-child(odd){ background:#fafcff; }
+  .exercise-list{ list-style:none; padding:0; margin:0; display:grid; gap:4mm; }
+  .q-item{ display:flex; gap:8px; align-items:flex-start; }
+  .q-num{ font-weight:800; color:var(--accent2); min-width:22px; }
+  .q-text{ flex:1; }
+  .blank{ display:inline-block; min-width:50mm; border-bottom:2px solid #9aa5b1; translate: 0 -1px; }
+  .choice{ margin-left:22px; }
+  .choice .opt{ margin:2px 0; line-height:1.7; }
+  .answers{ line-height:1.9; }
+  .answers .grid{ display:grid; grid-template-columns: 1fr; gap:3mm; }
+  .notes .lines{ display:grid; grid-template-rows: repeat(3, 1fr); gap:6mm; }
+  .notes .line{ border-bottom:1px dashed #aab; height:28px; }
+  @page{ size: A4 landscape; margin:10mm; }
+  @media print{ .content{ padding:0; } .page{ width:auto; min-height:auto; } .screen-only{ display:none !important; } }
+  @media screen{ .block{ box-shadow: 0 4px 16px rgba(0,0,0,.08); } }
+</style>
+    <link rel="stylesheet" href="../../duolingo_style.css">
+</head>
+<body>
+<div class="page">
+  <div class="content">
+    <header>
+      <div style="display:flex; align-items:center; gap:8mm;">
+        <div class="title">語彙ワークシート：時間・カレンダー</div>
+        <div class="badge">Vocab + Practice</div>
+      </div>
+      <div style="display:flex; align-items:center; gap:6mm;">
+        <div class="subtitle">A4横・PDF教材／対象：入門〜一般</div>
+        <button class="print-btn screen-only" onclick="window.print()">PDFで印刷</button>
+      </div>
+    </header>
+
+    <div class="block vocab col-all">
+      <div class="section-title">1. 語彙表（にほんご／ひらがな／スペイン語）</div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>にほんご</th>
+            <th>ひらがな</th>
+            <th>スペイン語</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>せんしゅう</td><td>せんしゅう</td><td>la semana pasada</td></tr>
+          <tr><td>こんしゅう</td><td>こんしゅう</td><td>esta semana</td></tr>
+          <tr><td>らいしゅう</td><td>らいしゅう</td><td>la próxima semana</td></tr>
+          <tr><td>せんげつ</td><td>せんげつ</td><td>el mes pasado</td></tr>
+          <tr><td>こんげつ</td><td>こんげつ</td><td>este mes</td></tr>
+          <tr><td>らいげつ</td><td>らいげつ</td><td>el próximo mes</td></tr>
+          <tr><td>きょねん</td><td>きょねん</td><td>el año pasado</td></tr>
+          <tr><td>ことし</td><td>ことし</td><td>este año</td></tr>
+          <tr><td>らいねん</td><td>らいねん</td><td>el próximo año</td></tr>
+          <tr><td>なんねん</td><td>なんねん</td><td>qué año</td></tr>
+          <tr><td>2000ねん</td><td>にせんねん</td><td>año 2000</td></tr>
+          <tr><td>2025ねん</td><td>にせんにじゅうごねん</td><td>año 2025</td></tr>
+          <tr><td>2026ねん</td><td>にせんにじゅうろくねん</td><td>año 2026</td></tr>
+          <tr><td>なんがつ</td><td>なんがつ</td><td>qué mes</td></tr>
+          <tr><td>いちがつ</td><td>いちがつ</td><td>enero</td></tr>
+          <tr><td>にがつ</td><td>にがつ</td><td>febrero</td></tr>
+          <tr><td>さんがつ</td><td>さんがつ</td><td>marzo</td></tr>
+          <tr><td>しがつ</td><td>しがつ</td><td>abril</td></tr>
+          <tr><td>ごがつ</td><td>ごがつ</td><td>mayo</td></tr>
+          <tr><td>ろくがつ</td><td>ろくがつ</td><td>junio</td></tr>
+          <tr><td>しちがつ</td><td>しちがつ</td><td>julio</td></tr>
+          <tr><td>はちがつ</td><td>はちがつ</td><td>agosto</td></tr>
+          <tr><td>くがつ</td><td>くがつ</td><td>septiembre</td></tr>
+          <tr><td>じゅうがつ</td><td>じゅうがつ</td><td>octubre</td></tr>
+          <tr><td>じゅういちがつ</td><td>じゅういちがつ</td><td>noviembre</td></tr>
+          <tr><td>じゅうにがつ</td><td>じゅうにがつ</td><td>diciembre</td></tr>
+          <tr><td>なんようび</td><td>なんようび</td><td>qué día (semana)</td></tr>
+          <tr><td>にちようび</td><td>にちようび</td><td>domingo</td></tr>
+          <tr><td>げつようび</td><td>げつようび</td><td>lunes</td></tr>
+          <tr><td>かようび</td><td>かようび</td><td>martes</td></tr>
+          <tr><td>すいようび</td><td>すいようび</td><td>miércoles</td></tr>
+          <tr><td>もくようび</td><td>もくようび</td><td>jueves</td></tr>
+          <tr><td>きんようび</td><td>きんようび</td><td>viernes</td></tr>
+          <tr><td>どようび</td><td>どようび</td><td>sábado</td></tr>
+          <tr><td>なんにち</td><td>なんにち</td><td>qué día (mes)</td></tr>
+          <tr><td>ついたち</td><td>ついたち</td><td>día 1</td></tr>
+          <tr><td>ふつか</td><td>ふつか</td><td>día 2</td></tr>
+          <tr><td>みっか</td><td>みっか</td><td>día 3</td></tr>
+          <tr><td>よっか</td><td>よっか</td><td>día 4</td></tr>
+          <tr><td>いつか</td><td>いつか</td><td>día 5</td></tr>
+          <tr><td>むいか</td><td>むいか</td><td>día 6</td></tr>
+          <tr><td>なのか</td><td>なのか</td><td>día 7</td></tr>
+          <tr><td>ようか</td><td>ようか</td><td>día 8</td></tr>
+          <tr><td>ここのか</td><td>ここのか</td><td>día 9</td></tr>
+          <tr><td>とおか</td><td>とおか</td><td>día 10</td></tr>
+          <tr><td>じゅういちにち</td><td>じゅういちにち</td><td>día 11</td></tr>
+          <tr><td>じゅうににち</td><td>じゅうににち</td><td>día 12</td></tr>
+          <tr><td>じゅうさんにち</td><td>じゅうさんにち</td><td>día 13</td></tr>
+          <tr><td>じゅうよっか</td><td>じゅうよっか</td><td>día 14</td></tr>
+          <tr><td>じゅうごにち</td><td>じゅうごにち</td><td>día 15</td></tr>
+          <tr><td>じゅうろくにち</td><td>じゅうろくにち</td><td>día 16</td></tr>
+          <tr><td>じゅうしちにち</td><td>じゅうしちにち</td><td>día 17</td></tr>
+          <tr><td>じゅうはちにち</td><td>じゅうはちにち</td><td>día 18</td></tr>
+          <tr><td>じゅうくにち</td><td>じゅうくにち</td><td>día 19</td></tr>
+          <tr><td>はつか</td><td>はつか</td><td>día 20</td></tr>
+          <tr><td>にじゅういちにち</td><td>にじゅういちにち</td><td>día 21</td></tr>
+          <tr><td>にじゅうににち</td><td>にじゅうににち</td><td>día 22</td></tr>
+          <tr><td>にじゅうさんにち</td><td>にじゅうさんにち</td><td>día 23</td></tr>
+          <tr><td>にじゅうよっか</td><td>にじゅうよっか</td><td>día 24</td></tr>
+          <tr><td>にじゅうごにち</td><td>にじゅうごにち</td><td>día 25</td></tr>
+          <tr><td>にじゅうろくにち</td><td>にじゅうろくにち</td><td>día 26</td></tr>
+          <tr><td>にじゅうしちにち</td><td>にじゅうしちにち</td><td>día 27</td></tr>
+          <tr><td>にじゅうはちにち</td><td>にじゅうはちにち</td><td>día 28</td></tr>
+          <tr><td>にじゅうくにち</td><td>にじゅうくにち</td><td>día 29</td></tr>
+          <tr><td>さんじゅうにち</td><td>さんじゅうにち</td><td>día 30</td></tr>
+          <tr><td>さんじゅういちにち</td><td>さんじゅういちにち</td><td>día 31</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="block col-1">
+      <div class="section-title">2. Part 1：スペイン語 → 日本語（10問）</div>
+      <ul class="exercise-list">
+        <li class="q-item"><span class="q-num">1.</span><span class="q-text">la semana pasada → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">2.</span><span class="q-text">este mes → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">3.</span><span class="q-text">el próximo año → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">4.</span><span class="q-text">qué mes → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">5.</span><span class="q-text">agosto → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">6.</span><span class="q-text">miércoles → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">7.</span><span class="q-text">qué día (mes) → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">8.</span><span class="q-text">día 1 → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">9.</span><span class="q-text">día 20 → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">10.</span><span class="q-text">día 31 → <span class="blank"></span></span></li>
+      </ul>
+    </div>
+
+    <div class="block col-2">
+      <div class="section-title">3. Part 2：日本語 → スペイン語（10問）</div>
+      <ul class="exercise-list">
+        <li class="q-item"><span class="q-num">1.</span><span class="q-text">こんしゅう → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">2.</span><span class="q-text">らいげつ → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">3.</span><span class="q-text">ことし → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">4.</span><span class="q-text">しがつ → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">5.</span><span class="q-text">じゅうにがつ → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">6.</span><span class="q-text">きんようび → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">7.</span><span class="q-text">ついたち → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">8.</span><span class="q-text">はつか → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">9.</span><span class="q-text">にじゅうよっか → <span class="blank"></span></span></li>
+        <li class="q-item"><span class="q-num">10.</span><span class="q-text">さんじゅうにち → <span class="blank"></span></span></li>
+      </ul>
+    </div>
+
+    <div class="block col-1">
+      <div class="section-title">4. ３択問題（スペイン語 → 日本語）</div>
+      <div class="choice">
+        <div class="opt"><strong>Q1.</strong> el mes pasado<br> A. こんげつ ／ B. せんげつ ／ C. らいげつ</div>
+        <div class="opt"><strong>Q2.</strong> febrero<br> A. にがつ ／ B. しがつ ／ C. ごがつ</div>
+        <div class="opt"><strong>Q3.</strong> sábado<br> A. きんようび ／ B. にちようび ／ C. どようび</div>
+        <div class="opt"><strong>Q4.</strong> día 14<br> A. じゅうしちにち ／ B. じゅうよっか ／ C. じゅうににち</div>
+        <div class="opt"><strong>Q5.</strong> qué año<br> A. なんがつ ／ B. なんねん ／ C. なんにち</div>
+      </div>
+    </div>
+
+    <div class="block col-2">
+      <div class="section-title">5. 解答</div>
+      <div class="panel answers">
+        <div class="grid">
+          <div><strong>Part 1</strong></div>
+          <div>1. せんしゅう ／ 2. こんげつ ／ 3. らいねん ／ 4. なんがつ ／ 5. はちがつ ／ 6. すいようび ／ 7. なんにち ／ 8. ついたち ／ 9. はつか ／ 10. さんじゅういちにち</div>
+          <div><strong>Part 2</strong></div>
+          <div>1. esta semana ／ 2. el próximo mes ／ 3. este año ／ 4. abril ／ 5. diciembre ／ 6. viernes ／ 7. día 1 ／ 8. día 20 ／ 9. día 24 ／ 10. día 30</div>
+          <div><strong>３択問題</strong></div>
+          <div>Q1. B ／ Q2. A ／ Q3. C ／ Q4. B ／ Q5. B</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block notes col-all">
+      <div class="section-title">6. メモ欄</div>
+      <div class="lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+    <script src="../../duolingo_engine.js"></script>
+</body>
+</html>
